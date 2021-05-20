@@ -76,6 +76,11 @@ p, a {
     height: 300px;
 }
 
+.plan-features-homepage {
+    text-align: left;
+    list-style: none;
+}
+
 
 /* --------------------------------------------------- MEDIA QUERIES */
 
