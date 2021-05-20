@@ -62,6 +62,20 @@ p, a {
     padding: 50px;
 }
 
+#homepage-plans-container {
+    margin-top: 80px;
+}
+
+#homepage-plans-container h2 {
+    color: #D91F44;
+    font-size: 50px;
+}
+
+.homepage-plan {
+    background-color: #F7F7F7;
+    height: 300px;
+}
+
 
 /* --------------------------------------------------- MEDIA QUERIES */
 
@@ -69,7 +83,9 @@ p, a {
     #landing-page-heading {
         font-size: 40px;
     }
-
+    .homepage-plan {
+        border-radius: 40px 0 40px 0;
+    }
 }
 
 @media screen and (min-width: 992px){
