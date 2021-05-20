@@ -12,11 +12,11 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-size: 600;
+    font-weight: 600;
 }
 
 p {
-    font-size: 400;
+    font-weight: 400;
 }
 
 /* --------------------- NAVBAR */
@@ -24,6 +24,17 @@ p {
 
 /* --------------------- HOME */
 
-#homepage-heading {
+#landing-page-section {
+    padding-top: 50px;
+}
+
+#landing-page-heading {
     padding-top: 40px;
+    font-size: 60px;
+}
+
+#landing-page-image img {
+    box-shadow: #EEECE7 40px 40px;
+    max-width: 100%;
+    max-height: 100%;
 }
