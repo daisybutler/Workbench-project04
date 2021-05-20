@@ -92,13 +92,34 @@ p, a {
     padding-left: 0;
 }
 
-.learn-more-homepage {
+.learn-more-plans-homepage {
     background-color: #D91F44;
     border-radius: 5px;
     padding: 10px;
     color: #fff;
     margin-top: 40px;
 }
+
+#homepage-locations-container {
+    background-color: #F7F7F7;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 50px;
+}
+
+#homepage-locations-container .fa-map-marker-alt {
+    font-size: 80px;
+}
+
+.learn-more-locations-homepage {
+    background-color: #D91F44;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    margin-top: 40px;
+}
+
+
 
 
 /* --------------------------------------------------- MEDIA QUERIES */
