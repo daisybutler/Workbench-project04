@@ -15,14 +15,28 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
-p {
+p, a {
     font-weight: 400;
 }
 
-/* --------------------- NAVBAR */
+/* -------------------------------------------------- NAVBAR */
 
+#header-login-button {
+    background-color: #D91F44;
+    padding: 10px 15px 10px 15px;
+    border: transparent;
+    border-radius: 5px;
+}
 
-/* --------------------- HOME */
+#header-login-button a {
+    color: #fff;
+}
+
+#header-login-button a:hover {
+    text-decoration: none;
+}
+
+/* --------------------------------------------------- HOME */
 
 #landing-page-section {
     padding-top: 50px;
@@ -37,4 +51,8 @@ p {
     box-shadow: #EEECE7 40px 40px;
     max-width: 100%;
     max-height: 100%;
+}
+
+.red-dot {
+    color: #D91F44;
 }
