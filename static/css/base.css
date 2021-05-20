@@ -73,12 +73,30 @@ p, a {
 
 .homepage-plan {
     background-color: #F7F7F7;
-    height: 300px;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 .plan-features-homepage {
     text-align: left;
     list-style: none;
+    padding: 10px 0 10px 0;
+}
+
+.plan-features-homepage i {
+    margin-right: 5px;
+}
+
+.homepage-plan ul {
+    padding-left: 0;
+}
+
+.learn-more-homepage {
+    background-color: #D91F44;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    margin-top: 40px;
 }
 
 

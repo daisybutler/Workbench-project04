@@ -2,82 +2,91 @@
 {% load static %}
 
 {% block content %}
-    <div id="landing-page-section" class="container">
-        <div class="row d-none d-md-flex">
-            <div class="col-12 col-md-5 my-auto">
-                <h1 id="landing-page-heading">
-                    Flexible workspaces for remote professionals<span class="red-dot">.</span>
-                </h1>
-            </div>
-            <div id="landing-page-image" class="col-12 col-md-7 my-auto">
-                <img src="/media/homepage-image.jpg" alt="workbench-venue">
-            </div>
+<div id="landing-page-section" class="container">
+    <div class="row d-none d-md-flex">
+        <div class="col-12 col-md-5 my-auto">
+            <h1 id="landing-page-heading">
+                Flexible workspaces for remote professionals<span class="red-dot">.</span>
+            </h1>
         </div>
+        <div id="landing-page-image" class="col-12 col-md-7 my-auto">
+            <img src="/media/homepage-image.jpg" alt="workbench-venue">
+        </div>
+    </div>
 
-        <!--Mobile display only -->
-        <div class="row d-md-none">
-            <div id="mobile-landing-section" class="col-12 my-auto">
-                <h1 id="landing-page-heading">
-                    Flexible workspaces for remote professionals<span class="red-dot">.</span>
-                </h1>
+    <!--Mobile display only -->
+    <div class="row d-md-none">
+        <div id="mobile-landing-section" class="col-12 my-auto">
+            <h1 id="landing-page-heading">
+                Flexible workspaces for remote professionals<span class="red-dot">.</span>
+            </h1>
+        </div>
+    </div>
+</div>
+<div id="homepage-plans-container" class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <h2>Plans</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-4 text-center">
+            <div class="homepage-plan">
+                <p>Standard</p>
+                <ul>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>40 hours/mo
+                    </li>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>1 meeting room credit
+                    </li>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>Free Wifi
+                    </li>
+                </ul>
+                <button class="learn-more-homepage">
+                    Learn more
+                </button>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+            <div class="homepage-plan">
+                <p>Unlimited</p>
+                <ul>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>40 hours/mo
+                    </li>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>1 meeting room credit
+                    </li>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>Free Wifi
+                    </li>
+                </ul>
+                <button class="learn-more-homepage">
+                    Learn more
+                </button>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+            <div class="homepage-plan">
+                <p>One-Off</p>
+                <ul>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>40 hours/mo
+                    </li>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>1 meeting room credit
+                    </li>
+                    <li class="plan-features-homepage">
+                        <i class="fas fa-check"></i>Free Wifi
+                    </li>
+                </ul>
+                <button class="learn-more-homepage">
+                    Learn more
+                </button>
             </div>
         </div>
     </div>
-    <div id="homepage-plans-container" class="container">
-        <div class="row text-center">
-            <div class="col-12">
-                <h2>Plans</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4 text-center">
-                <div class="homepage-plan">
-                    <p>Basic</p>
-                    <ul>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 text-center">
-                <div class="homepage-plan">
-                    <p>Unlimited</p>
-                    <ul>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 text-center">
-                <div class="homepage-plan">
-                    <p>One-Off</p>
-                    <ul>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                        <li class="plan-features-homepage">
-                            point
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 {% endblock %}
