@@ -44,7 +44,7 @@ p, a {
 
 #landing-page-heading {
     padding-top: 40px;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 #landing-page-image img {
@@ -55,4 +55,25 @@ p, a {
 
 .red-dot {
     color: #D91F44;
+}
+
+#mobile-landing-section {
+    background: url('/media/homepage-image-mobile.jpg') no-repeat fixed;
+    padding: 50px;
+}
+
+
+/* --------------------------------------------------- MEDIA QUERIES */
+
+@media screen and (min-width: 768px){
+    #landing-page-heading {
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (min-width: 992px){
+    #landing-page-heading {
+        font-size: 50px;
+    }
 }
