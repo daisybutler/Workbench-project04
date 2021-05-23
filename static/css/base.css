@@ -133,6 +133,15 @@ p, a {
     box-shadow: #EEECE7 -35px 35px;
 }
 
+.homepage-about-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.homepage-about-text p {
+    font-size: 35px;
+}
+
 
 
 
