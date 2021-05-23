@@ -44,6 +44,12 @@
 </head>
 
 <body>
+
+    {% if messages %}
+    <div class="message-container"></div>
+    {% endif %}
+
+    {% block page_header %}
     <header class="container-fluid fixed-top">
 
         <!--Navbar-->
@@ -82,15 +88,17 @@
             </div>
         </nav>
     </header>
-
-    {% if messages %}
-    <div class="message-container"></div>
-    {% endif %}
-
-    {% block page_header %}
     {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block page_footer %}
+    <footer class="footer mt-auto py-3 bg-dark">
+        <div class="container-fluid my-auto text-center">
+            <h4>Workbench</h4>
+        </div>
+    </footer>
     {% endblock %}
 
     {% block postloadjs %}
