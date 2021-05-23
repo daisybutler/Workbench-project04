@@ -119,6 +119,12 @@ p, a {
     margin-top: 40px;
 }
 
+.learn-more-locations-homepage:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+
 #new-locations-badge {
     background-color: #D91F44;
     color: #fff;
