@@ -119,6 +119,20 @@ p, a {
     margin-top: 40px;
 }
 
+.homepage-about-image {
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: #EEECE7 35px 35px;
+}
+
+.about-section {
+    margin-bottom: 60px;
+}
+
+#left-side-image {
+    box-shadow: #EEECE7 -35px 35px;
+}
+
 
 
 
