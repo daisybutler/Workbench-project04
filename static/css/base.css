@@ -180,6 +180,11 @@ p, a {
     background-color: #D91F44;
 }
 
+.btn-plan:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
 
 /* --------------------------------------------------- FOOTER */
 
@@ -196,12 +201,7 @@ footer h4 {
 /* --------------------------------------------------- MEDIA QUERIES */
 
 @media screen and (max-width: 576px) {
-   #subscription-plans .card {
-       margin: 15px;
-   }
-   #oneoff-plans .card {
-       margin: 20px;
-   }
+  
 }
 
 
@@ -213,6 +213,12 @@ footer h4 {
         display: flex;
         flex-wrap: wrap-reverse;
     }
+    #subscription-plans .card {
+       margin: 20px;
+   }
+   #oneoff-plans .card {
+       margin: 20px;
+   }
 }
 
 @media screen and (min-width: 768px){
