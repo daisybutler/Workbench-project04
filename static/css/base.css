@@ -157,6 +157,24 @@ p, a {
     font-size: 35px;
 }
 
+/* --------------------------------------------------- PLANS */
+
+#subscription-plans-container {
+    background: url('/media/window-desk.jpg') center center;
+    min-height: 400px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#oneoff-plans-container {
+    background: url('/media/desktop.jpg') center center;
+    min-height: 400px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+
 /* --------------------------------------------------- FOOTER */
 
 footer {
