@@ -171,9 +171,18 @@ footer h4 {
 
 /* --------------------------------------------------- MEDIA QUERIES */
 
+@media screen and (max-width: 576px) {
+   
+}
+
+
 @media screen and (max-width: 768px) {
     .homepage-plan {
         font-size: 30px;
+    }
+     #second-about-section {
+        display: flex;
+        flex-wrap: wrap-reverse;
     }
 }
 
