@@ -159,18 +159,20 @@ p, a {
 
 /* --------------------------------------------------- PLANS */
 
-#subscription-plans-container {
+#subscription-plans {
     background: url('/media/window-desk.jpg') center center;
     min-height: 400px;
     margin-top: 40px;
     margin-bottom: 40px;
+    padding: 20px;
 }
 
-#oneoff-plans-container {
+#oneoff-plans {
     background: url('/media/desktop.jpg') center center;
     min-height: 400px;
     margin-top: 40px;
     margin-bottom: 40px;
+    padding: 20px;
 }
 
 .btn-plan {
@@ -194,7 +196,12 @@ footer h4 {
 /* --------------------------------------------------- MEDIA QUERIES */
 
 @media screen and (max-width: 576px) {
-   
+   #subscription-plans .card {
+       margin: 15px;
+   }
+   #oneoff-plans .card {
+       margin: 20px;
+   }
 }
 
 
