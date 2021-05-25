@@ -7,6 +7,10 @@
     <div class="row text-center">
         <div class="col-12">
             <h1>Plans</h1>
+            {% for plan in plans %}
+            {{ plan.friendly_name }}
+            {% endfor %}
+
         </div>
     </div>
 
