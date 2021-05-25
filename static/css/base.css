@@ -185,6 +185,10 @@ p, a {
     color: #fff;
 }
 
+.card {
+    min-height: 300px;
+}
+
 /* ---------------------------------------------------- INDIVIDUAL PLAN */
 
 #plans-container h1 {
