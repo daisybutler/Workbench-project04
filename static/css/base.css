@@ -196,7 +196,16 @@ p, a {
     background-color: #EEECE7;
     padding: 40px;
     margin-bottom: 30px;
- 
+}
+
+.proceed-button {
+    background-color: #D91F44;
+    color: #fff;
+}
+
+.proceed-button:hover {
+    text-decoration: none;
+    color: #fff;
 }
 
 /* --------------------------------------------------- FOOTER */
