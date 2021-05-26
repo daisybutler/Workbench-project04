@@ -1,2 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Locations</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            {% for location in locations %}
+                {{ location }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
