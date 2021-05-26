@@ -19,6 +19,11 @@ p, a {
     font-weight: 400;
 }
 
+h1 {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
 /* -------------------------------------------------- NAVBAR */
 
 #header-login-button {
@@ -191,11 +196,6 @@ p, a {
 
 /* ---------------------------------------------------- INDIVIDUAL PLAN */
 
-#plans-container h1 {
-    padding-bottom: 30px;
-    padding-top: 30px;
-}
-
 .individual-plan-image img {
     max-width: 100%;
     margin-bottom: 40px;
@@ -230,6 +230,29 @@ p, a {
 .proceed-button:hover {
     text-decoration: none;
     color: #fff;
+}
+
+/* --------------------------------------------------- LOCATIONS */
+
+#locations-map img {
+    max-width: 100%;
+    max-width: 100%;
+}
+
+#locations-map {
+    position: relative;
+}
+
+.map-pin {
+    position: absolute;
+    top: 77%;
+    right: 25%;
+}
+
+#locations-list {
+    margin-top: 30px;
+
+  
 }
 
 /* --------------------------------------------------- FOOTER */
