@@ -9,10 +9,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div id="locations-container" class="col-12 col-md-6">
             {% for location in locations %}
-                {{ location }}
+                <div class="col-12 col-md-6">
+                    <ul id="locations-list">
+                        <li>{{ location }}</li>
+                    </ul>
+                </div>
             {% endfor %}
+        </div>
+        <div class="col-12 col-md-6">
+            <img src="#" alt="#">
         </div>
     </div>
 </div>
