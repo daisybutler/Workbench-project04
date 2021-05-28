@@ -251,6 +251,10 @@ h1 {
     background-color: none;
 }
 
+.map-pin:focus {
+    outline: none;
+}
+
 .map-pin i {
     color: #D91F44;
     font-size: 30px;
