@@ -245,10 +245,48 @@ h1 {
 
 .map-pin {
     position: absolute;
-    top: 77%;
-    right: 25%;
     border: none;
     background-color: none;
+}
+
+#ldn-pin {
+    top: 77%;
+    right: 25%;
+}
+
+#man-pin {
+    top: 58%;
+    right: 35%;
+}
+
+#bmgh-pin {
+    top: 67%;
+    right: 32%;
+}
+
+#bstl-pin {
+    left: 58%;
+    top: 79%;
+}
+
+#ext-pin {
+    left: 53%;
+    top: 84%;
+}
+
+#ncl-pin {
+    left: 62%;
+    top: 45%;
+}
+
+#lds-pin {
+    left: 64%;
+    top: 53%;
+}
+
+#cmb-pin {
+    left: 74%;
+    top: 72%;
 }
 
 .map-pin:focus {
@@ -298,6 +336,9 @@ footer h4 {
    }
    #oneoff-plans .card {
        margin: 20px;
+   }
+   .map-pin i {
+       font-size: 20px;
    }
 }
 

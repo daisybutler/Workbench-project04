@@ -11,8 +11,22 @@
     <div class="row">
         <div id="locations-map" class="col-8 offset-2">
             <img src="/media/locations-map.png" alt="locations-map">
-            <button class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+            <button id="ldn-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="London"><i class="fas fa-map-marker-alt"></i></button>
+            <button id="man-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Manchester"><i class="fas fa-map-marker-alt"></i></button>
+            <button id="bmgh-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Birmingham"><i class="fas fa-map-marker-alt"></i></button>
+            <button id="bstl-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Bristol"><i class="fas fa-map-marker-alt"></i></button>
+            <button id="ext-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Exeter"><i class="fas fa-map-marker-alt"></i></button>
+            <button id="ncl-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Newcastle"><i class="fas fa-map-marker-alt"></i></button>
+            <button id="lds-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Leeds"><i class="fas fa-map-marker-alt"></i></button>
+            <button id="cmb-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Cambridge"><i class="fas fa-map-marker-alt"></i></button>
         </div>
     </div>
 </div>
@@ -31,6 +45,7 @@
 {% block postloadjs %}
 
 <script>
+    // Enables tooltips for all page elements
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
