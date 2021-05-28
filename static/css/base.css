@@ -247,6 +247,13 @@ h1 {
     position: absolute;
     top: 77%;
     right: 25%;
+    border: none;
+    background-color: none;
+}
+
+.map-pin i {
+    color: #D91F44;
+    font-size: 30px;
 }
 
 #locations-list {

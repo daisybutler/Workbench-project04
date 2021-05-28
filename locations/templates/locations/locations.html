@@ -11,18 +11,30 @@
     <div class="row">
         <div id="locations-map" class="col-8 offset-2">
             <img src="/media/locations-map.png" alt="locations-map">
-            <img class="map-pin" width="30px" height="30px" src="/media/map-pin.png" alt="map-pin">
+            <button class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="London"><i class="fas fa-map-marker-alt"></i></button>
         </div>
     </div>
 </div>
 <div class="row">
-<div id="locations-list" class="col-8 offset-2">
-    <p>
-    {% for location in locations %}
-        {{ location }}, 
-    {% endfor %}
-    </p>
+    <div id="locations-list" class="col-8 offset-2">
+        <p>
+            {% for location in locations %}
+            {{ location }},
+            {% endfor %}
+        </p>
+    </div>
 </div>
-</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
 
 {% endblock %}
