@@ -24,6 +24,18 @@ h1 {
     padding-top: 30px;
 }
 
+.button {
+    background-color: #D91F44;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+}
+
+.button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 /* -------------------------------------------------- NAVBAR */
 
 #header-login-button {
