@@ -9,7 +9,11 @@
         </div>
     </div>
     <div class="row">
-        <div id="locations-map" class="col-8 offset-2">
+        <div class="col-12 col-md-2">
+            <p>Access the Workbench nearest to you on our standard plan. Acess any Workbench across the country on our flexible plan.</p>
+            <a href="{% url 'all_plans' %}">Select Plan</a>
+        </div>
+        <div id="locations-map" class="col-12 col-md-8">
             <img src="/media/locations-map.png" alt="locations-map">
             <button id="ldn-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="London"><i class="fas fa-map-marker-alt"></i></button>
