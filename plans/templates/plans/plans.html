@@ -36,24 +36,34 @@
             <h3>One-Off</h3>
             <p>Access an office space or meeting room for a specific event.</p>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 my-auto">
-            <div class="card text-center">
-                <h5 class="card-header">Meeting Room</h5>
-                <div class="card-body">
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        {% for plan in plans %}
+            {% if plan.plan_type == 'One-Off' %}
+                <div class="col-12 col-md-6 col-lg-4 my-auto">
+                    <div class="card text-center">
+                        <h5 class="card-header">Meeting Room</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ plan.short_description }} <br><br>
+                                Hold a meeting in a spacious environment with access to all Workbench facilities.
+                            </p>
+                        </div>
+                        <a href="#" class="btn-lg btn-plan">Select</a>
+                    </div>
                 </div>
-                <a href="#" class="btn-lg btn-plan">Select</a>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 my-auto">
-            <div class="card text-center">
-                <h5 class="card-header">Office Space</h5>
-                <div class="card-body">
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div class="col-12 col-md-6 col-lg-4 my-auto">
+                    <div class="card text-center">
+                        <h5 class="card-header">Office Space</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ plan.short_description }} <br><br>
+                                Focus and collaborate with your team in a spacious workspace with access to all Workbench facilities.
+                            </p>
+                        </div>
+                        <a href="#" class="btn-lg btn-plan">Select</a>
+                    </div>
                 </div>
-                <a href="#" class="btn-lg btn-plan">Select</a>
-            </div>
-        </div>
+            {% endif %}
+        {% endfor %}
     </div>
 </div>
 
