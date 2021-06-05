@@ -9,11 +9,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-2">
-            <p>Access the Workbench nearest to you on our standard plan. Acess any Workbench across the country on our flexible plan.</p>
-            <a href="{% url 'all_plans' %}">Select Plan</a>
-        </div>
-        <div id="locations-map" class="col-12 col-md-8">
+        <div id="locations-map" class="col-12 col-md-8 offset-md-2">
             <img src="/media/locations-map.png" alt="locations-map">
             <button id="ldn-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="London"><i class="fas fa-map-marker-alt"></i></button>
@@ -33,14 +29,11 @@
                 title="Cambridge"><i class="fas fa-map-marker-alt"></i></button>
         </div>
     </div>
-</div>
-<div class="row">
-    <div id="locations-list" class="col-8 offset-2">
-        <p>
-            {% for location in locations %}
-            {{ location }},
-            {% endfor %}
-        </p>
+    <div class="row">
+        <div id="plan-select-contents" class="col-12 col-md-8 offset-md-2 text-center">
+            <p id="locations-description">Access the Workbench nearest to you on our standard plan. Access any Workbench across the country on our flexible plan.</p>
+            <a class="button" href="{% url 'all_plans' %}">Select Plan</a>
+        </div>
     </div>
 </div>
 
