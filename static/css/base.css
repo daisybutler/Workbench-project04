@@ -253,6 +253,7 @@ h1 {
 
 #locations-map {
     position: relative;
+    margin-bottom: 20px;
 }
 
 .map-pin {
@@ -312,8 +313,22 @@ h1 {
 
 #locations-list {
     margin-top: 30px;
+}
 
-  
+#plan-select-contents {
+    margin-bottom: 50px;
+    background-color: #D91F44;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#plan-select-contents p {
+    color: #fff;
+}
+
+#plan-select-contents .button {
+    background-color: #fff;
+    color: #D91F44;
 }
 
 /* --------------------------------------------------- FOOTER */
