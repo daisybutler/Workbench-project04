@@ -15,45 +15,47 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-                    <h3>Plan type</h3>
+                    <h3>[plan type]</h3>
                 </div>
                 <div class="col-6">
-                    <p>Starting date</p>
+                    <p>Starting: [date]</p>
                 </div>
                 <div class="col-6">
-                    <p>price incl. VAT</p>
+                    <p>[price] incl. VAT</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <small>Includes:
-                        <ul>
-                            <li>one</li>
-                            <li>two</li>
-                            <li>three</li>
-                        </ul>
-                    </small>
+                    <p>Includes:
+                    </p>
                 </div>
                 <div class="col-6">
-                    <button>Qty</button>
+                    <label for="qty-dropdown">Qty:</label>
+                    <select id="qty-dropdown" class="form-select" aria-label="qty">
+                        <option selected>1</option>
+                        <option value="1">2</option>
+                        <option value="2">3</option>
+                        <option value="3">4</option>
+                    </select>
                 </div>
             </div>
             <hr>
         </div>
 
         <!--- Order Summary Box --->
-         <div id="order-summary-box" class="col-12 col-md-4">
-             <h3>Order Summary</h3>
-             <div class="row">
+        <div id="order-summary-box" class="col-12 col-md-4">
+            <h3>Order Summary</h3>
+            <div class="row">
                 <div class="col-6">
-                    <p>1 x plan</p>
+                    <p>1 x [plan]</p>
                 </div>
                 <div class="col-6">
-                    <p>price</p>
+                    <p>[price]/mo</p>
                 </div>
                 <div class="col-12">
                     <hr>
-                    <p>Your card will be charge £227 today and subsequently each month the same amount. You can cancel at any time.</p>
+                    <p>Your card will be charge [price] today and subsequently each month the same amount. You can
+                        cancel at any time.</p>
                     <hr>
                 </div>
                 <div class="col-12 text-center">
