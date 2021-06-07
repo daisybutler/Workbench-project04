@@ -195,6 +195,7 @@ h1 {
 .btn-plan {
     color: #fff;
     background-color: #D91F44;
+    border-radius: 0;
 }
 
 .btn-plan:hover {
@@ -202,8 +203,28 @@ h1 {
     color: #fff;
 }
 
-.card {
+#plans-container .card {
     min-height: 300px;
+    border-radius: 0;
+    border: transparent;
+}
+
+#plans-container .card-header {
+    font-weight: 700;
+    font-size: 20px;
+    border-bottom: 1px solid #313131;
+}
+
+/*
+.plans-heading {
+    color: #313131;
+    background-color: rgba(214, 214, 214, 0.5);
+    padding: 30px;
+}
+*/
+
+.overlay {
+    background-color: #D91F44;
 }
 
 /* ---------------------------------------------------- INDIVIDUAL PLAN */
@@ -331,6 +352,15 @@ h1 {
     color: #D91F44;
 }
 
+/* --------------------------------------------------- CHECKOUT ORDER */
+
+#order-summary-box {
+    background-color: #EEECE7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
 /* --------------------------------------------------- FOOTER */
 
 footer {
@@ -376,6 +406,9 @@ footer h4 {
     .homepage-plan {
         border-radius: 40px 0 40px 0;
     }
+    #plans-container .card-header {
+    font-size: 24px;
+}
 }
 
 @media screen and (min-width: 992px){
