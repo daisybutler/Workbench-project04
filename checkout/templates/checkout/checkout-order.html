@@ -1,1 +1,41 @@
-<h1> Hello</h1>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <h1>Order Details</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <h3>Plan type</h3>
+            <p>Starting date</p>
+            <small>Includes:
+                <ul>
+                    <li>one</li>
+                    <li>two</li>
+                    <li>three</li>
+                </ul>
+            </small>
+        </div>
+         <div class="col-12 col-md 4">
+             <h3>Order Summary</h3>
+             <div class="row">
+                <div class="col-6">
+                    <p>1 x plan</p>
+                </div>
+                <div class="col-6">
+                    <p>price</p>
+                </div>
+                <hr>
+                <div class="col-12">
+                    <p>Your card will be charge £227 today and subsequently each month the same amount. You can cancel at any time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
