@@ -15,18 +15,18 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-                    <h3>[plan type]</h3>
+                    <h3>{{ order.friendly_name }}</h3>
                 </div>
                 <div class="col-6">
                     <p>Starting: [date]</p>
                 </div>
                 <div class="col-6">
-                    <p>[price] incl. VAT</p>
+                    <p>£{{ order.price }} incl. VAT</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <p>Includes:
+                    <p>Includes: {{ order.short_description }}
                     </p>
                 </div>
                 <div class="col-6">
@@ -47,14 +47,14 @@
             <h3>Order Summary</h3>
             <div class="row">
                 <div class="col-6">
-                    <p>1 x [plan]</p>
+                    <p>1 x {{ order.name }}</p>
                 </div>
                 <div class="col-6">
-                    <p>[price]/mo</p>
+                    <p>£{{ order.price }}/mo</p>
                 </div>
                 <div class="col-12">
                     <hr>
-                    <p>Your card will be charge [price] today and subsequently each month the same amount. You can
+                    <p>Your card will be charge £{{ order.price }} today and subsequently each month the same amount. You can
                         cancel at any time.</p>
                     <hr>
                 </div>
