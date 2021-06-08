@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from plans.models import Plan
+import datetime
 
 
 def checkout_order(request, name):
