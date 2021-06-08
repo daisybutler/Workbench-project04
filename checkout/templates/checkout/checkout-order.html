@@ -10,7 +10,7 @@
             <h1>Order Details</h1>
         </div>
     </div>
-    <form id="order details" action="">
+    <form id="order-details" action="">
         <div class="row">
             <div class="col-12 col-md-8">
                 <hr>
@@ -26,10 +26,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <textarea class="form-control" type="text" placeholder="Includes: {{ order.short_description }}" aria-label="Order description" rows="10" readonly></textarea>
                     </div>
-                    <div class="col-6">
+                    <div id="qty-selection-area" class="col-6">
                         <label for="qty-dropdown">Qty:</label>
                         <select id="qty-dropdown" class="form-select" aria-label="qty">
                             <option selected>1</option>
