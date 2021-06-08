@@ -354,11 +354,29 @@ h1 {
 
 /* --------------------------------------------------- CHECKOUT ORDER */
 
+#checkout-order-container {
+    padding-bottom: 200px;
+}
+
 #order-summary-box {
     background-color: #EEECE7;
     padding: 20px;
     border-radius: 10px;
 }
+
+.form-control-lg {
+    border-radius: 0;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #fff;
+    border: none;
+}
+
+.form-control-lg:focus {
+    
+}
+
 
 
 /* --------------------------------------------------- FOOTER */
