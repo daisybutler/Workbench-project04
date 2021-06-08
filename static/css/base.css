@@ -7,15 +7,19 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);*/
     color: #313131;
-    font-family: 'Open Sans'; 
+    font-family: 'Open Sans';
     margin-top: 60px;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-weight: 600;
 }
 
-p, a {
+p,
+a {
     font-weight: 400;
 }
 
@@ -365,18 +369,32 @@ h1 {
 }
 
 .form-control-lg {
-    border-radius: 0;
-}
-
-.form-control:disabled, .form-control[readonly] {
-    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 35px;
     border: none;
 }
 
-.form-control-lg:focus {
-    
+.form-control[readonly] {
+    background-color: #fff;
+    border: none;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
+#qty-selection-area {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+input:focus {
+    outline: none;
+}
+
+/*
+textarea:focus {
+    outline: none;
+} */
 
 
 /* --------------------------------------------------- FOOTER */
@@ -393,43 +411,47 @@ footer h4 {
 
 /* --------------------------------------------------- MEDIA QUERIES */
 
-@media screen and (max-width: 576px) {
-  
-}
+@media screen and (max-width: 576px) {}
 
 
 @media screen and (max-width: 768px) {
     .homepage-plan {
         font-size: 30px;
     }
-     #second-about-section {
+
+    #second-about-section {
         display: flex;
         flex-wrap: wrap-reverse;
     }
+
     #subscription-plans .card {
-       margin: 20px;
-   }
-   #oneoff-plans .card {
-       margin: 20px;
-   }
-   .map-pin i {
-       font-size: 20px;
-   }
+        margin: 20px;
+    }
+
+    #oneoff-plans .card {
+        margin: 20px;
+    }
+
+    .map-pin i {
+        font-size: 20px;
+    }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
     #landing-page-heading {
         font-size: 40px;
     }
+
     .homepage-plan {
         border-radius: 40px 0 40px 0;
     }
+
     #plans-container .card-header {
-    font-size: 24px;
-}
+        font-size: 24px;
+    }
 }
 
-@media screen and (min-width: 992px){
+@media screen and (min-width: 992px) {
     #landing-page-heading {
         font-size: 50px;
     }
