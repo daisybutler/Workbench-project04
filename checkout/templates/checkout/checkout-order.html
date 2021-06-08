@@ -52,7 +52,7 @@
         <h3>Order Summary</h3>
         <div class="row">
             <div class="col-6">
-                <p id="summary-qty">1 x {{ order.friendly_name }}</p>
+                <p><span id="summary-qty">1 </span> x {{ order.friendly_name }}</p>
             </div>
             <div class="col-6">
                 <p>£{{ order.price }}/mo</p>
@@ -79,9 +79,9 @@
         var qty = 1;
         console.log(qty);
         $("#qty-dropdown").change(function () {
-            qty = 2;
+            qty = $(this).val();
             console.log(qty)
-            $("#summary-qty").html("#qty-dropdown");
+            $("#summary-qty").html(qty);
         });
     });
 </script>
