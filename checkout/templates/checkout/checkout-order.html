@@ -24,7 +24,7 @@
                             aria-label="Starting date" readonly>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="text" placeholder="{{ order.price }} incl. VAT"
+                        <input id="price-field" class="form-control" type="number" value="{{ order.price }}"
                             aria-label="{{ order.price }}" readonly>
                     </div>
                 </div>
@@ -55,11 +55,12 @@
                 <p><span id="summary-qty">1 </span> x {{ order.friendly_name }}</p>
             </div>
             <div class="col-6">
-                <p>£{{ order.price }}/mo</p>
+                <p>£<span id="summary-price">{{ order.price }}</span>/mo</p>
             </div>
             <div class="col-12">
                 <hr>
-                <p>Your card will be charge £{{ order.price }} today and subsequently each month the same amount. You
+                <p>Your card will be charged £<span id="summary-price-textarea">{{ order.price }}</span> today and
+                    subsequently each month the same amount. You
                     can
                     cancel at any time.</p>
                 <hr>
@@ -76,12 +77,25 @@
 {% block extra_js %}
 <script>
     $(document).ready(function () {
+
+        // Updates the order summary to match user's changes.
         var qty = 1;
-        console.log(qty);
+        var price = $("#price-field").val();
+        console.log(price);
+
+        // Updates the order summary qty to match user's qty input.
         $("#qty-dropdown").change(function () {
             qty = $(this).val();
             console.log(qty)
             $("#summary-qty").html(qty);
+
+            // Updates both price displays to match user's qty selection.
+            var newPrice = price * qty;
+            console.log(newPrice)
+            $("#price-field").val(newPrice);
+            $("#summary-price").html(newPrice);
+            $("#summary-price-textarea").html(newPrice);
+
         });
     });
 </script>
