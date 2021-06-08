@@ -16,18 +16,22 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <input class="form-control-lg" type="text" placeholder="{{ order.friendly_name }}" aria-label="{{ order.friendly_name }}" readonly>
+                        <input class="form-control-lg" type="text" placeholder="{{ order.friendly_name }}"
+                            aria-label="{{ order.friendly_name }}" readonly>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="text" placeholder="Starting: [date]" aria-label="Starting date" readonly>
+                        <input class="form-control" type="text" placeholder="Starting: [date]"
+                            aria-label="Starting date" readonly>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="text" placeholder="{{ order.price }} incl. VAT" aria-label="{{ order.price }}" readonly>
+                        <input class="form-control" type="text" placeholder="{{ order.price }} incl. VAT"
+                            aria-label="{{ order.price }}" readonly>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <textarea class="form-control" type="text" placeholder="Includes: {{ order.short_description }}" aria-label="Order description" rows="10" readonly></textarea>
+                        <textarea class="form-control" type="text" placeholder="Includes: {{ order.short_description }}"
+                            aria-label="Order description" rows="10" readonly></textarea>
                     </div>
                     <div id="qty-selection-area" class="col-6">
                         <label for="qty-dropdown">Qty:</label>
@@ -48,7 +52,7 @@
         <h3>Order Summary</h3>
         <div class="row">
             <div class="col-6">
-                <p>1 x {{ order.name }}</p>
+                <p id="summary-qty">1 x {{ order.friendly_name }}</p>
             </div>
             <div class="col-6">
                 <p>£{{ order.price }}/mo</p>
@@ -67,5 +71,18 @@
     </div>
 </div>
 </div>
+{% endblock %}
 
+{% block extra_js %}
+<script>
+    $(document).ready(function () {
+        var qty = 1;
+        console.log(qty);
+        $("#qty-dropdown").change(function () {
+            qty = 2;
+            console.log(qty)
+            $("#summary-qty").html("#qty-dropdown");
+        });
+    });
+</script>
 {% endblock %}
