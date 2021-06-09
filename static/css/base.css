@@ -121,6 +121,11 @@ h1 {
     margin-top: 40px;
 }
 
+.learn-more-plans-homepage:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 #homepage-locations-container {
     background-color: #F7F7F7;
     margin-top: 20px;
