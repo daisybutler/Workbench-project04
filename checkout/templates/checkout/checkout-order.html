@@ -25,13 +25,14 @@
                     </div>
                     <div class="col-6">
                         <input id="price-field" class="form-control" type="number" value="{{ order.price }}"
-                            aria-label="{{ order.price }}" readonly>
+                            aria-label="Price" readonly>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <textarea class="form-control" type="text" placeholder="Includes: {{ order.short_description }}"
-                            aria-label="Order description" rows="10" readonly></textarea>
+                        <textarea style="overflow: visible;" class="form-control" type="text"
+                            placeholder="Includes: {{ order.short_description }}" aria-label="Order description"
+                            readonly></textarea>
                     </div>
                     <div id="qty-selection-area" class="col-6">
                         <label for="qty-dropdown">Qty:</label>
@@ -54,6 +55,17 @@
             <div class="col-6">
                 <p><span id="summary-qty">1 </span> x {{ order.friendly_name }}</p>
             </div>
+            {% if order.name == 'one-off-plan' %}
+            <div class="col-6">
+                <p>£<span id="summary-price">{{ order.price }}</span></p>
+            </div>
+            <div class="col-12">
+                <hr>
+                <p>Your card will be charged £<span id="summary-price-textarea">{{ order.price }}</span> today as a one
+                    off payment.</p>
+                <hr>
+            </div>
+            {% else %}
             <div class="col-6">
                 <p>£<span id="summary-price">{{ order.price }}</span>/mo</p>
             </div>
@@ -65,6 +77,7 @@
                     cancel at any time.</p>
                 <hr>
             </div>
+            {% endif %}
             <div class="col-12 text-center">
                 <a class="button" href="">Next</a>
             </div>
@@ -79,19 +92,16 @@
     $(document).ready(function () {
 
         // Updates the order summary to match user's changes.
-        var qty = 1;
+        var qty;
         var price = $("#price-field").val();
-        console.log(price);
 
         // Updates the order summary qty to match user's qty input.
         $("#qty-dropdown").change(function () {
             qty = $(this).val();
-            console.log(qty)
             $("#summary-qty").html(qty);
 
             // Updates both price displays to match user's qty selection.
             var newPrice = price * qty;
-            console.log(newPrice)
             $("#price-field").val(newPrice);
             $("#summary-price").html(newPrice);
             $("#summary-price-textarea").html(newPrice);
