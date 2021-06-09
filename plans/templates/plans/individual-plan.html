@@ -23,9 +23,8 @@
             <a href="{% url 'all_plans' %}" class="return-button"><i class="fas fa-chevron-left"></i>All Plans</a>
         </div>
         <div class="col-4 col-sm-2 col-xl-1">
-            <a href="{% url 'checkout_order' %}" class="btn-lg proceed-button">Continue</a>
+            <a href="{% url 'checkout_order' plan.name %}" class="btn-lg proceed-button">Continue</a>
         </div>
-
     </div>
 </div>
 {% endblock %}
