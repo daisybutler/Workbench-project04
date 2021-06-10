@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'plans',
     'checkout',
     'locations',
+    'profiles',
 ]
 
 MIDDLEWARE = [
