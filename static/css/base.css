@@ -352,18 +352,18 @@ h1 {
 
 #plan-select-contents {
     margin-bottom: 50px;
-    background-color: #D91F44;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: #EEECE7;
+    padding: 20px;  
 }
 
 #plan-select-contents p {
-    color: #fff;
+    color: #313131;
+    padding-bottom: 20px;
 }
 
 #plan-select-contents .button {
-    background-color: #fff;
-    color: #D91F44;
+    background-color: #D91F44;
+    color: #fff;
 }
 
 /* --------------------------------------------------- CHECKOUT ORDER */
