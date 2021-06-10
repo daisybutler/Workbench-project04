@@ -401,11 +401,30 @@ input:focus {
     outline: none;
 }
 
-/*
-textarea:focus {
-    outline: none;
-} */
+/* --------------------------------------------------- LOGIN */
 
+#login-container {
+    background: url('/media/homepage-image-mobile.jpg') no-repeat;
+}
+
+#login-box {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px #313131;
+    border-radius: 3px;
+}
+
+#login-box input {
+    background-color: #F7F7F7;
+    border: none;
+    margin-bottom: 10px;
+}
+
+#login-button {
+    padding-top: 30px;
+}
 
 /* --------------------------------------------------- FOOTER */
 
