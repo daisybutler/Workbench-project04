@@ -13,3 +13,9 @@ def checkout_order(request, name):
     }
 
     return render(request, 'checkout/checkout-order.html', context=context)
+
+
+def checkout_payment(request):
+    """A view that renders the order payment page"""
+
+    return render(request, 'checkout/checkout-payment.html')

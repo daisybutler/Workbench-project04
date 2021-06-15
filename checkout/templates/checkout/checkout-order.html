@@ -81,7 +81,7 @@
             </div>
             {% endif %}
             <div class="col-12 text-center">
-                <a class="button" href="">Next</a>
+                <a class="button" href="{% url 'checkout_payment' %}">Next</a>
             </div>
         </div>
     </div>
@@ -89,7 +89,8 @@
 
 <!--- Customer Details --->
 <div class="container">
-<form class="row g-3">
+<form action="" method="POST" class="row g-3">
+    {% csrf_token %}
     <div class="col-md-6">
         <label for="fname" class="form-label">First Name*</label>
         <input type="text" class="form-control" id="fname" required>
