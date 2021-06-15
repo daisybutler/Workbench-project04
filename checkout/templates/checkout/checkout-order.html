@@ -20,7 +20,7 @@
                             aria-label="{{ order.friendly_name }}" readonly>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="text" placeholder="Starting: [date]"
+                        <input id="subscription-date" class="form-control" type="text" placeholder="Starting: [date]"
                             aria-label="Starting date" readonly>
                     </div>
                     <div class="col-6">
@@ -266,6 +266,11 @@
             $("#summary-price-textarea").html(newPrice);
 
         });
+
+        // Get current date to start subscription from 
+        var today = new Date().toISOString().slice(0, 10);
+        $("#subscription-date").val("Starting date: " + today);
     });
+
 </script>
 {% endblock %}
