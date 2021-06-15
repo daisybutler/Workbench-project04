@@ -353,7 +353,7 @@ h1 {
 #plan-select-contents {
     margin-bottom: 50px;
     background-color: #EEECE7;
-    padding: 20px;  
+    padding: 20px;
 }
 
 #plan-select-contents p {
@@ -390,6 +390,11 @@ h1 {
     border: none;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+/* Removes highlight around readonly inputs if clicked */
+#order-details input:focus, #order-details textarea:focus {
+    box-shadow: none;
 }
 
 #qty-selection-area {
@@ -437,11 +442,9 @@ footer h4 {
     padding-top: 40px;
 }
 
-
 /* --------------------------------------------------- MEDIA QUERIES */
 
 @media screen and (max-width: 576px) {}
-
 
 @media screen and (max-width: 768px) {
     .homepage-plan {
