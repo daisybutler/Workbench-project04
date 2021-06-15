@@ -6,3 +6,8 @@ def login(request):
     """A view to display login page."""
 
     return render(request, 'profiles/login.html')
+
+
+def profile(request):
+
+    return render(request, 'profiles/profile.html')
