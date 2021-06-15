@@ -91,32 +91,32 @@
 <div class="container">
 <form class="row g-3">
     <div class="col-md-6">
-        <label for="fname" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="fname">
+        <label for="fname" class="form-label">First Name*</label>
+        <input type="text" class="form-control" id="fname" required>
     </div>
     <div class="col-md-6">
-        <label for="lname" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lname">
+        <label for="lname" class="form-label">Last Name*</label>
+        <input type="text" class="form-control" id="lname" required>
     </div>
     <div class="col-md-6">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email">
+        <label for="email" class="form-label">Email*</label>
+        <input type="email" class="form-control" id="email" required>
     </div>
     <div class="col-md-6">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password">
+        <label for="password" class="form-label">Password*</label>
+        <input type="password" class="form-control" id="password" required>
     </div>
     <div class="col-12 col-md-6">
-        <label for="phone-number" class="form-label">Phone Number</label>
-        <input type="text" class="form-control" id="phone-number">
+        <label for="phone-number" class="form-label">Phone Number*</label>
+        <input type="text" class="form-control" id="phone-number" required>
     </div>
     <div class="col-12 col-md-6">
-        <label for="billing-address" class="form-label">Address</label>
-        <input type="text" class="form-control" id="billing-address" placeholder="1234 Main St">
+        <label for="billing-address" class="form-label">Address*</label>
+        <input type="text" class="form-control" id="billing-address" placeholder="1234 Main St" required>
     </div>
     <div class="col-6 col-md-3">
-        <label for="county" class="form-label">County</label>
-        <select id="county" class="form-select">
+        <label for="county" class="form-label">County*</label>
+        <select id="county" class="form-select" required>
             <option readonly disabled selected>Select...</option>
             <optgroup label="England">
                 <option>Bedfordshire</option>
@@ -230,14 +230,14 @@
         </select>
     </div>
     <div class="col-6 col-md-3">
-        <label for="postcode"  class="form-label">Postcode</label>
-        <input type="text" class="form-control" id="postcode">
+        <label for="postcode"  class="form-label">Postcode*</label>
+        <input type="text" class="form-control" id="postcode" required>
     </div>
     <div class="col-12">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="T&Ccheckbox">
+            <input class="form-check-input" type="checkbox" id="T&Ccheckbox" required>
             <label class="form-check-label" for="T&Ccheckbox">
-                I agree to the Terms and Conditions
+                I agree to the Terms and Conditions*
             </label>
         </div>
     </div>
