@@ -7,7 +7,7 @@
     <!--- Order Details --->
     <div class="row">
         <div class="col-12 col-md-8">
-            <h1>Order Details</h1>
+            <h1>Checkout</h1>
         </div>
     </div>
     <form id="order-details" action="">
@@ -89,6 +89,7 @@
     <form action="{% url 'checkout_payment' %}" method="POST" class="row">
         {% csrf_token %}
         <fieldset>
+            <h2>Billing Details</h2>
             <div class="col-12">
                 <label for="fname" class="form-label">First Name*</label>
                 <input type="text" class="form-control" id="fname" required>
@@ -245,15 +246,13 @@
             </div>
         </fieldset>
         <fieldset class="px-3">
-            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+            <h2>Payment Details</h2>
             <!-- A Stripe card element will go here -->
             <div id="card-element"></div>
 
             <!-- Used to display form errors -->
             <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-        </fieldset>
-
-        <div class="submit-button text-right mt-5 mb-2">
+            <div class="col-12 submit-button text-center">
             <button id="submit-button" class="btn btn-black rounded-0">
                 <span class="font-weight-bold">Complete Order</span>
                 <span class="icon">
@@ -267,6 +266,8 @@
                 <span>Your card will be charged £<strong id="payment-warning">{{ order.price }}</strong></span>
             </p>
         </div>
+        </fieldset>
+        
     </form>
 </div>
 </div>
