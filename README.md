@@ -1,59 +1,159 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Workbench
 
-Welcome daisybutler,
+Workbench is a membership website which provides remote workers with access to fully equipped workspaces in locations throughout the UK. Members can choose between two different subscription plans to suit their access requirements. One-off access to meeting rooms and office space can also be purchased.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+The concept of this website has been inspired by the enormous shift from office-based to remote working in many companies during the coronavirus pandemic. The option to access fully-equipped office environments on a flexible basis caters to a growing demand from both individuals and larger workforces, in order to maintain productivity in industries growing ever more remotely connected.
 
-## Gitpod Reminders
+## Table of Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+1. [UX](#ux)
 
-`python3 -m http.server`
+* [Primary Goal](#primary-goal)
 
-A blue button should appear to click: _Make Public_,
+* [User Profile](#user-profile)
 
-Another blue button should appear to click: _Open Browser_.
+* [User Stories](#user-stories)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* [Design Process](#design-process)
 
-A blue button should appear to click: _Make Public_,
+* [UX Design](#ux-design)
 
-Another blue button should appear to click: _Open Browser_.
+* [Colours](#colours)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* [Fonts](#fonts)
 
-To log into the Heroku toolbelt CLI:
+* [Wireframe Mockups](#wireframe-mockups)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+2. [Features](#features)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+* [Home](#home)
 
-## Updates Since The Instructional Video
+* [All Books](#all-books)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+* [Book Display Page](#book-display-page)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+* [Login](#login)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* [Signup](#signup)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* [Add Book](#add-book)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* [My Profile](#my-profile)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* [User Settings](#user-settings)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* [Edit Book](#edit-book)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* [Logout](#logout)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* [CRUD Functionality](#crud-functionality)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* [Database Structure](#database-structure)
 
----
+* [Structure overview](#structure-overview)
 
-Happy coding!
+* [Field Relationships](#field-relationships)
+
+* [Features to Implement in the Future](#features-to-implement-in-the-future)
+
+3. [Technologies Used](#technologies-used)
+
+* [Languages](#languages)
+
+* [Tools](#tools)
+
+* [Frameworks](#frameworks)
+
+* [Libraries](#libraries)
+
+* [Database Management System](#database-management-system)
+
+* [Graphics](#graphics)
+
+4. [Testing](#testing)
+
+5. [Deployment](#deployment)
+
+6. [Credits](#credits)
+
+* [Inspiration](#inspiration)
+
+* [Media](#media)
+
+* [Code](#code)
+
+## UX
+
+### Primary Goal
+
+The primary goal of this website is to get users to sign up for a monthly subscription plan in return for access to workspaces throughout the UK. The website markets the services available to potential members and allows existing members to manage their subscription and schedule workspace bookings.
+
+### User Profile
+
+- ***The ideal user of this website is:***
+
+    An individual who is working remotely and is looking to access a fully-equipped workplace environment, in order to maximise their productivity and give their workday and sense of structure and separation that working from home may not be providing.
+
+- ***Users of this website are looking to:***
+- ***This website facilitates this for the user by providing:***
+
+### User Stories
+
+### Design Process
+
+- **UX Design**
+
+1. Strategy Plane
+
+2. Scope Plane
+
+3. Structure Plane
+
+4. Skeleton Plane
+
+5. Surface Plane
+
+- **Colours**
+    - #FFFFFF white (background)
+    - #F7F7F7 light grey (backing contrast)
+    - #D91F44 warm red (accent)
+    - #EEECE7 warm beige (backing contrast)
+    - #313131 black (footer, popups)
+    
+- **Fonts**
+    - Headings - Open Sans semi-bold 600
+    - Paragraphs - Open Sans regular 400
+
+### Wireframe Mockups
+
+## Features
+
+### CRUD Functionality
+
+### Payment Functionality
+
+### Interactive Features
+
+## Database Structure
+
+#### Structure Overview
+
+#### Field Relationships
+
+### Features to Implement in the Future
+
+## Technologies Used
+
+## Testing
+
+Testing information can be found in this [TESTING.md file](TESTING.md).
+
+## Deployment
+
+### Deployment to Heroku
+
+### How to run this project locally
+
+## Credits
+
+county dropdown list [https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12](https://www.notion.so/4dcbf64e06aae132c12a8b9d302fae12)
