@@ -198,6 +198,16 @@ h1 {
     padding: 20px;
 }
 
+.plans-heading h3, p {
+    color: #fff;
+}
+
+.plans-heading {
+    background-color: #31313162;
+    text-align: center;
+    padding-top: 10%;
+}
+
 #oneoff-plans {
     background: url('/media/desktop.jpg') center center;
     min-height: 400px;
@@ -406,7 +416,8 @@ input:focus {
     outline: none;
 }
 
-#card-element{
+/* Stripe card details input */
+#card-details{
     border: 1px solid lightgrey;
     border-radius: 5px;
     padding: 10px 20px 10px 20px;
@@ -463,7 +474,11 @@ footer h4 {
 
 /* --------------------------------------------------- MEDIA QUERIES */
 
-@media screen and (max-width: 576px) {}
+@media screen and (max-width: 576px) {
+    .plans-heading {
+        min-height: 200px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .homepage-plan {
@@ -505,5 +520,8 @@ footer h4 {
 @media screen and (min-width: 992px) {
     #landing-page-heading {
         font-size: 50px;
+    }
+    .plans-heading {
+        min-height: 300px;
     }
 }
