@@ -406,6 +406,13 @@ input:focus {
     outline: none;
 }
 
+#card-element{
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    min-width: 100%;
+}
+
 /* --------------------------------------------------- LOGIN */
 
 #login-container {
