@@ -1,74 +1,67 @@
 # Workbench
 
-Workbench is a membership website which provides remote workers with access to fully equipped workspaces in locations throughout the UK. Members can choose between two different subscription plans to suit their access requirements. One-off access to meeting rooms and office space can also be purchased.
+Workbench is a membership website which provides remote workers with access to fully equipped workspaces in locations throughout the UK. Members can choose between two different subscription plans to suit their access requirements. One-off access to meeting rooms and office space can also be purchased by subscribers and non-subscribers.
 
-The concept of this website has been inspired by the enormous shift from office-based to remote working in many companies during the coronavirus pandemic. The option to access fully-equipped office environments on a flexible basis caters to a growing demand from both individuals and larger workforces, in order to maintain productivity in industries growing ever more remotely connected.
+The idea of this website was inspired by the shift from in-person to remote working for all office-based companies during the coronavirus pandemic. With the belief that this shift is here to stay, the option to access fully-equipped office environments on a flexible basis will only continue to grow in demand.
 
 ## Table of Contents
 
 1. [UX](#ux)
 
-* [Primary Goal](#primary-goal)
+    * [Primary Goal](#primary-goal)
 
-* [User Profile](#user-profile)
+    * [User Profile](#user-profile)
 
-* [User Stories](#user-stories)
+    * [User Stories](#user-stories)
 
-* [Design Process](#design-process)
+    * [Design Process](#design-process)
 
-* [UX Design](#ux-design)
+    * [UX Design](#ux-design)
 
-* [Colours](#colours)
+    * [Colours](#colours)
 
-* [Fonts](#fonts)
+    * [Fonts](#fonts)
 
-* [Wireframe Mockups](#wireframe-mockups)
+    * [Wireframe Mockups](#wireframe-mockups)
 
 2. [Features](#features)
+    * [Pages](#pages)
 
-* [Home](#home)
+        * [Home](#home)
 
-* [All Books](#all-books)
+        * [plans](#plans)
 
-* [Book Display Page](#book-display-page)
+        * [Individual Plan](#individual-page)
 
-* [Login](#login)
+        * [Checkout](#checkout)
 
-* [Signup](#signup)
+        * [Login](#login)
 
-* [Add Book](#add-book)
+        * [Profile](#profile)
 
-* [My Profile](#my-profile)
+    * [CRUD Functionality](#crud-functionality)
 
-* [User Settings](#user-settings)
+    * [Database Structure](#database-structure)
 
-* [Edit Book](#edit-book)
+    * [Structure overview](#structure-overview)
 
-* [Logout](#logout)
+    * [Field Relationships](#field-relationships)
 
-* [CRUD Functionality](#crud-functionality)
-
-* [Database Structure](#database-structure)
-
-* [Structure overview](#structure-overview)
-
-* [Field Relationships](#field-relationships)
-
-* [Features to Implement in the Future](#features-to-implement-in-the-future)
+    * [Features to Implement in the Future](#features-to-implement-in-the-future)
 
 3. [Technologies Used](#technologies-used)
 
-* [Languages](#languages)
+    * [Languages](#languages)
 
-* [Tools](#tools)
+    * [Tools](#tools)
 
-* [Frameworks](#frameworks)
+    * [Frameworks](#frameworks)
 
-* [Libraries](#libraries)
+    * [Libraries](#libraries)
 
-* [Database Management System](#database-management-system)
+    * [Database Management System](#database-management-system)
 
-* [Graphics](#graphics)
+    * [Graphics](#graphics)
 
 4. [Testing](#testing)
 
@@ -76,11 +69,11 @@ The concept of this website has been inspired by the enormous shift from office-
 
 6. [Credits](#credits)
 
-* [Inspiration](#inspiration)
+    * [Inspiration](#inspiration)
 
-* [Media](#media)
+    * [Media](#media)
 
-* [Code](#code)
+    * [Code](#code)
 
 ## UX
 
@@ -92,12 +85,26 @@ The primary goal of this website is to get users to sign up for a monthly subscr
 
 - ***The ideal user of this website is:***
 
-    An individual who is working remotely and is looking to access a fully-equipped workplace environment, in order to maximise their productivity and give their workday and sense of structure and separation that working from home may not be providing.
+    An individual who is working remotely on a full time or flexible basis in a job which mainly requires them to be seated at a desktop.
 
 - ***Users of this website are looking to:***
+
+    Access a fully-equipped workplace environment, in order to maximise their productivity and create a work/home life separation which working from home may not be facilitating for them.
 - ***This website facilitates this for the user by providing:***
 
+    Access to work-orientated environments on a subscription basis. Two types of subscription plans allows the user only pay for the access they need, which accomodates both full-time and part-time flexible workers.
+
 ### User Stories
+
+1. As a new user, I want to find out about the subscription plans and facilities Workbench offers.
+2. As a new user, I want to find out how much each Workbench plan will cost per month.
+3. As a new user, I want to see where Workbench sites are located and where the nearest one to me is.
+4. As a new user, I want to buy a Workbench subscription.
+5. As a new user, I want to buy a one-off meeting room or office space session when I don't have a subscription.
+6. As an existing user, I want to buy a one-off meeting room or office space session on top of my subscription.
+7. As an existing user, I want to view my current subscription and personal details and be able to edit or cancel them.
+8. As as a new or existing user, I want to make payments securely and easily on the website.
+9. As an existing user, I want to be able to log in and log out of my account.
 
 ### Design Process
 
