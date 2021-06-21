@@ -8,12 +8,18 @@ def checkout_order(request, name):
 
     order = Plan.objects.get(name=name)
 
+    purchase = request.session.get('purchase', {})
+    purchase['plan'] = name
+    purchase['quantity'] = 1
+
+    request.session['purchase'] = purchase
+
     context = {
         'order': order,
         'stripe_public_key': 'pk_test_51J2w92Gvf3CD91ZSzCMQT2SmD2pJVGAOJoYcImcZbhKny0SbHqH8jVmghzMQObtdd8nRKzqju6LCc0UjN1aFimT700YPnEvt3Q',
         'client_secret': 'test client secret',
     }
-
+    print(request.session['purchase'])
     return render(request, 'checkout/checkout-order.html', context=context)
 
 
