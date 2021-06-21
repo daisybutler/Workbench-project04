@@ -381,7 +381,7 @@ h1 {
     color: #fff;
 }
 
-/* --------------------------------------------------- CHECKOUT ORDER */
+/* --------------------------------------------------- CHECKOUT */
 
 #checkout-order-container {
     padding-bottom: 200px;
@@ -427,6 +427,15 @@ input:focus {
     border-radius: 5px;
     padding: 10px 20px 10px 20px;
     min-width: 100%;
+}
+
+#submit-button {
+    background-color: #D91F44;
+    color: #fff;
+}
+
+.checkout-input {
+    padding: 10px;
 }
 
 /* --------------------------------------------------- LOGIN */
