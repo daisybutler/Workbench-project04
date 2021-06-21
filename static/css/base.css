@@ -198,14 +198,18 @@ h1 {
     padding: 20px;
 }
 
-.plans-heading h3, p {
+.plans-heading {
+    background-color: #31313136;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.plans-heading p {
     color: #fff;
 }
 
-.plans-heading {
-    background-color: #31313162;
-    text-align: center;
-    padding-top: 10%;
+.plans-heading h3 {
+    color: #fff;
 }
 
 #oneoff-plans {
@@ -254,8 +258,9 @@ h1 {
 /* ---------------------------------------------------- INDIVIDUAL PLAN */
 
 .individual-plan-image img {
-    max-width: 100%;
-    margin-bottom: 40px;
+    max-width: 80%;
+    max-height: 80%;
+
 }
 
 .description-container {
