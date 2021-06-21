@@ -20,6 +20,7 @@ var style = {
 var card = elements.create('card', { style: style });
 card.mount('#card-details');
 
+/*
 // Handle validation errors of card details
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
@@ -33,5 +34,7 @@ card.addEventListener('change', function (event) {
         $(errorDiv).html(html);
     } else {
         errorDiv.textContext = '';
-    }
+    } 
 });
+
+*/
