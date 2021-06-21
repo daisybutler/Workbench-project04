@@ -429,9 +429,14 @@ input:focus {
     min-width: 100%;
 }
 
-#submit-button {
+#checkout-order-container #submit-button {
     background-color: #D91F44;
     color: #fff;
+}
+
+.checkout-heading {
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .checkout-input {
