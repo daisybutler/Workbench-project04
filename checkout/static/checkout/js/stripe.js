@@ -20,7 +20,7 @@ var style = {
 var card = elements.create('card', { style: style });
 card.mount('#card-details');
 
-/*
+// -------------------------------- DOESN'T WORK
 // Handle validation errors of card details
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
@@ -29,12 +29,10 @@ card.addEventListener('change', function (event) {
             <span class="icon" role="alert">
                 <i class="fas fa-times></i>
             </span>
-            <span>${event.error.message}</span>
+            <span>error</span>
         `;
         $(errorDiv).html(html);
     } else {
-        errorDiv.textContext = '';
+        errorDiv.textContext = 'none';
     } 
 });
-
-*/
