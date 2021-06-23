@@ -1,10 +1,24 @@
 from django.shortcuts import render, redirect, reverse
+from django.conf import settings
 from plans.models import Plan
 from .models import Order
+import stripe
 
 
 def checkout_order(request, name):
     """A view that renders the order summary page"""
+
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
+
+    purchase = request.session.get('purchase', {})
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=50,
+        currency=settings.STRIPE_CURRENCY,
+    )
+
+    print(intent)
 
     order = Plan.objects.get(name=name)
 
@@ -14,16 +28,19 @@ def checkout_order(request, name):
 
     request.session['purchase'] = purchase
 
+    if not stripe_public_key:
+        print(request, 'No stripe public key present.')
+
     context = {
         'order': order,
-        'stripe_public_key': 'pk_test_51J2w92Gvf3CD91ZSzCMQT2SmD2pJVGAOJoYcImcZbhKny0SbHqH8jVmghzMQObtdd8nRKzqju6LCc0UjN1aFimT700YPnEvt3Q',
-        'client_secret': 'test client secret',
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
     print(request.session['purchase'])
     return render(request, 'checkout/checkout-order.html', context=context)
 
 
-def checkout_payment(request):
+def checkout_complete(request):
     """A view that renders the order payment page"""
 
-    return render(request, 'checkout/checkout-payment.html')
+    return render(request, 'checkout/checkout-complete.html')
