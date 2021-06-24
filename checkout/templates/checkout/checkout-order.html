@@ -86,7 +86,7 @@
 
 <!--- Customer Details --->
 <div class="container">
-    <form id="payment-form" action="{% url 'checkout_complete' %}" method="POST" class="row">
+    <form id="payment-form" action="{% url 'checkout_order' order.name %}" method="POST" class="row">
         {% csrf_token %}
         <div class="col-12 checkout-heading">
             <h2>Billing Details</h2>
