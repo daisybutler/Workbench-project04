@@ -234,14 +234,6 @@
             <label for="postcode" class="form-label">Postcode*</label>
             <input type="text" class="form-control" id="postcode" required>
         </div>
-        <div class="col-12 checkout-input">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="T&Ccheckbox" required>
-                <label class="form-check-label" for="T&Ccheckbox">
-                    I agree to the Terms and Conditions*
-                </label>
-            </div>
-        </div>
 
         <!---Payment Details-->
         <div class="col-12 checkout-heading">
@@ -258,7 +250,7 @@
 
         <!--- Complete checkout --->
         <div class="col-12 submit-button text-center text-md-left checkout-input">
-            <button id="submit-button" class="btn rounded-5 my-3">
+            <button type="submit" id="submit-button" class="btn rounded-5 my-3">
                 <span class="font-weight-bold">Complete Order</span>
                 <span class="icon">
                     <i class="fas fa-lock"></i>
@@ -312,5 +304,4 @@
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
 <script src="{% static 'checkout/js/stripe.js' %}"></script>
-
 {% endblock %}

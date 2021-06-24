@@ -34,21 +34,21 @@ card.addEventListener('change', function (event) {
         $(errorDiv).html(html);
     } else {
         errorDiv.textContext = 'none';
-    } 
+    }
 });
 
 // Handle form submit
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', function(ev) {
+form.addEventListener('click', function (ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true});
+    card.update({ 'disabled': true });
     $('#submit-button').attr('disabled', true);
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
         }
-    }).then(function(result) {
+    }).then(function (result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var html = `
@@ -57,7 +57,7 @@ form.addEventListener('submit', function(ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
-            card.update({ 'disabled': false});
+            card.update({ 'disabled': false });
             $('#submit-button').attr('disabled', false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
