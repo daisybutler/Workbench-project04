@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'checkout',
     'locations',
     'profiles',
+
+    # Other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +64,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'workbench.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -79,6 +84,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',  # Required to load media files
                 'checkout.contexts.purchase_contents', # Plan purchase accessible across site
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_fields',
+            ]
         },
     },
 ]
