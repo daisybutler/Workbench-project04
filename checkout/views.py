@@ -29,16 +29,16 @@ def checkout_order(request, name):
             'last_name': request.POST['last_name'],
             'email': request.POST['email'],
             'password': request.POST['password'],
-            'phone-number': request.POST['phone-number'],
+            'phone_number': request.POST['phone_number'],
             'county': request.POST['county'],
             'postcode': request.POST['postcode'],
-            'billing-address': request.POST['billing-address'],
+            'billing_address': request.POST['billing_address'],
         }
 
         checkout_form = CheckoutForm(form_data)
         if checkout_form.is_valid():
             new_order = checkout_form.save()
-            return redirect(reverse('checkout_complete', args=[new_order.name]))
+            return redirect(reverse('checkout_complete'))
         
         else:
             messages.error(request, 'There was an error with your form. \
@@ -82,7 +82,7 @@ def checkout_order(request, name):
         return render(request, 'checkout/checkout-order.html', context=context)
 
 
-def checkout_complete(request, name):
+def checkout_complete(request):
     """A view that renders the order payment page"""
 
     if 'purchase' in request.session:
