@@ -92,28 +92,22 @@
             <h2>Billing Details</h2>
         </div>
         <div class="col-12 col-md-6 checkout-input">
-            <label for="fname" class="form-label">First Name*</label>
-            <input name="fname" type="text" class="form-control" id="fname" required>
+            {{ checkout_form.first_name | as_crispy_field }}
         </div>
         <div class="col-12 col-md-6 checkout-input">
-            <label for="lname" class="form-label">Last Name*</label>
-            <input name="lname" type="text" class="form-control" id="lname" required>
+            {{ checkout_form.last_name | as_crispy_field }}
         </div>
         <div class="col-12 col-md-6 checkout-input">
-            <label for="email" class="form-label">Email*</label>
-            <input name="email" type="email" class="form-control" id="email" required>
+            {{ checkout_form.email | as_crispy_field }}
         </div>
         <div class="col-12 col-md-6 checkout-input">
-            <label for="password" class="form-label">Password*</label>
-            <input name="password" type="password" class="form-control" id="password" required>
-        </div>
-        <div class="col-12 checkout-input">
-            <label for="phone-number" class="form-label">Phone Number*</label>
-            <input name="phone-number" type="text" class="form-control" id="phone-number" required>
+            {{ checkout_form.phone_number | as_crispy_field }}
         </div>
         <div class="col-12 col-md-6 checkout-input">
-            <label for="billing-address" class="form-label">Address*</label>
-            <input name="billing-address" type="text" class="form-control" id="billing-address" placeholder="1234 Main St" required>
+            {{ checkout_form.password | as_crispy_field }}
+        </div>
+        <div class="col-12 col-md-6 checkout-input">
+            {{ checkout_form.billing_address| as_crispy_field }}
         </div>
         <div id="county-selection" class="col-6 col-md-3 checkout-input">
             <label for="county" class="form-label">County*</label>
@@ -231,8 +225,7 @@
             </select>
         </div>
         <div class="col-6 col-md-3 checkout-input">
-            <label for="postcode" class="form-label">Postcode*</label>
-            <input name="postcode" type="text" class="form-control" id="postcode" required>
+            {{ checkout_form.postcode | as_crispy_field }}
         </div>
 
         <!---Payment Details-->
