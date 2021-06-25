@@ -1,5 +1,4 @@
 from django.conf import settings
-from decimal import Decimal
 
 
 def purchase_contents(request):
