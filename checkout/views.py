@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, reverse
 from django.conf import settings
+
 from plans.models import Plan
+from .forms import CheckoutForm
 from .models import Order
+
 from django.contrib import messages
 from checkout.contexts import purchase_contents
 import stripe
@@ -22,20 +25,19 @@ def checkout_order(request, name):
             'plan_friendly_name': 'friendly name',
             'qty': 1,
             'price': 'price',
-            'first_name': request.POST['fname'],
-            'last_name': request.POST['lname'],
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
             'email': request.POST['email'],
             'password': request.POST['password'],
             'phone-number': request.POST['phone-number'],
-            'first_name': request.POST['fname'],
             'county': request.POST['county'],
             'postcode': request.POST['postcode'],
-            'billing_address': request.POST['billing_address'],
+            'billing-address': request.POST['billing-address'],
         }
 
-        order_form = Order(form_data)
-        if order_form.is_valid():
-            new_order = order_form.save()
+        checkout_form = CheckoutForm(form_data)
+        if checkout_form.is_valid():
+            new_order = checkout_form.save()
             return redirect(reverse('checkout_complete', args=[new_order.name]))
         
         else:
@@ -63,6 +65,7 @@ def checkout_order(request, name):
         )
 
         order = Plan.objects.get(name=name)
+        checkout_form = CheckoutForm()
 
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
@@ -71,6 +74,7 @@ def checkout_order(request, name):
         template = 'checkout/checkout-order.html'
         context = {
             'order': order,
+            'checkout_form': checkout_form,
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
         }
