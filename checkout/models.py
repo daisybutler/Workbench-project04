@@ -15,7 +15,6 @@ class Order(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     password = models.CharField(max_length=25)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    county = models.CharField(max_length=40, null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     billing_address = models.CharField(max_length=80, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
