@@ -7,6 +7,7 @@ from .models import Order
 
 from django.contrib import messages
 from checkout.contexts import purchase_contents
+from decimal import Decimal
 import stripe
 
 
@@ -14,6 +15,7 @@ def checkout_order(request, name):
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    order = Plan.objects.get(name=name)
 
     if request.method == 'POST':
         purchase = request.session.get('purchase', {})
@@ -37,9 +39,9 @@ def checkout_order(request, name):
 
         checkout_form = CheckoutForm(form_data)
         if checkout_form.is_valid():
-            new_order = checkout_form.save()
+            checkout_form.save()
             return redirect(reverse('checkout_complete'))
-        
+
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -47,20 +49,24 @@ def checkout_order(request, name):
     else:
         purchase = request.session.get('purchase', {})
         purchase['plan'] = name
+
+        # Need to fetch the inputed qunatity by user from form
+        # Need to somehow update payment intent after creation
         purchase['quantity'] = 1
+        purchase['price'] = int(order.price)
 
         request.session['purchase'] = purchase
-
         print(purchase)
+
         if not purchase:
-            messages.error(request, "Whoops, something went wrong. Please select a plan.")
+            messages.error(request, "Whoops, something went wrong. Please reselect a plan.")
             return redirect(reverse('all_plans'))
 
-        current_purchase = purchase_contents(request)
-        total = 50
+        total = purchase['price']
+        qty = purchase['quantity']
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount=total,
+            amount=round(total * 100) * qty,
             currency=settings.STRIPE_CURRENCY,
         )
 
@@ -71,7 +77,6 @@ def checkout_order(request, name):
             messages.warning(request, 'Stripe public key is missing. \
                 Did you forget to set it in your environment?')
 
-        template = 'checkout/checkout-order.html'
         context = {
             'order': order,
             'checkout_form': checkout_form,
@@ -86,6 +91,6 @@ def checkout_complete(request):
     """A view that renders the order payment page"""
 
     if 'purchase' in request.session:
-        del request.session['purchase'] 
+        del request.session['purchase']
 
     return render(request, 'checkout/checkout-complete.html')
