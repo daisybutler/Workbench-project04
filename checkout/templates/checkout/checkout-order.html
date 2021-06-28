@@ -10,13 +10,14 @@
             <h1>Checkout</h1>
         </div>
     </div>
-    <form id="order-details" action="">
+    <form id="payment-form" action="{% url 'checkout_order' order.name %}" method="POST" class="row">
+        {% csrf_token %}
         <div class="row">
             <div class="col-12 col-md-8">
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <input class="form-control-lg" type="text" placeholder="{{ order.friendly_name }}"
+                        <input name="plan_friendly_name" class="form-control-lg" type="text" value="{{ order.friendly_name }}" placeholder="{{ order.friendly_name }}"
                             aria-label="{{ order.friendly_name }}" readonly>
                     </div>
                     <div class="col-6">
@@ -24,7 +25,7 @@
                             aria-label="Starting date" readonly>
                     </div>
                     <div class="col-6">
-                        <input id="price-field" class="form-control" type="number" value="{{ order.price }}"
+                        <input name="price" id="price-field" class="form-control" type="number" value="{{ order.price }}"
                             aria-label="Price" readonly>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
                     </div>
                     <div id="qty-selection-area" class="col-6">
                         <label for="qty-dropdown">Qty:</label>
-                        <select id="qty-dropdown" class="form-select" aria-label="qty">
+                        <select name="qty" id="qty-dropdown" class="form-select" aria-label="qty">
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -46,9 +47,16 @@
                         </select>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-6">
+                        <input name="plan_type" id="plan_type_field" class="form-control" type="text" value="{{ order.plan_type }}" hidden>
+                    </div>
+                    <div class="col-6">
+                        <input name="plan_name" id="plan_name_field" class="form-control" type="text" value="{{ order.name }}" hidden>
+                    </div>
+                </div>
                 <hr>
             </div>
-    </form>
 
     <!--- Order Summary Box --->
     <div id="order-summary-box" class="col-12 col-md-4">
@@ -86,8 +94,6 @@
 
 <!--- Customer Details --->
 <div class="container">
-    <form id="payment-form" action="{% url 'checkout_order' order.name %}" method="POST" class="row">
-        {% csrf_token %}
         <div class="col-12 checkout-heading">
             <h2>Billing Details</h2>
         </div>

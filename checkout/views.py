@@ -20,11 +20,11 @@ def checkout_order(request, name):
         order = Plan.objects.get(name=name)
 
         form_data = {
-            'plan_name': name,
-            'plan_type': 'plan type',
-            'plan_friendly_name': 'friendly name',
-            'qty': 1,
-            'price': 'price',
+            'plan_name': request.POST['plan_name'],
+            'plan_type': request.POST['plan_type'],
+            'plan_friendly_name': request.POST['plan_friendly_name'],
+            'qty': request.POST['qty'],
+            'price': request.POST['price'],
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
             'email': request.POST['email'],
