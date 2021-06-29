@@ -49,6 +49,16 @@ form.addEventListener('submit', function (ev) {
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
+            billing_details: {
+                    name: $.trim(form.first_name.value) + ' ' + $.trim(form.last_name.value),
+                    phone: $.trim(form.phone_number.value),
+                    email: $.trim(form.email.value),
+                    address:{
+                        line1: $.trim(form.billing_address.value) + ', ' + $.trim(form.county.value),
+                        postal_code: $.trim(form.postcode.value),
+                        country: 'GB',
+                    }
+            }
         }
     }).then(function (result) {
         if (result.error) {
@@ -59,8 +69,8 @@ form.addEventListener('submit', function (ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
-            $('#payment-form').fadeToggle(100);
-            $('#loading-icon').fadeToggle(100);
+            $('#payment-form').toggle(100);
+            $('#loading-icon').toggle(100);
             card.update({ 'disabled': false });
             $('#submit-button').attr('disabled', false);
         } else {
