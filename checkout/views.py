@@ -40,6 +40,7 @@ def checkout_order(request, name):
         checkout_form = CheckoutForm(form_data)
         if checkout_form.is_valid():
             completed_order = checkout_form.save()
+            
             return redirect(
                 reverse('checkout_complete', args=[completed_order.order_id]))
 
