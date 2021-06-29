@@ -443,6 +443,12 @@ input:focus {
     padding: 10px;
 }
 
+/* --------------------------------------------------- CHECKOUT COMPLETE */
+
+#checkout-complete-summary-box {
+    margin-top: 40px;
+}
+
 /* --------------------------------------------------- LOGIN */
 
 #login-container {
