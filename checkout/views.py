@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 
 from plans.models import Plan
@@ -39,8 +39,9 @@ def checkout_order(request, name):
 
         checkout_form = CheckoutForm(form_data)
         if checkout_form.is_valid():
-            checkout_form.save()
-            return redirect(reverse('checkout_complete'))
+            completed_order = checkout_form.save()
+            return redirect(
+                reverse('checkout_complete', args=[completed_order.order_id]))
 
         else:
             messages.error(request, 'There was an error with your form. \
@@ -87,10 +88,17 @@ def checkout_order(request, name):
         return render(request, 'checkout/checkout-order.html', context=context)
 
 
-def checkout_complete(request):
+def checkout_complete(request, order_id):
     """A view that renders the order payment page"""
+
+    member_order = get_object_or_404(Order, order_id=order_id)
+    order_id = order_id
+
+    context = {
+        'member_order': member_order,
+    }
 
     if 'purchase' in request.session:
         del request.session['purchase']
 
-    return render(request, 'checkout/checkout-complete.html')
+    return render(request, 'checkout/checkout-complete.html', context=context)
