@@ -10,6 +10,34 @@
             <p>Your membership ID is: {{ member_order.order_id }}</p>
             <a href="" class="button">Visit Profile</a>
         </div>
+        <div id="checkout-complete-summary-box" class="col-12 col-md-6">
+            <table>
+                <tr>
+                    <p><strong>Summary</strong></p>
+                </tr>
+                <tr>
+                    <p>Plan name: {{ member_order.plan_friendly_name }}</p>
+                </tr>
+                <tr>
+                    <p>Plan type: {{ member_order.plan_type }}</p>
+                </tr>
+                <tr>
+                    {% if member_order.plan_type == 'subscription' %}
+                    <p>Price: {{ member_order.price }} per month</p>
+                    {% else %}
+                    <p>Price: £{{ member_order.price }}</p>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <p>Quantity: {{ member_order.qty }}</p>
+                </tr>
+            </table>
+            
+
+            </div>
+          
+          
+        </div>
     </div>
 </div>
 {% endblock %}
