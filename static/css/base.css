@@ -294,6 +294,10 @@ h1 {
     color: #fff;
 }
 
+#individual-long-description {
+    font-weight: 800;
+}
+
 .amenities-icon {
     color: #D91F44;
     font-size: 20px;
@@ -551,6 +555,10 @@ footer h4 {
 
     .map-pin i {
         font-size: 20px;
+    }
+    
+    #plan-description-contents {
+        text-align: center;
     }
 }
 
