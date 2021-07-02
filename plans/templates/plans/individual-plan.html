@@ -18,16 +18,17 @@
             <p>{{ plan.long_description }}</p>
         </div>
         <div class="col-12">
-            <p><i class="fas fa-hourglass-half"></i> {{ plan.hours_incl }}</p>
-            <p><i class="fas fa-clock"></i> {{ plan.access_times }}</p>
+            <p><i class="fas fa-hourglass-half amenities-icon"></i> {{ plan.hours_incl }}</p>
+            <p><i class="fas fa-clock amenities-icon"></i>  {{ plan.access_times }}</p>
             {% if plan.wifi == True %}
-                <p><i class="fas fa-wifi"></i> Super-fast wifi</p>
+                <p><i class="fas fa-wifi amenities-icon"></i>Super-fast wifi</p>
             {% endif %}
             {% if plan.disabled_access == True %}
-                <p><i class="fas fa-wheelchair"></i> Disabled access</p>
+                <p><i class="fas fa-wheelchair amenities-icon"></i> Disabled access</p>
             {% endif %}
             {% if plan.extra_info %}
-                <p><i class="fas fa-star"></i> Extras: {{ plan.extra_info }}</p>
+                <br>
+                <p><i class="fas fa-star amenities-icon"></i>{{ plan.extra_info }}</p>
             {% endif %}
         </div>
     </div>
