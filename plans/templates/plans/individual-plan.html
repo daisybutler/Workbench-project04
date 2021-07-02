@@ -17,6 +17,19 @@
         <div class="col-12">
             <p>{{ plan.long_description }}</p>
         </div>
+        <div class="col-12">
+            <p><i class="fas fa-hourglass-half"></i> {{ plan.hours_incl }}</p>
+            <p><i class="fas fa-clock"></i> {{ plan.access_times }}</p>
+            {% if plan.wifi == True %}
+                <p><i class="fas fa-wifi"></i> Super-fast wifi</p>
+            {% endif %}
+            {% if plan.disabled_access == True %}
+                <p><i class="fas fa-wheelchair"></i> Disabled access</p>
+            {% endif %}
+            {% if plan.extra_info %}
+                <p><i class="fas fa-star"></i> Extras: {{ plan.extra_info }}</p>
+            {% endif %}
+        </div>
     </div>
     <div class="row description-container">
         <div class="col-7 col-sm-9 col-xl-10">
