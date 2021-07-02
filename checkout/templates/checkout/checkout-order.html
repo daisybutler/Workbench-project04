@@ -37,26 +37,27 @@
                             readonly></textarea>
                     </div>
                     <div id="qty-selection-area" class="col-6">
-                        <label for="qty-dropdown">Qty:</label>
-                        <select name="qty" id="qty-dropdown" class="form-select" aria-label="qty">
-                            <option value="1" selected>1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6 (max)</option>
+                        {% if order.name == 'unlimited-plan' %}
+                        <input name="location" type="text" class="form-control" value="All locations"
+                            aria-label="Locations" readonly>
+                        {% else %}
+                        <label for="qty-dropdown">Location:</label>
+                        <select name="location" id="location-dropdown" class="form-select" aria-label="location">
+                            <option value="" disabled selected>Please select</option>
+                            {% for location in locations %}
+                            <option value="{{ location }}">{{ location }}</option>
+                            {% endfor %}
                         </select>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
-                        <input name="plan_type" id="plan_type_field" class="form-control" type="text"
-                            value="{{ order.plan_type }}" hidden>
-                    </div>
-                    <div class="col-6">
-                        <input name="plan_name" id="plan_name_field" class="form-control" type="text"
-                            value="{{ order.name }}" hidden>
-                    </div>
+                    <input name="plan_type" id="plan_type_field" class="form-control" type="text"
+                        value="{{ order.plan_type }}" hidden>
+                    <input name="plan_name" id="plan_name_field" class="form-control" type="text"
+                        value="{{ order.name }}" hidden>
+                    <input name="client_secret" id="client_secret" class="form-control" type="text"
+                        value="{{ client_secret }}" hidden>
                 </div>
                 <hr>
             </div>
@@ -65,9 +66,16 @@
             <div id="order-summary-box" class="col-12 col-md-4">
                 <h3>Order Summary</h3>
                 <div class="row">
+                    {% if order.name == 'unlimited-plan' %}
                     <div class="col-6">
-                        <p><span id="summary-qty">1 </span> x {{ order.friendly_name }}</p>
+                        <p>1 x {{ order.friendly_name }} for access to: <strong>All locations</strong></p>
                     </div>
+                    {% else %}
+                    <div class="col-6">
+                        <p>1 x {{ order.friendly_name }} for access to: <strong><span id="summary-location">(Please
+                                    select)</span></strong></p>
+                    </div>
+                    {% endif %}
                     {% if order.name == 'one-off-plan' %}
                     <div class="col-6">
                         <p>£<span id="summary-price">{{ order.price }}</span></p>
@@ -75,8 +83,7 @@
                     <div class="col-12">
                         <hr>
                         <p>Your card will be charged £<span id="summary-price-textarea">{{ order.price }}</span> today
-                            as a one
-                            off payment.</p>
+                            as a one-off payment.</p>
                         <hr>
                     </div>
                     {% else %}
@@ -291,12 +298,12 @@
 </div>
 </div>
 <div id="loading-icon">
-        <h1 class="loading-spinner">
-            <span class="icon">
-                <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-            </span>
-        </h1>
-    </div>
+    <h1 class="loading-spinner">
+        <span class="icon">
+            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        </span>
+    </h1>
+</div>
 {% endblock %}
 
 {% block extra_js %}
@@ -304,20 +311,12 @@
     $(document).ready(function () {
 
         // Updates the order summary to match user's changes.
-        var qty;
-        var price = $("#price-field").val();
+        var location;
 
-        // Updates the order summary qty to match user's qty input.
-        $("#qty-dropdown").change(function () {
-            qty = $(this).val();
-            $("#summary-qty").html(qty);
-
-            // Updates both price displays to match user's qty selection.
-            var newPrice = price * qty;
-            $("#price-field").val(newPrice);
-            $("#summary-price").html(newPrice);
-            $("#summary-price-textarea").html(newPrice);
-            $("#payment-warning").html(newPrice);
+        // Updates the order summary location to match user's location input.
+        $("#location-dropdown").change(function () {
+            location = $(this).val();
+            $("#summary-location").html(location);
         });
 
         // Get current date to start subscription from 
