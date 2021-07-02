@@ -5,8 +5,8 @@ from .models import Order
 class CheckoutForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('plan_name', 'plan_friendly_name', 'plan_type', 
-                  'qty', 'price', 'first_name',
+        fields = ('plan_name', 'plan_friendly_name', 'plan_type',
+                  'location', 'price', 'first_name',
                   'last_name', 'email', 'password',
                   'phone_number', 'billing_address', 'postcode',
                   'county')
