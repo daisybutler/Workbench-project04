@@ -8,6 +8,11 @@ class Plan(models.Model):
     plan_type = models.CharField(max_length=25)
     short_description = models.TextField()
     long_description = models.TextField()
+    hours_incl = models.TextField()
+    access_times = models.TextField()
+    wifi = models.BooleanField(default=True)
+    disabled_access = models.BooleanField(default=True)
+    extra_info = models.TextField()
 
     def __str__(self):
         return self.name
