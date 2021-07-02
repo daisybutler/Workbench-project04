@@ -294,6 +294,12 @@ h1 {
     color: #fff;
 }
 
+.amenities-icon {
+    color: #D91F44;
+    font-size: 20px;
+    padding-right: 5px;
+}
+
 /* --------------------------------------------------- LOCATIONS */
 
 #locations-map img {
