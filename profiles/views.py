@@ -9,5 +9,9 @@ def login(request):
 
 
 def profile(request):
+    """Display user's profile"""
 
-    return render(request, 'profiles/profile.html')
+    template = 'profiles/profile.html'
+    context = {}
+
+    return render(request, template, context)
