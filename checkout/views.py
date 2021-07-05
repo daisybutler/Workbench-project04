@@ -4,11 +4,13 @@ from django.conf import settings
 from plans.models import Plan
 from .forms import CheckoutForm
 from .models import Order
+from locations.models import Locations
 
 from django.contrib import messages
 from checkout.contexts import purchase_contents
 from decimal import Decimal
 import stripe
+import json
 
 
 def checkout_order(request, name):
@@ -16,6 +18,7 @@ def checkout_order(request, name):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     order = Plan.objects.get(name=name)
+    locations = Locations.objects.all()
 
     if request.method == 'POST':
         purchase = request.session.get('purchase', {})
@@ -25,7 +28,7 @@ def checkout_order(request, name):
             'plan_name': request.POST['plan_name'],
             'plan_type': request.POST['plan_type'],
             'plan_friendly_name': request.POST['plan_friendly_name'],
-            'qty': request.POST['qty'],
+            'location': request.POST['location'],
             'price': request.POST['price'],
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -39,8 +42,12 @@ def checkout_order(request, name):
 
         checkout_form = CheckoutForm(form_data)
         if checkout_form.is_valid():
-            completed_order = checkout_form.save()
-            
+            completed_order = checkout_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            completed_order.stripe_pid = pid
+            order.original_purchase = json.dumps(purchase)
+            completed_order.save()
+            print("COMPLETED_ORDER: ", completed_order.order_id)
             return redirect(
                 reverse('checkout_complete', args=[completed_order.order_id]))
 
@@ -81,6 +88,7 @@ def checkout_order(request, name):
 
         context = {
             'order': order,
+            'locations': locations,
             'checkout_form': checkout_form,
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
