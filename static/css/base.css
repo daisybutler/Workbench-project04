@@ -516,6 +516,20 @@ input:focus {
     margin-top: 50px;
 }
 
+/* --------------------------------------------------- ALLAUTH ACCOUNTS */
+
+.allauth-form-inner-content button {
+    background-color: #D91F44;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+}
+
+.allauth-form-inner-content button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 /* --------------------------------------------------- FOOTER */
 
 footer {
