@@ -9,7 +9,7 @@ class Order(models.Model):
     plan_type = models.CharField(max_length=25, null=False, blank=False)
     plan_friendly_name = models.CharField(
         max_length=200, null=False, blank=False)
-    qty = models.IntegerField(null=False, blank=False, default=0)
+    location = models.CharField(max_length=25, null=False, blank=False)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     first_name = models.CharField(max_length=25, null=False, blank=False)
@@ -21,6 +21,8 @@ class Order(models.Model):
     billing_address = models.CharField(max_length=80, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
 
     def _generate_order_id(self):
         """
