@@ -42,7 +42,7 @@
                             aria-label="Locations" readonly>
                         {% else %}
                         <label for="qty-dropdown">Location:</label>
-                        <select name="location" id="location-dropdown" class="form-select" aria-label="location">
+                        <select name="location" id="location-dropdown" class="form-select" aria-label="location" required>
                             <option value="" disabled selected>Please select</option>
                             {% for location in locations %}
                             <option value="{{ location }}">{{ location }}</option>
