@@ -45,9 +45,8 @@ def checkout_order(request, name):
             completed_order = checkout_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             completed_order.stripe_pid = pid
-            order.original_purchase = json.dumps(purchase)
+            completed_order.original_purchase = json.dumps(purchase)
             completed_order.save()
-            print("COMPLETED_ORDER: ", completed_order.order_id)
             return redirect(
                 reverse('checkout_complete', args=[completed_order.order_id]))
 
@@ -65,7 +64,6 @@ def checkout_order(request, name):
         purchase['price'] = int(order.price)
 
         request.session['purchase'] = purchase
-        print(purchase)
 
         if not purchase:
             messages.error(request, "Whoops, something went wrong. Please reselect a plan.")

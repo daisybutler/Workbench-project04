@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.conf import settings
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
@@ -12,6 +13,9 @@ class Order(models.Model):
     location = models.CharField(max_length=25, null=False, blank=False)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=False,
+                                     related_name='purchases')
     first_name = models.CharField(max_length=25, null=False, blank=False)
     last_name = models.CharField(max_length=25, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)

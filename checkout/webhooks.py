@@ -1,11 +1,29 @@
 from django.conf import settings
 from django.http import HttpResponse
+from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 
 from checkout.webhook_handler import StripeWH_Handler
 
 import stripe
+import json
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'purchase': json.dumps(request.session.get('purchase', {})),
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, ('Sorry, your payment cannot be '
+                                 'processed right now. Please try '
+                                 'again later.'))
+        return HttpResponse(content=e, status=400)
 
 
 @require_POST
@@ -33,6 +51,8 @@ def webhook(request):
         return HttpResponse(status=400)
     except Exception as e:
         return HttpResponse(content=e, status=400)
+    print('success!')
+    return HttpResponse(status=200)
 
     # Set up a webhook handler
     handler = StripeWH_Handler(request)
