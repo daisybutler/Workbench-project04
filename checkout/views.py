@@ -5,6 +5,8 @@ from plans.models import Plan
 from .forms import CheckoutForm
 from .models import Order
 from locations.models import Locations
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 from django.contrib import messages
 from checkout.contexts import purchase_contents
@@ -47,6 +49,21 @@ def checkout_order(request, name):
             completed_order.stripe_pid = pid
             completed_order.original_purchase = json.dumps(purchase)
             completed_order.save()
+
+            username = form_data['first_name'] + form_data['last_name']
+            email = form_data['password']
+            password = form_data['password']
+
+            User.objects.create_user(username, email, password)
+                                    
+            new_user = authenticate(
+                                    request,
+                                    username=username,
+                                    password=password,
+                                    )
+            if new_user is not None:
+                login(request, new_user)
+
             return redirect(
                 reverse('checkout_complete', args=[completed_order.order_id]))
 
