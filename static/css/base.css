@@ -479,31 +479,6 @@ input:focus {
     margin-top: 40px;
 }
 
-/* --------------------------------------------------- LOGIN */
-
-#login-container {
-    background: url('/media/homepage-image-mobile.jpg') no-repeat;
-}
-
-#login-box {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    padding: 50px;
-    background-color: #fff;
-    box-shadow: 5px 5px 15px #313131;
-    border-radius: 3px;
-}
-
-#login-box input {
-    background-color: #F7F7F7;
-    border: none;
-    margin-bottom: 10px;
-}
-
-#login-button {
-    padding-top: 30px;
-}
-
 /* --------------------------------------------------- PROFILE */
 
 #profile-plan-details {
@@ -517,6 +492,28 @@ input:focus {
 }
 
 /* --------------------------------------------------- ALLAUTH ACCOUNTS */
+
+#account-container {
+    background: url('/media/pot-and-cup.jpg') left bottom;
+    background-size: 1600px;
+   
+
+}
+
+#account-box {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px #313131;
+    border-radius: 3px;
+}
+
+#account-box input {
+    background-color: #F7F7F7;
+    border: none;
+    margin-bottom: 10px;
+}
 
 .allauth-form-inner-content button {
     background-color: #D91F44;
