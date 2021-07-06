@@ -8,7 +8,7 @@
             <h1>Checkout Successful</h1>
             <p>Your payment has been successfully processed. You can manage your plan on your profile.</p>
             <p>Your membership ID is: {{ member_order.order_id }}</p>
-            <a href="" class="button">Visit Profile</a>
+            <a href="{% url 'profile' %}" class="button">Visit Profile</a>
         </div>
         <div id="checkout-complete-summary-box" class="col-12 col-md-6">
             <table>
@@ -32,11 +32,7 @@
                     <p>Location: {{ member_order.location }}</p>
                 </tr>
             </table>
-            
-
             </div>
-          
-          
         </div>
     </div>
 </div>
