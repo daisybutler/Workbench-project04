@@ -53,11 +53,12 @@ def checkout_order(request, name):
             username = form_data['first_name'] + form_data['last_name']
             email = form_data['password']
             password = form_data['password']
+            first_name = form_data['first_name']
+            last_name = form_data['last_name']
 
             User.objects.create_user(username, email, password)
-                                    
-            new_user = authenticate(
-                                    request,
+                              
+            new_user = authenticate(request,
                                     username=username,
                                     password=password,
                                     )
