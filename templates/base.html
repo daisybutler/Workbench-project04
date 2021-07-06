@@ -89,21 +89,29 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-                        <li class="nav-item d-inline d-md-none">
-                            {% if request.user.is_authenticated %}
-                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                            {% else %}
-                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                            {% endif %}
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
                         </li>
+                        <li class="nav-item d-inline d-md-none">
+                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
-            <div id="header-login-button" class="d-none d-md-inline">
-                {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
+            <div class="header-login-button d-none d-md-inline">
                 <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </div>
                 {% else %}
+            <div class="header-login-button d-none d-md-inline"">
                 <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+            </div>
                 {% endif %}
             </div>
         </nav>
