@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
 from .forms import UserProfileForm
 from django.contrib import messages
+from checkout.models import Order
 
 
 def profile(request):
@@ -16,11 +17,13 @@ def profile(request):
             messages.success(request, 'Profile updated successfully')
 
     form = UserProfileForm(instance=profile)
+    orders = profile.purchases.all()
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'profile': profile,
+        'orders': orders,
     }
 
     return render(request, template, context)
