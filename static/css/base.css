@@ -498,6 +498,7 @@ input:focus {
     border: 1px solid #CED4DA;
     border-radius: 4px;
     padding: 8px;
+    background-color: #e5e9ec;
 }
 
 /* --------------------------------------------------- ALLAUTH ACCOUNTS */
