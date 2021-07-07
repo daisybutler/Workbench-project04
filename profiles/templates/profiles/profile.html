@@ -44,7 +44,7 @@
             <h3>Personal Information</h3>
             <form action="{% url 'profile' %}" method="POST" id="update-user-info-form">
                 <p>Username</p> 
-                <p class="readonly-personal-info">{{ profile }}</p>
+                <p class="readonly-personal-info" title="readonly">{{ profile }}</p>
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button class="button">Update Information</button>
