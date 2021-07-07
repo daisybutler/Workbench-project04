@@ -40,6 +40,10 @@ h1 {
     text-decoration: none;
 }
 
+.message-container {
+    z-index: 1000;
+}
+
 /* -------------------------------------------------- NAVBAR */
 
 .header-login-button {
@@ -488,6 +492,12 @@ input:focus {
 
 #profile-plan-details button {
     margin-top: 50px;
+}
+
+.readonly-personal-info {
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 8px;
 }
 
 /* --------------------------------------------------- ALLAUTH ACCOUNTS */
