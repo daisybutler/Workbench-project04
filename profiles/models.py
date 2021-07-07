@@ -6,13 +6,9 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_first_name = models.CharField(max_length=25, null=False, blank=False)
-    default_last_name = models.CharField(max_length=25, null=False, blank=False)
-    default_email = models.EmailField(max_length=254, null=False, blank=False)
-    default_password = models.CharField(max_length=25, null=False, blank=False)
-    default_phone_number = models.CharField(max_length=20, null=False, blank=False)
+    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_billing_address = models.CharField(max_length=80, null=False, blank=False)
+    default_billing_address = models.CharField(max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
 
     def __str__(self):
