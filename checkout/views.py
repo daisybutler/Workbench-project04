@@ -52,12 +52,18 @@ def checkout_order(request, name):
             completed_order.original_purchase = json.dumps(purchase)
             completed_order.save()
 
-            username = form_data['email']
+            # Create a user profile in the database
+            username = form_data['first_name'] + form_data['last_name']
             email = form_data['email']
             password = form_data['password']
 
-            User.objects.create_user(username, email, password)
-                              
+            user = User.objects.create_user(username, email, password)
+
+            user.first_name = form_data['first_name']
+            user.last_name = form_data['last_name']
+            user.save()
+
+            # Automatically login in new user
             new_user = authenticate(request,
                                     username=username,
                                     password=password,
@@ -95,23 +101,31 @@ def checkout_order(request, name):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        """
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
+                print(profile)
                 checkout_form = CheckoutForm(initial={
-                    'full_name': profile.user.get_full_name(),
-                    'email': profile.user.email,
+                    'plan_name': 'pkan',
+                    'plan_friendly_name': 'fjf ',
+                    'plan_type': 'cjkdk ',
+                    'location': 'cskjds ',
+                    'price': ' dkjsjkd',
+                    'first_name': profile.user.first_name,
+                    'last_name': profile.user.last_name,
                     'phone_number': profile.default_phone_number,
-                    'postcode': profile.default_postcode,
                     'billing_address': profile.default_billing_address,
+                    'postcode': profile.default_postcode,
                     'county': profile.default_county,
+                    'email': profile.user.email,
+                    'password': 'password',
                 })
+                print(checkout_form)
+
             except UserProfile.DoesNotExist:
                 checkout_form = CheckoutForm()
         else:
             checkout_form = CheckoutForm()
-        """
 
         order = Plan.objects.get(name=name)
         checkout_form = CheckoutForm()
@@ -134,23 +148,21 @@ def checkout_order(request, name):
 def checkout_complete(request, order_id):
     """A view that renders the order payment page"""
 
-    member_order = get_object_or_404(Order, order_id=order_id)
-    order_id = order_id
+    order = get_object_or_404(Order, order_id=order_id)
+    # order_id = order_id
 
     profile = UserProfile.objects.get(user=request.user)
     # Attach user's profile to order
-    member_order.user_profile = profile
-    member_order.save()
+    order.user_profile = profile
+    order.save()
 
     profile_data = {
-            'default_first_name': member_order.first_name,
-            'default_last_name': member_order.last_name,
-            'default_email': member_order.email,
-            'default_phone_number': member_order.phone_number,
-            'default_billing_address': member_order.billing_address,
-            'default_postcode': member_order.postcode,
-            'default_county': member_order.county,
+            'default_phone_number': order.phone_number,
+            'default_billing_address': order.billing_address,
+            'default_postcode': order.postcode,
+            'default_county': order.county,
             }
+    print(profile_data)
 
     user_profile_form = UserProfileForm(profile_data, instance=profile)
     if user_profile_form.is_valid():
@@ -158,10 +170,10 @@ def checkout_complete(request, order_id):
 
     messages.success(request, f'Order successfully processed! \
     Your order ID is {order_id}. A confirmation \
-    email will be sent to {member_order.email}.')
+    email will be sent to {order.email}.')
 
     context = {
-        'member_order': member_order,
+        'member_order': order,
     }
 
     if 'purchase' in request.session:
