@@ -18,12 +18,26 @@ class CheckoutForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'first_name': 'Full Name*',
-            'last_name': 'Last Name*',
-            'email': 'Email Address*',
-            'password': 'Password*',
-            'phone_number': 'Phone Number*',
-            'billing_address': 'Billing Address*',
-            'postcode': 'Postcode*',
-            'county': 'County*',
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'email': 'Email Address',
+            'password': 'Password',
+            'phone_number': 'Phone Number',
+            'billing_address': 'Billing Address',
+            'postcode': 'Postcode',
+            'county': 'County',
         }
+
+        # excluded_fields = 'plan_name', 'plan_friendly_name', 'plan_type', 'location', 'price'
+        self.fields['first_name'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            if field != 'plan_name':
+                if field != 'plan_friendly_name':
+                    if field != 'plan_type':
+                        if field != 'location':
+                            if field != 'price':
+                                if self.fields[field].required:
+                                    placeholder = f'{placeholders[field]} *'
+                                else:
+                                    placeholder = placeholders[field]
+                                self.fields[field].widget.attrs['placeholder'] = placeholder
