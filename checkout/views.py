@@ -34,6 +34,7 @@ def checkout_order(request, name):
             'plan_friendly_name': request.POST['plan_friendly_name'],
             'location': request.POST['location'],
             'price': request.POST['price'],
+            'price_id': request.POST['price_id'],
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
             'email': request.POST['email'],
@@ -81,11 +82,9 @@ def checkout_order(request, name):
     else:
         purchase = request.session.get('purchase', {})
         purchase['plan'] = name
-
-        # Need to fetch the inputed qunatity by user from form
-        # Need to somehow update payment intent after creation
         purchase['quantity'] = 1
         purchase['price'] = int(order.price)
+        purchase['price_id'] = order.price_id
 
         request.session['purchase'] = purchase
 
@@ -94,24 +93,35 @@ def checkout_order(request, name):
             return redirect(reverse('all_plans'))
 
         total = purchase['price']
-        qty = purchase['quantity']
+        # qty = purchase['quantity']
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount=round(total * 100) * qty,
+            amount=round(total * 100),
             currency=settings.STRIPE_CURRENCY,
         )
+
+    # try:
+        checkout_session = stripe.checkout.Session.create(
+            success_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/checkout/checkout-complete.html?session_id={CHECKOUT_SESSION_ID}',
+            cancel_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/plans/all_plans.html',
+            payment_method_types=['card'],
+            mode='subscription',
+            line_items=[{
+                'price': purchase['price_id'],
+                'quantity': 1
+            }],
+            )
 
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
-                print(profile)
                 checkout_form = CheckoutForm(initial={
                     'plan_name': 'pkan',
                     'plan_friendly_name': 'fjf ',
                     'plan_type': 'cjkdk ',
                     'location': 'cskjds ',
                     'price': ' dkjsjkd',
-                    'first_name': profile.user.first_name,
+                    'first_name': profile.user.get_full_name,
                     'last_name': profile.user.last_name,
                     'phone_number': profile.default_phone_number,
                     'billing_address': profile.default_billing_address,
@@ -120,7 +130,6 @@ def checkout_order(request, name):
                     'email': profile.user.email,
                     'password': 'password',
                 })
-                print(checkout_form)
 
             except UserProfile.DoesNotExist:
                 checkout_form = CheckoutForm()
@@ -143,6 +152,9 @@ def checkout_order(request, name):
         }
 
         return render(request, 'checkout/checkout-order.html', context=context)
+        
+    # except Exception as e:
+        # return messages.error(request, f'There was an error: {str(e)}')
 
 
 def checkout_complete(request, order_id):
@@ -151,32 +163,32 @@ def checkout_complete(request, order_id):
     order = get_object_or_404(Order, order_id=order_id)
     # order_id = order_id
 
-    profile = UserProfile.objects.get(user=request.user)
-    # Attach user's profile to order
-    order.user_profile = profile
-    order.save()
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach user's profile to order
+        order.user_profile = profile
+        order.save()
 
-    profile_data = {
-            'default_phone_number': order.phone_number,
-            'default_billing_address': order.billing_address,
-            'default_postcode': order.postcode,
-            'default_county': order.county,
-            }
-    print(profile_data)
+        profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_billing_address': order.billing_address,
+                'default_postcode': order.postcode,
+                'default_county': order.county,
+                }
 
-    user_profile_form = UserProfileForm(profile_data, instance=profile)
-    if user_profile_form.is_valid():
-        user_profile_form.save()
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! \
-    Your order ID is {order_id}. A confirmation \
-    email will be sent to {order.email}.')
+        messages.success(request, f'Order successfully processed! \
+        Your order ID is {order_id}. A confirmation \
+        email will be sent to {order.email}.')
 
-    context = {
-        'member_order': order,
-    }
+        context = {
+            'member_order': order,
+        }
 
-    if 'purchase' in request.session:
-        del request.session['purchase']
+        if 'purchase' in request.session:
+            del request.session['purchase']
 
-    return render(request, 'checkout/checkout-complete.html', context=context)
+        return render(request, 'checkout/checkout-complete.html', context=context)
