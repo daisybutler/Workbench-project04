@@ -13,15 +13,24 @@
             <h3>Your Plan</h3>
             <div class="row">
                 <div class="col-6">
-                    <p>Plan</p>
+                    <p>Plan: {{ item.plan_friendly_name }} ({{ item.plan_type }})</p>
                 </div>
                 <div class="col-6">
-                    <p>Price</p>
+                    {% if item.plan_type == 'Subscription' %}
+                        <p>Price: £{{ item.price }}/pm</p>
+                    {% else %}
+                    <p>Price: £{{ item.price }}</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <small>Next payment on: </small>
+                    {% if item.plan_type == 'Subscription' %}
+                        <small>Last payment: {{ item.date }}</small>
+                        <small>Next payment: </small>
+                    {% else %}
+                    <small>Payment taken: {{ item.date }}</small>
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
@@ -40,18 +49,25 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6">
+    </div>
+    <div id="personal-information" class="row">
+        <div class="col-12">
             <h3>Personal Information</h3>
             <form action="{% url 'profile' %}" method="POST" id="update-user-info-form">
-                <p>Username</p> 
-                <p class="readonly-personal-info" title="readonly">{{ profile }}</p>
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="button">Update Information</button>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p class="readonly-labels">Username</p> 
+                        <p class="readonly-personal-info" title="readonly">{{ profile }}</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="button">Update Information</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-
 </div>
 
 {% endblock %}
