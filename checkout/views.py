@@ -19,15 +19,18 @@ import json
 
 def checkout_order(request, name):
 
+    # Checkout variables
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     order = Plan.objects.get(name=name)
     locations = Locations.objects.all()
 
+    # If a user clicks pay
     if request.method == 'POST':
         purchase = request.session.get('purchase', {})
         order = Plan.objects.get(name=name)
 
+        # Gather data inputed by user in checkout form
         form_data = {
             'plan_name': request.POST['plan_name'],
             'plan_type': request.POST['plan_type'],
@@ -45,6 +48,7 @@ def checkout_order(request, name):
             'billing_address': request.POST['billing_address'],
         }
 
+        # Populate instance of CheckoutForm form with data
         checkout_form = CheckoutForm(form_data)
         if checkout_form.is_valid():
             completed_order = checkout_form.save(commit=False)
@@ -72,17 +76,21 @@ def checkout_order(request, name):
             if new_user is not None:
                 login(request, new_user)
 
+            # Redirect user to confirmation page
             return redirect(
                 reverse('checkout_complete', args=[completed_order.order_id]))
 
+        # If form is flagged as invalid
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
 
+    # Load blank checkout page for user to complete checkout form
     else:
+        # Grab context from session
         purchase = request.session.get('purchase', {})
         purchase['plan'] = name
-        purchase['quantity'] = 1
+        # purchase['quantity'] = 1
         purchase['price'] = int(order.price)
         purchase['price_id'] = order.price_id
 
@@ -92,6 +100,7 @@ def checkout_order(request, name):
             messages.error(request, "Whoops, something went wrong. Please reselect a plan.")
             return redirect(reverse('all_plans'))
 
+        # Create Stripe payment intent
         total = purchase['price']
         # qty = purchase['quantity']
         stripe.api_key = stripe_secret_key
@@ -100,27 +109,28 @@ def checkout_order(request, name):
             currency=settings.STRIPE_CURRENCY,
         )
 
-    # try:
-        checkout_session = stripe.checkout.Session.create(
-            success_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/checkout/checkout-complete.html?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/plans/all_plans.html',
-            payment_method_types=['card'],
-            mode='subscription',
-            line_items=[{
-                'price': purchase['price_id'],
-                'quantity': 1
-            }],
-            )
+        # Set up payment as 'subscription unless a one-off purchase
+        if purchase['plan'] != 'one-off-plan':
+            try:
+                checkout_session = stripe.checkout.Session.create(
+                    success_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/checkout/checkout-complete.html?session_id={CHECKOUT_SESSION_ID}',
+                    cancel_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/plans/all_plans.html',
+                    payment_method_types=['card'],
+                    mode='subscription',
+                    line_items=[{
+                        'price': purchase['price_id'],
+                        'quantity': 1
+                    }],
+                    )
+            except Exception as e:
+                return json.dumps({'error': {'message': str(e)}}), 400
 
+        # If user already as an account, try to grab 
+        # billing details from previous checkout
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 checkout_form = CheckoutForm(initial={
-                    'plan_name': 'pkan',
-                    'plan_friendly_name': 'fjf ',
-                    'plan_type': 'cjkdk ',
-                    'location': 'cskjds ',
-                    'price': ' dkjsjkd',
                     'first_name': profile.user.get_full_name,
                     'last_name': profile.user.last_name,
                     'phone_number': profile.default_phone_number,
@@ -131,14 +141,19 @@ def checkout_order(request, name):
                     'password': 'password',
                 })
 
+            # Render empty checkout form if user cannot be found
             except UserProfile.DoesNotExist:
                 checkout_form = CheckoutForm()
+
+        # Render empty checkout form if user not logged in
         else:
             checkout_form = CheckoutForm()
 
+        # Variables for newly created order
         order = Plan.objects.get(name=name)
         checkout_form = CheckoutForm()
 
+        # Stripe key reminder
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
                 Did you forget to set it in your environment?')
@@ -152,9 +167,6 @@ def checkout_order(request, name):
         }
 
         return render(request, 'checkout/checkout-order.html', context=context)
-        
-    # except Exception as e:
-        # return messages.error(request, f'There was an error: {str(e)}')
 
 
 def checkout_complete(request, order_id):
@@ -191,4 +203,5 @@ def checkout_complete(request, order_id):
         if 'purchase' in request.session:
             del request.session['purchase']
 
-        return render(request, 'checkout/checkout-complete.html', context=context)
+        return render(
+                request, 'checkout/checkout-complete.html', context=context)
