@@ -13,6 +13,7 @@ class Order(models.Model):
     location = models.CharField(max_length=25, null=False, blank=False)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
+    price_id = models.CharField(max_length=200, null=False, blank=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=False,
                                      related_name='purchases')
