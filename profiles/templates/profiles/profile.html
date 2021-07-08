@@ -23,11 +23,13 @@
             <div class="row">
                 <div class="col-12">
                     {% if item.plan_type == 'Subscription' %}
-                        <p>Price: £{{ item.price }}/pm</p>
-                        <small>Last payment: {{ item.date }}</small>
+                        <p> £{{ item.price }}/pm</p>
+                        <i class="fas fa-credit-card"></i><br>
+                        <small>Last payment: {{ item.date }}</small><br>
                         <small>Next payment: </small>
                     {% else %}
-                        <p>Price: £{{ item.price }}</p>
+                    <p>£{{ item.price }}</p>
+                        <i class="fas fa-credit-card"></i><br>
                         <small>Payment taken: {{ item.date }}</small>
                     {% endif %}
                 </div>
@@ -41,7 +43,7 @@
         <div id="plan-history"class="col-12 col-md-6 text-center">
             <h3>Plan History</h3>
             {% for order in orders %}
-                <a href="#">{{ order }}</a>
+                <a href="{% url 'order_history' order.order_id %}">{{ order }}</a>
             {% endfor %}
         </div>
     </div>
@@ -53,6 +55,7 @@
                     <div class="col-12 col-md-6">
                         <p class="readonly-labels">Username</p> 
                         <p class="readonly-personal-info" title="readonly">{{ profile }}</p>
+                        <p class="readonly-personal-info" title="readonly">{{ profile.email_address }}</p>
                     </div>
                     <div class="col-12 col-md-6">
                         {% csrf_token %}
