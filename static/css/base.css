@@ -495,7 +495,7 @@ input:focus {
 }
 
 #profile-plan-details button {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 #plan-history {
@@ -522,6 +522,11 @@ input:focus {
     background-color: #e5e9ec;
 }
 
+#profile-plan-details .fa-credit-card {
+    padding-top: 20px;
+    font-size: 30px;
+    color: #D91F44;
+}
 /* --------------------------------------------------- ALLAUTH ACCOUNTS */
 
 #account-container {
