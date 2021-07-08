@@ -16,14 +16,18 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
 
+    order_list = []
     form = UserProfileForm(instance=profile)
     orders = profile.purchases.all()
-
+    for order in orders:
+        item = Order.objects.get(order_id=order)
+    
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'profile': profile,
         'orders': orders,
+        'item': item,
     }
 
     return render(request, template, context)
