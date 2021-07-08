@@ -30,20 +30,3 @@ def profile(request):
     }
 
     return render(request, template, context)
-
-
-def order_history(request, order_id):
-
-    order = get_object_or_404(Order, order_id=order_id)
-    print(type(order_id))
-    print(order)
-
-    context = {
-        'order': order,
-    }
-
-    template = {
-        'profiles/order-history.html'
-    }
-
-    return render(request, template, context)
