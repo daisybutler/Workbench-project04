@@ -36,14 +36,14 @@ def order_history(request, order_id):
 
     order = get_object_or_404(Order, order_id=order_id)
     print(type(order_id))
-    print(type(order))
+    print(order)
 
     context = {
         'order': order,
     }
 
     template = {
-        'checkout/checkout-complete.html'
+        'profiles/order-history.html'
     }
 
     return render(request, template, context)
