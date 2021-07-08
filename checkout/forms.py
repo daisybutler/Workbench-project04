@@ -6,7 +6,7 @@ class CheckoutForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ('plan_name', 'plan_friendly_name', 'plan_type',
-                  'location', 'price', 'first_name',
+                  'location', 'price', 'price_id', 'first_name',
                   'last_name', 'email', 'password',
                   'phone_number', 'billing_address', 'postcode',
                   'county')
@@ -36,8 +36,9 @@ class CheckoutForm(forms.ModelForm):
                     if field != 'plan_type':
                         if field != 'location':
                             if field != 'price':
-                                if self.fields[field].required:
-                                    placeholder = f'{placeholders[field]} *'
-                                else:
-                                    placeholder = placeholders[field]
-                                self.fields[field].widget.attrs['placeholder'] = placeholder
+                                if field != 'price_id':
+                                    if self.fields[field].required:
+                                        placeholder = f'{placeholders[field]} *'
+                                    else:
+                                        placeholder = placeholders[field]
+                                    self.fields[field].widget.attrs['placeholder'] = placeholder
