@@ -9,27 +9,26 @@
         </div>
     </div>
     <div class="row">
-        <div id="profile-plan-details"class="col-12 col-md-6">
+        <div id="profile-plan-details"class="col-12 col-md-6 text-center">
             <h3>Your Plan</h3>
             <div class="row">
-                <div class="col-6">
-                    <p>Plan: {{ item.plan_friendly_name }} ({{ item.plan_type }})</p>
-                </div>
-                <div class="col-6">
+                <div class="col-12">
                     {% if item.plan_type == 'Subscription' %}
-                        <p>Price: £{{ item.price }}/pm</p>
+                        <p>{{ item.plan_friendly_name }} ({{ item.plan_type }})</p>
                     {% else %}
-                    <p>Price: £{{ item.price }}</p>
+                        <p>{{ item.plan_friendly_name }} Credit <small>(60 min)</small></p>
                     {% endif %}
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     {% if item.plan_type == 'Subscription' %}
+                        <p>Price: £{{ item.price }}/pm</p>
                         <small>Last payment: {{ item.date }}</small>
                         <small>Next payment: </small>
                     {% else %}
-                    <small>Payment taken: {{ item.date }}</small>
+                        <p>Price: £{{ item.price }}</p>
+                        <small>Payment taken: {{ item.date }}</small>
                     {% endif %}
                 </div>
             </div>
@@ -39,15 +38,11 @@
                 </div>
             </div>
         </div>
-        <div id="plan-history"class="col-12 col-md-6">
+        <div id="plan-history"class="col-12 col-md-6 text-center">
             <h3>Plan History</h3>
-            <div class="row">
-                <div class="col-6">
-                    {% for order in orders %}
-                        <p>Order ID: {{ order }}</p>
-                    {% endfor %}
-                </div>
-            </div>
+            {% for order in orders %}
+                <a href="#">{{ order }}</a>
+            {% endfor %}
         </div>
     </div>
     <div id="personal-information" class="row">
