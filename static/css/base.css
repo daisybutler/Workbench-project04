@@ -490,8 +490,21 @@ input:focus {
     margin-bottom: 60px;
 }
 
+#profile-plan-details h3 {
+    padding-bottom: 20px;
+}
+
 #profile-plan-details button {
     margin-top: 50px;
+}
+
+#plan-history {
+    padding: 40px;
+    margin-bottom: 60px;
+}
+
+#plan-history h3 {
+    padding-bottom: 20px;
 }
 
 #personal-information {
