@@ -498,16 +498,7 @@ input:focus {
     margin-top: 30px;
 }
 
-#plan-history {
-    padding: 40px;
-    margin-bottom: 60px;
-}
-
-#plan-history h3 {
-    padding-bottom: 20px;
-}
-
-#personal-information {
+#profile-personal-info {
     padding-bottom: 60px;
 }
 
