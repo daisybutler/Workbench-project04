@@ -56,15 +56,6 @@
 </head>
 
 <body>
-
-    {% if messages %}
-    {% for message in messages %}
-    <div class="message-container">
-        <p>{{ message }}</p>
-    </div>
-    {% endfor %}
-    {% endif %}
-
     {% block page_header %}
     <header class="container-fluid fixed-top">
 
@@ -121,6 +112,13 @@
         </nav>
     </header>
     {% endblock %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="message-container">
+        <p>{{ message }}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
 
     {% block content %}
     {% endblock %}
