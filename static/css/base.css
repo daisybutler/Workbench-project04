@@ -41,7 +41,11 @@ h1 {
 }
 
 .message-container {
-    z-index: 1000;
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px 0 10px 0;
+    background-color: #D91F44;
+    color: #fff;
 }
 
 /* -------------------------------------------------- NAVBAR */
