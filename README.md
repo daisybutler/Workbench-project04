@@ -116,7 +116,6 @@ During my research, I was influenced heavily by the global workspace provider ![
 
 2. Scope Plane
 Having identified the main requirements and style for a workspace site, I investigated the scope of creating a website to satisfy it. The primary feature and main attraction of the website would to allow a user to make a plan purchase in order to access a Workbench. This process must be simple and the exact features included must be easy to identify. In order to fullfill this, the whole site must be orientated around getting the user to the checkout page. The site will achieve this in a subtle way by displaying multiple calls to action throughout the site which encourage the user to enquiry into more details about a plan and then continue to a checkout page.
-
 In addition to this, the website must display information to the user about the times of plans and locations offers. Details about prices and included features must be accessible and clearly displayed, as well as easy location browsing for comfirmation of accessibility for the individual. This is will be achieved by a dedicated page for each plan which sets out all of the features included in a uniform fashion. Locations are also easily found usin the map on the locations page.
 
 3. Structure Plane
@@ -135,6 +134,8 @@ The Login button takes the user to a loin page where, if they are an existing Wo
 
 5. Surface Plane
 
+I wanted the Workbench design to be simple with a light colour scheme since desirable workspace should be open and have plenty of light; a site to convey this vibe is therefore an important part of the marketing process. I chose red as the accent colour based off a personal liking for its combination with white and other neutral colours. It also has corporate vibes and, since this is the market the site is looking to target, the choice makes sense.
+
 
 - **Colours**
     - #FFFFFF white (background)
@@ -146,8 +147,15 @@ The Login button takes the user to a loin page where, if they are an existing Wo
 - **Fonts**
     - Headings - Open Sans semi-bold 600
     - Paragraphs - Open Sans regular 400
+The choice of Open Sans for the text on the site was based on its neutrality as a font. It is easy to read and the san-serif gives the site a modern feel.
 
 ### Wireframe Mockups
+![Home]()
+![Plans]()
+![Locations]()
+![Contact]()
+![Profile]()
+![Login]()
 
 ## Features
 
@@ -179,4 +187,4 @@ Testing information can be found in this [TESTING.md file](TESTING.md).
 
 ## Credits
 
-county dropdown list [https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12](https://www.notion.so/4dcbf64e06aae132c12a8b9d302fae12)
+A complete county dropdown list was taken from [https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12](https://www.notion.so/4dcbf64e06aae132c12a8b9d302fae12)
