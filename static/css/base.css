@@ -313,6 +313,11 @@ h1 {
 
 /* --------------------------------------------------- LOCATIONS */
 
+#google-maps {
+    min-height: 400px;
+    margin-bottom: 200px;
+}
+
 #locations-map img {
     max-width: 100%;
     max-width: 100%;
