@@ -486,6 +486,12 @@ input:focus {
     margin-top: 40px;
 }
 
+/* --------------------------------------------------- CONTACT */
+
+#contact-page {
+    margin-bottom: 200px;
+}
+
 /* --------------------------------------------------- PROFILE */
 
 #profile-plan-details {
@@ -573,6 +579,10 @@ footer h4 {
     .plans-heading {
         min-height: 200px;
     }
+    #contact-page {
+        text-align: center;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {
