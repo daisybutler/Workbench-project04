@@ -37,6 +37,14 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <div id="google-maps"></div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block postloadjs %}
@@ -48,5 +56,36 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 </script>
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById("google-maps"), {
+            zoom: 5,
+            center: {
+                lat: 55.378051,
+                lng: -3.435973,
+            }
+        });
+
+        var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        var locations = [
+            {lat: 53.55000, lng: -1.600000},
+        ];
+
+        var markers = locations.map(function(location, i){
+            return new google.maps.Marker({
+                position: location,
+                label: labels[i % labels.length]
+            });
+        });
+
+        var markerCluster = new MarkerClusterer(map, markers, { imagePath:
+        'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+    }
+</script>
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-QJ9GOPVT84-nEe9NzEm_uAmmPTj-DQ0&callback=initMap"></script>
+
 
 {% endblock %}
