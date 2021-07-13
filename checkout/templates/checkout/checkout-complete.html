@@ -2,34 +2,36 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
+<div id="order-confirm-page" class="container">
     <div class="row">
         <div class="col-12">
             <h1>Checkout Successful</h1>
-            <p>Your payment has been successfully processed. You can manage your plan on your profile.</p>
-            <p>Your membership ID is: {{ member_order.order_id }}</p>
+            <p>Your payment has been successfully processed and your Workbench membership is now active. You can manage your plan on your profile.</p>
+            <p>To log in to your account, we have assigned you the username: {{ profile }}</p>
+            <br>
             <a href="{% url 'profile' %}" class="button">Visit Profile</a>
         </div>
         <div id="checkout-complete-summary-box" class="col-12 col-md-6">
             <table>
                 <tr>
-                    <p><strong>Summary</strong></p>
+                    <h3><strong><i class="fas fa-clipboard-list"></i> Summary</strong></h3>
+                </tr>
+                <hr>
+                <tr>
+                    <p><i class="fas fa-file-signature"></i> Plan name: {{ member_order.plan_friendly_name }}</p>
                 </tr>
                 <tr>
-                    <p>Plan name: {{ member_order.plan_friendly_name }}</p>
-                </tr>
-                <tr>
-                    <p>Plan type: {{ member_order.plan_type }}</p>
+                    <p><i class="fas fa-search"></i> Plan type: {{ member_order.plan_type }}</p>
                 </tr>
                 <tr>
                     {% if member_order.plan_type == 'subscription' %}
-                    <p>Price: {{ member_order.price }} per month</p>
+                    <p><i class="fas fa-tag"></i> Price: {{ member_order.price }} per month</p>
                     {% else %}
-                    <p>Price: £{{ member_order.price }}</p>
+                    <p><i class="fas fa-tag"></i> Price: £{{ member_order.price }}</p>
                     {% endif %}
                 </tr>
                 <tr>
-                    <p>Location: {{ member_order.location }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Location: {{ member_order.location }}</p>
                 </tr>
             </table>
             </div>

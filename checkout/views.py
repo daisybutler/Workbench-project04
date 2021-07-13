@@ -198,6 +198,7 @@ def checkout_complete(request, order_id):
 
         context = {
             'member_order': order,
+            'profile': profile,
         }
 
         if 'purchase' in request.session:
