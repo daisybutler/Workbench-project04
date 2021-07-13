@@ -188,3 +188,5 @@ Testing information can be found in this [TESTING.md file](TESTING.md).
 ## Credits
 
 A complete county dropdown list was taken from [https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12](https://www.notion.so/4dcbf64e06aae132c12a8b9d302fae12)
+
+disabling sign up view: [https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664]
