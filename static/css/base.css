@@ -492,6 +492,13 @@ input:focus {
 
 #checkout-complete-summary-box {
     margin-top: 40px;
+    background-color: #EEECE7;
+    padding: 30px;
+    margin-bottom: 100px;
+}
+
+#checkout-complete-summary-box i {
+    color: #D91F44;
 }
 
 /* --------------------------------------------------- CONTACT */
@@ -588,6 +595,9 @@ footer h4 {
         min-height: 200px;
     }
     #contact-page {
+        text-align: center;
+    }
+    #order-confirm-page {
         text-align: center;
     }
     
