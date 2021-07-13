@@ -1,13 +1,25 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from .models import Locations
+import json
 
 
 def locations(request):
 
     locations = Locations.objects.all()
 
+    coords = {}
+    for location in locations:
+        name = location.location
+        value = {
+            "lat": location.lat,
+            "lng": location.lng,
+        }
+
+        coords[name] = value
+
     context = {
         'locations': locations,
+        'coords': coords,
     }
 
     return render(request, 'locations/locations.html', context)

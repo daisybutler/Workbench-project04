@@ -11,10 +11,12 @@
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2">
             <div id="google-maps"></div>
-            <div hidden>
+            <input id="coords" type="text" value="{{ coords }}" hidden>
+                <!--
                 {% for location in locations %}
                 <p class="place" id="{{ location }}">{lat: {{ location.lat }}, lng: {{ location.lng }}}</p>
                 {% endfor %}
+                --->
             </div>
         </div>
     </div>
@@ -50,10 +52,14 @@
 
         var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+        var coords = document.getElementById("coords").value;
+        var data = JSON.parse(JSON.stringify(coords));
+        console.log(typeof(data))
+
         var coords = document.getElementById("Exeter").innerText;
         var locationLat = parseFloat(coords.slice(5, 14))
         var locationLng = parseFloat(coords.slice(21, 31))
-
+        
         var locations = [
             { lat: locationLat, lng: locationLng }, 
             { lat: 52.67867, lng: -0.67889 }
@@ -76,8 +82,7 @@
 
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
 </script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-QJ9GOPVT84-nEe9NzEm_uAmmPTj-DQ0&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgomc-q9c2W7Jrnp31nQvqmc9wBJJ7bc&callback=initMap"></script>
 
 
 {% endblock %}
