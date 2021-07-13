@@ -2,10 +2,12 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
+{% block head_title %}{% trans "Sign Up Unauthorised" %}{% endblock %}
 
 {% block inner_content %}
-<h1>{% trans "Sign Up Closed" %}</h1>
+<h1>{% trans "Sign Up Unauthorised" %}</h1>
 
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+<p>{% trans "We are sorry, only paying members can create and access a Workbench profile." %}</p><br>
+<a class="button" href="{% url 'all_plans' %}">Purchase a Plan</a><br><br>
+<p>or <a href="{% url 'account_login' %}">Sign In</a></p>
 {% endblock %}
