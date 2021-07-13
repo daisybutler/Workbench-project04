@@ -314,10 +314,11 @@ h1 {
 /* --------------------------------------------------- LOCATIONS */
 
 #google-maps {
-    min-height: 400px;
-    margin-bottom: 200px;
+    min-height: 500px;
+    margin-bottom: 50px;
 }
 
+/*
 #locations-map img {
     max-width: 100%;
     max-width: 100%;
@@ -386,6 +387,8 @@ h1 {
 #locations-list {
     margin-top: 30px;
 }
+
+*/
 
 #plan-select-contents {
     margin-bottom: 50px;
