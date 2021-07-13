@@ -9,24 +9,13 @@
         </div>
     </div>
     <div class="row">
-        <div id="locations-map" class="col-12 col-md-8 offset-md-2">
-            <img src="/media/locations-map.png" alt="locations-map">
-            <button id="ldn-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="London"><i
-                    class="fas fa-map-marker-alt"></i></button>
-            <button id="man-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="Manchester"><i
-                    class="fas fa-map-marker-alt"></i></button>
-            <button id="bmgh-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="Birmingham"><i
-                    class="fas fa-map-marker-alt"></i></button>
-            <button id="bstl-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="Bristol"><i
-                    class="fas fa-map-marker-alt"></i></button>
-            <button id="ext-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="Exeter"><i
-                    class="fas fa-map-marker-alt"></i></button>
-            <button id="ncl-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="Newcastle"><i
-                    class="fas fa-map-marker-alt"></i></button>
-            <button id="lds-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="Leeds"><i
-                    class="fas fa-map-marker-alt"></i></button>
-            <button id="cmb-pin" class="map-pin" data-bs-toggle="tooltip" data-bs-placement="top" title="Cambridge"><i
-                    class="fas fa-map-marker-alt"></i></button>
+        <div class="col-12 col-md-8 offset-md-2">
+            <div id="google-maps"></div>
+            <div hidden>
+                {% for location in locations %}
+                <p class="place" id="{{ location }}">{lat: {{ location.lat }}, lng: {{ location.lng }}}</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <div class="row">
@@ -34,19 +23,6 @@
             <p id="locations-description">Access the Workbench nearest to you on our standard plan. Access any Workbench
                 across the country on our flexible plan.</p>
             <a class="button" href="{% url 'all_plans' %}">Select Plan</a>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-8 offset-md-2">
-            <div id="google-maps"></div>
-            <div>
-                {% for location in locations %}
-                <p id="{{ location }}">{lat: {{ location.lat }}, lng: {{ location.lng }}}</p>
-                {% endfor %}
-            </div>
         </div>
     </div>
 </div>
@@ -80,8 +56,9 @@
 
         var locations = [
             { lat: locationLat, lng: locationLng }, 
-            { lat: 52.678, lng: -0.678 }
-    ];
+            { lat: 52.67867, lng: -0.67889 }
+        ];
+        console.log(locations)
 
         var markers = locations.map(function (location, i) {
             return new google.maps.Marker({
@@ -89,6 +66,7 @@
                 label: labels[i % labels.length]
             });
         });
+        console.log(markers)
 
         var markerCluster = new MarkerClusterer(map, markers, {
             imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
