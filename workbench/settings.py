@@ -113,6 +113,9 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
+ACCOUNT_ADAPTER = 'workbench.account_adapter.NoNewUsersAccountAdapter'
+ACCOUNT_ALLOW_SIGNUPS = False
+
 WSGI_APPLICATION = 'workbench.wsgi.application'
 
 
