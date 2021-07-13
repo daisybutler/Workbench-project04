@@ -504,7 +504,12 @@ input:focus {
 /* --------------------------------------------------- CONTACT */
 
 #contact-page {
-    margin-bottom: 200px;
+    margin-bottom: 50px;
+}
+
+#contact-page-image {
+    max-width: 100%;
+    padding-top: 20px;
 }
 
 /* --------------------------------------------------- PROFILE */
@@ -600,7 +605,6 @@ footer h4 {
     #order-confirm-page {
         text-align: center;
     }
-    
 }
 
 @media screen and (max-width: 768px) {
