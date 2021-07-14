@@ -224,6 +224,35 @@ The project features custom Django models in the plans, locations, checkout and 
 
 ## Technologies Used
 
+### Languages
+- HTML - base language for this project.
+- CSS - used for styling the HTML code.
+- **[JavaScript](https://www.javascript.com/)** - used to make the website interactive.
+- **[Python3](https://www.python.org/download/releases/3.0/)** - used to build the backend of this project.
+- **[Jinja](https://jinja.palletsprojects.com/en/2.11.x/)** - this project uses the templating language Jinja for incorporating Python functionality into the frontend.
+
+### Tools
+- [**Gitpod**](https://www.gitpod.io/) - the IDE Gitpod was used in the building process of this website.
+- [**HTML Validation**](https://validator.w3.org/) - HTML was validated using W3C Validator.
+- [**CSS Validation**](https://jigsaw.w3.org/css-validator/) - CSS was validated using W3C CSS Validator.
+- [**JSHint**](https://jshint.com/) - Javascript was validated using JSHint.
+- [**PEP8 Online**](http://pep8online.com/) - Python was validated using PEP8 Online.
+- [**Free Formatter**](https://www.freeformatter.com/) - Free Formatter was used to format all HTML, CSS and Javascript files.
+- [**Google Chrome DevTools**](https://developers.google.com/web/tools/chrome-devtools) - DevTools were used to debug and test code in the browser.
+
+### Frameworks
+- **[Django](https://www.djangoproject.com/)** - this project uses the Django Python web framework for creating a fullstack application.
+- - **[Bootstrap](https://www.getbootstrap.com/)** - this project uses Bootstrap to optimise its layout and structure in the frontend.
+
+### Libraries
+- **[FontAwesome](https://fontawesome.com/)** - this project uses FontAwesome 5 to provide icons.
+- **[Google Fonts](https://fonts.google.com/)** - this project uses Google Fonts to style the website's fonts.
+
+### APIs
+- **[EmailJS](https://www.emailjs.com/)** - this project uses EmailJS API to facilitate the sending of emails from users to site owner via to the Contact page.
+- **[Google Maps API](https://www.emailjs.com/)** - this project uses the Google Maps API to render the interactive Javascript map on the Locations page.
+- **[Stripe](https://www.emailjs.com/)** - this project uses Stripe to facilitate e-commerce functionality in the site's checkout app.
+
 ## Testing
 
 Testing information can be found in this [TESTING.md file](TESTING.md).
