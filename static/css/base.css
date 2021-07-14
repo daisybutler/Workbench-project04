@@ -412,6 +412,10 @@ h1 {
     padding-bottom: 200px;
 }
 
+.checkout-heading {
+    padding-left: 0;
+}
+
 #order-summary-box {
     background-color: #EEECE7;
     padding: 20px;
@@ -466,6 +470,14 @@ input:focus {
 
 .checkout-input {
     padding: 10px;
+}
+
+#payment-details {
+    padding-left: 0;
+}
+
+#payment-details ~ .submit-button {
+    padding-left: 0;
 }
 
 #loading-icon {
