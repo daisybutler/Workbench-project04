@@ -12,7 +12,6 @@ from django.contrib.auth import authenticate, login
 
 from django.contrib import messages
 from checkout.contexts import purchase_contents
-from decimal import Decimal
 import stripe
 import json
 
@@ -138,7 +137,6 @@ def checkout_order(request, name):
                     'postcode': profile.default_postcode,
                     'county': profile.default_county,
                     'email': profile.user.email,
-                    'password': 'password',
                 })
 
             # Render empty checkout form if user cannot be found
