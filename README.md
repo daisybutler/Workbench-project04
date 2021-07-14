@@ -159,6 +159,37 @@ The choice of Open Sans for the text on the site was based on its neutrality as 
 
 ## Features
 
+### Home
+The homepage gives the user a simple idea of the service offered with a large landing image and description. Then all three types of plans are set out with call to action buttons to take the user to a page with more information about each one. Beneath this as a section describing multiple locations to access and a button to the Locations page. Below this is a three step guide to how using the Workbench service works and a final call to action at the bottom leading to the all plans page.
+
+### Plans
+The plans page presents the different purchasing options to the user, divided up based on their type. Passes for the whole month are in one box and one-off passes are in the box below. Each individual type of plan as a button which the user can click to take them to a page with the full description of that plan only.
+
+### Individual Plan
+Each individual plan lists the plan's full details in a clear and easy to read format, including icons to break up the text. The user can either return to the previous page by clickin the 'All Plans' button or click 'Continue' to proceed to checkout with this plan.
+
+### Checkout
+The checkout page is generated with the plan fields pre-populated based on what plan page the user came from. An order summary appears to the right of this. The user must fill out their billing, account and payment details before clicking the submit payment button. On successful payment, the user is redirected to the checkout complete page.
+
+### Checkout Complete
+The checkout complete page displays a message to indicate that the payment as been successful and the membership is active. The plan details are also summarised below. A 'Visit Profile' encourages the user to visit their profile since an account has automatically been created for them in the database upon successful checkout.
+
+### Profile
+The profile page is only accessible for authenticated users and appears as a navigable link in the navbar if the user is logged in. The plan the user has purchased appears in a summary box, including details about when the plan is valid for. Below this, the user can find their username and a link to chane their account password. They can also update their default billin information on directly on the page.
+
+### Locations
+The locations page renders an interactive map using the Google Map API. Users can see all of the locations where a Workbench can be access, which is a specification they need to make at checkout if they pick a one-off or standard plan. A call to action at the bottom of the page invites users to view the plans page.
+
+### Contact
+The Contact page renders fields which allows them to submit a question or enquiry to the site owner via the EmailJS API. All fields are required before the user can submit their message and an email is sent to the site email address with a reply email.
+
+### Login
+The login page displays in the navbar for users who are not authenticated. The page renders the django user login fields and a message indicating that only paying members are assigned an account. An option to choose a plan is given with the button to the plans page.
+
+### Logout
+The logout page displays in the navbar for users who are authenticated. The page renders a confrimation that the user wishes to log out and a log out button.
+
+
 ### CRUD Functionality
 
 ### Payment Functionality
