@@ -192,11 +192,29 @@ The logout page displays in the navbar for users who are authenticated. The page
 
 ### CRUD Functionality
 
-### Payment Functionality
+Users can create and manipulate data to be stored in the database as follows:
+- CREATE an account as the product of a successful checkout process, which stores the personal details oof the user in a user profile in the database.
+- READ their details, both personal and plan choice, on their profile page. Read about the types of plans and locations available rendered from the database on the site.
+- UPDATE their personal details, including billingg details and account password, on their profile page.
+- DELETE their account using the delete membership button.
+
+### User Authentication
+The site makes full use of the Django authentication system. Users have an account created for them on checkout and they can log in and out of the site with their username and chosen password. Manual siggnup is not possible since a user must have made a purchase to have an account, so the built-in signup view is blocked. Logging in allows the user access their stored personal details and the plan they have purchased. The profile page is only accessible if a user is authenticated.
+
+### User Interaction
+The user can create an order model in the checkout process as well as a profile model. Their use of these models can be edited via the profile pae where they can update their details or delete their profile and membership entirely.
+
+### Stripe Implementation
+The checkout app provides the site with e-commerce functionality using Stripe. After paying successfully, the user gains access to authenticated side of the site and has an active Workbench membership. This project uses Stripe's test functionality rather than actual live payments.
+
+### Structure and Navigation
+The project uses the Bootstrap framework to accomplish an aestheitc and fully-responsive layout. A navbar is present with links to all of the site's pages. On mobile devices this collapses in to a toggleable element to the left-hand side.
 
 ### Interactive Features
+The site makews use of Javascript to provide an interactive experience for the user. The locations page features an interactive map powered by Google Maps API where a user can scroll and view the labels of all of the Workbench locations.
 
 ## Database Structure
+The project features custom Django models in the plans, locations, checkout and profile apps. Each order model created at checkout is associated with a user model in the database via the userProfile foreign key, creating a relationship between the two entities.
 
 #### Structure Overview
 
