@@ -251,7 +251,7 @@ The project features custom Django models in the plans, locations, checkout and 
 ### APIs
 - **[EmailJS](https://www.emailjs.com/)** - this project uses EmailJS API to facilitate the sending of emails from users to site owner via to the Contact page.
 - **[Google Maps API](https://www.emailjs.com/)** - this project uses the Google Maps API to render the interactive Javascript map on the Locations page.
-- **[Stripe](https://www.emailjs.com/)** - this project uses Stripe to facilitate e-commerce functionality in the site's checkout app.
+- **[Stripe](https://www.stripe.com/)** - this project uses Stripe to facilitate e-commerce functionality in the site's checkout app.
 
 ## Testing
 
