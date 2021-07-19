@@ -159,13 +159,62 @@ The choice of Open Sans for the text on the site was based on its neutrality as 
 
 ## Features
 
+### Home
+The homepage gives the user a simple idea of the service offered with a large landing image and description. Then all three types of plans are set out with call to action buttons to take the user to a page with more information about each one. Beneath this as a section describing multiple locations to access and a button to the Locations page. Below this is a three step guide to how using the Workbench service works and a final call to action at the bottom leading to the all plans page.
+
+### Plans
+The plans page presents the different purchasing options to the user, divided up based on their type. Passes for the whole month are in one box and one-off passes are in the box below. Each individual type of plan as a button which the user can click to take them to a page with the full description of that plan only.
+
+### Individual Plan
+Each individual plan lists the plan's full details in a clear and easy to read format, including icons to break up the text. The user can either return to the previous page by clickin the 'All Plans' button or click 'Continue' to proceed to checkout with this plan.
+
+### Checkout
+The checkout page is generated with the plan fields pre-populated based on what plan page the user came from. An order summary appears to the right of this. The user must fill out their billing, account and payment details before clicking the submit payment button. On successful payment, the user is redirected to the checkout complete page.
+
+### Checkout Complete
+The checkout complete page displays a message to indicate that the payment as been successful and the membership is active. The plan details are also summarised below. A 'Visit Profile' encourages the user to visit their profile since an account has automatically been created for them in the database upon successful checkout.
+
+### Profile
+The profile page is only accessible for authenticated users and appears as a navigable link in the navbar if the user is logged in. The plan the user has purchased appears in a summary box, including details about when the plan is valid for. Below this, the user can find their username and a link to chane their account password. They can also update their default billin information on directly on the page.
+
+### Locations
+The locations page renders an interactive map using the Google Map API. Users can see all of the locations where a Workbench can be access, which is a specification they need to make at checkout if they pick a one-off or standard plan. A call to action at the bottom of the page invites users to view the plans page.
+
+### Contact
+The Contact page renders fields which allows them to submit a question or enquiry to the site owner via the EmailJS API. All fields are required before the user can submit their message and an email is sent to the site email address with a reply email.
+
+### Login
+The login page displays in the navbar for users who are not authenticated. The page renders the django user login fields and a message indicating that only paying members are assigned an account. An option to choose a plan is given with the button to the plans page.
+
+### Logout
+The logout page displays in the navbar for users who are authenticated. The page renders a confrimation that the user wishes to log out and a log out button.
+
+
 ### CRUD Functionality
 
-### Payment Functionality
+Users can create and manipulate data to be stored in the database as follows:
+- CREATE an account as the product of a successful checkout process, which stores the personal details oof the user in a user profile in the database.
+- READ their details, both personal and plan choice, on their profile page. Read about the types of plans and locations available rendered from the database on the site.
+- UPDATE their personal details, including billingg details and account password, on their profile page.
+- DELETE their account using the delete membership button.
+
+### User Authentication
+The site makes full use of the Django authentication system. Users have an account created for them on checkout and they can log in and out of the site with their username and chosen password. Manual siggnup is not possible since a user must have made a purchase to have an account, so the built-in signup view is blocked. Logging in allows the user access their stored personal details and the plan they have purchased. The profile page is only accessible if a user is authenticated.
+
+### User Interaction
+The user can create an order model in the checkout process as well as a profile model. Their use of these models can be edited via the profile pae where they can update their details or delete their profile and membership entirely.
+
+### Stripe Implementation
+The checkout app provides the site with e-commerce functionality using Stripe. After paying successfully, the user gains access to authenticated side of the site and has an active Workbench membership. This project uses Stripe's test functionality rather than actual live payments.
+
+### Structure and Navigation
+The project uses the Bootstrap framework to accomplish an aestheitc and fully-responsive layout. A navbar is present with links to all of the site's pages. On mobile devices this collapses in to a toggleable element to the left-hand side.
 
 ### Interactive Features
+The site makews use of Javascript to provide an interactive experience for the user. The locations page features an interactive map powered by Google Maps API where a user can scroll and view the labels of all of the Workbench locations.
 
 ## Database Structure
+The project features custom Django models in the plans, locations, checkout and profile apps. Each order model created at checkout is associated with a user model in the database via the userProfile foreign key, creating a relationship between the two entities.
 
 #### Structure Overview
 
@@ -174,6 +223,35 @@ The choice of Open Sans for the text on the site was based on its neutrality as 
 ### Features to Implement in the Future
 
 ## Technologies Used
+
+### Languages
+- HTML - base language for this project.
+- CSS - used for styling the HTML code.
+- **[JavaScript](https://www.javascript.com/)** - used to make the website interactive.
+- **[Python3](https://www.python.org/download/releases/3.0/)** - used to build the backend of this project.
+- **[Jinja](https://jinja.palletsprojects.com/en/2.11.x/)** - this project uses the templating language Jinja for incorporating Python functionality into the frontend.
+
+### Tools
+- [**Gitpod**](https://www.gitpod.io/) - the IDE Gitpod was used in the building process of this website.
+- [**HTML Validation**](https://validator.w3.org/) - HTML was validated using W3C Validator.
+- [**CSS Validation**](https://jigsaw.w3.org/css-validator/) - CSS was validated using W3C CSS Validator.
+- [**JSHint**](https://jshint.com/) - Javascript was validated using JSHint.
+- [**PEP8 Online**](http://pep8online.com/) - Python was validated using PEP8 Online.
+- [**Free Formatter**](https://www.freeformatter.com/) - Free Formatter was used to format all HTML, CSS and Javascript files.
+- [**Google Chrome DevTools**](https://developers.google.com/web/tools/chrome-devtools) - DevTools were used to debug and test code in the browser.
+
+### Frameworks
+- **[Django](https://www.djangoproject.com/)** - this project uses the Django Python web framework for creating a fullstack application.
+- - **[Bootstrap](https://www.getbootstrap.com/)** - this project uses Bootstrap to optimise its layout and structure in the frontend.
+
+### Libraries
+- **[FontAwesome](https://fontawesome.com/)** - this project uses FontAwesome 5 to provide icons.
+- **[Google Fonts](https://fonts.google.com/)** - this project uses Google Fonts to style the website's fonts.
+
+### APIs
+- **[EmailJS](https://www.emailjs.com/)** - this project uses EmailJS API to facilitate the sending of emails from users to site owner via to the Contact page.
+- **[Google Maps API](https://www.emailjs.com/)** - this project uses the Google Maps API to render the interactive Javascript map on the Locations page.
+- **[Stripe](https://www.stripe.com/)** - this project uses Stripe to facilitate e-commerce functionality in the site's checkout app.
 
 ## Testing
 
@@ -187,6 +265,12 @@ Testing information can be found in this [TESTING.md file](TESTING.md).
 
 ## Credits
 
+### Inspiration
+
+### Media
+
+### Code
+
 A complete county dropdown list was taken from [https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12](https://www.notion.so/4dcbf64e06aae132c12a8b9d302fae12)
 
-disabling sign up view: [https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664]
+This Stack Overflow thread helped disable the Django sign up view in the project: [https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664]
