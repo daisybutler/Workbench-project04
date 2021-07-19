@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-%d_l%oujhu-b_1my06hm)!mw=@n_qhck9q(zmu@@a)=irgb$=1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['daisybutler-workbench.herokuapp.com', 'localhost']
 
 
 # Application definition
