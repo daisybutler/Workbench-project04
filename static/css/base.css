@@ -559,6 +559,17 @@ input:focus {
     font-size: 30px;
     color: #D91F44;
 }
+
+#profile-edit-buttons {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#change-password-button {
+    background-color: grey;
+    margin-right: 10px;
+}
+
 /* --------------------------------------------------- ALLAUTH ACCOUNTS */
 
 #account-container {
