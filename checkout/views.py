@@ -61,7 +61,7 @@ def checkout_order(request, name):
                 completed_order.save()
 
                 # Create a user profile in the database
-                username = form_data['first_name'] + form_data['last_name']
+                username = form_data['first_name'] + form_data['last_name'] + form_data['phone_number'][-4:]
                 email = form_data['email']
                 password = form_data['password']
 
