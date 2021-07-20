@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib.auth.models import User
 from .models import UserProfile
 from .forms import UserProfileForm
 from django.contrib import messages
@@ -38,3 +39,20 @@ def profile(request):
         }
 
         return render(request, template, context)
+
+
+@login_required
+def account_delete(request, profile):
+    try:
+        u = User.objects.get(username=profile)
+        u.delete()
+        messages.success(request, "Your profile has been successfully deleted.")
+
+    except User.DoesNotExist:
+        messages.error(request, "User does not exist")
+        return render(request, 'front.html')
+
+    except Exception as e:
+        return render(request, 'home', {'err':e.message})
+
+    return redirect(reverse('home'))
