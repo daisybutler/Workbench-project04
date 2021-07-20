@@ -564,6 +564,7 @@ input:focus {
 #account-container {
     background: url('/media/pot-and-cup.jpg') left bottom;
     background-size: 1600px;
+    min-height: 80vh;
 }
 
 #account-box {
