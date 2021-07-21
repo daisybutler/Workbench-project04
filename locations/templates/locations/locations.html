@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2">
             <div id="google-maps"></div>
-            <input id="coords" type="text" value="{{ coords }}" hidden>
+            <div id="coords"></div>
                 <!--
                 {% for location in locations %}
                 <p class="place" id="{{ location }}">{lat: {{ location.lat }}, lng: {{ location.lng }}}</p>
@@ -52,16 +52,13 @@
 
         var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        var coords = document.getElementById("coords").value;
-        var data = JSON.parse(JSON.stringify(coords));
-        console.log(data)
-        
-        var newc = data["Newcastle"];
-        console.log(newc)
+        var jsonObject = JSON.parse('{{ coords | escapejs }}');
+        console.log("JSON: ", jsonObject)
 
-        var locations = [ 
-            { lat: 52.67867, lng: -0.67889 }
-        ];
+        var locations = []
+        for (let x in jsonObject) {
+            locations.push(jsonObject[x])
+        }
 
         var markers = locations.map(function (location, i) {
             return new google.maps.Marker({
