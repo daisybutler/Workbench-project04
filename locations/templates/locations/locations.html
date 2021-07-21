@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <div class="container">
     <div class="row text-center">
@@ -16,55 +15,49 @@
     <div class="row">
         <div id="plan-select-contents" class="col-12 col-md-8 offset-md-2 text-center">
             <p id="locations-description">Access the Workbench nearest to you on our standard plan. Access any Workbench
-                across the country on our flexible plan.</p>
+                across the country on our flexible plan.
+            </p>
             <a class="button" href="{% url 'all_plans' %}">Select Plan</a>
         </div>
     </div>
 </div>
-
 {% endblock %}
-
 {% block postloadjs %}
-
 <script>
-    // Initialise map
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById("google-maps"), {
-            zoom: 6,
-            center: {
-                lat: 53.5,
-                lng: -3.435973,
-            }
-        });
-
-        var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        // Receive JSON string from view and convert to object
-        var jsonObject = JSON.parse('{{ coords | escapejs }}');
-        console.log(jsonObject)
-
-        // Loop through js object and create a list of lat/lng values
-        var locations = []
-        for (let x in jsonObject) {
-            locations.push(jsonObject[x])
+// Initialise map
+function initMap() {
+    var map = new google.maps.Map(document.getElementById("google-maps"), {
+        zoom: 6,
+        center: {
+            lat: 53.5,
+            lng: -3.435973,
         }
+    });
 
-        var markers = locations.map(function (location, i) {
-            return new google.maps.Marker({
-                position: location,
-                label: labels[i % labels.length]
-            });
-        });
+    var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        var markerCluster = new MarkerClusterer(map, markers, {
-            imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-        });
+    // Receive JSON string from view and convert to object
+    var jsonObject = JSON.parse('{{ coords | escapejs }}');
+    console.log(jsonObject)
+
+    // Loop through js object and create a list of lat/lng values
+    var locations = []
+    for (let x in jsonObject) {
+        locations.push(jsonObject[x])
     }
-</script>
 
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    var markers = locations.map(function(location, i) {
+        return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+        });
+    });
+
+    var markerCluster = new MarkerClusterer(map, markers, {
+        imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+    });
+}
 </script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgomc-q9c2W7Jrnp31nQvqmc9wBJJ7bc&callback=initMap"></script>
-
-
 {% endblock %}

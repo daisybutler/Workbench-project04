@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <div id="checkout-order-container" class="container">
-
     <!--- Order Details --->
     <div class="row">
         <div class="col-12 col-md-8">
@@ -58,12 +56,11 @@
                         value="{{ order.name }}" hidden>
                     <input name="client_secret" id="client_secret" class="form-control" type="text"
                         value="{{ client_secret }}" hidden>
-                        <input name="price_id" id="price_id" class="form-control" type="text"
+                    <input name="price_id" id="price_id" class="form-control" type="text"
                         value="{{ order.price_id }}" hidden>
                 </div>
                 <hr>
             </div>
-
             <!--- Order Summary Box --->
             <div id="order-summary-box" class="col-12 col-md-4">
                 <h3>Order Summary</h3>
@@ -75,7 +72,8 @@
                     {% else %}
                     <div class="col-6">
                         <p>1 x {{ order.friendly_name }} for access to: <strong><span id="summary-location">(Please
-                                    select)</span></strong></p>
+                            select)</span></strong>
+                        </p>
                     </div>
                     {% endif %}
                     {% if order.name == 'one-off-plan' %}
@@ -85,7 +83,8 @@
                     <div class="col-12">
                         <hr>
                         <p>Your card will be charged £<span id="summary-price-textarea">{{ order.price }}</span> today
-                            as a one-off payment.</p>
+                            as a one-off payment.
+                        </p>
                         <hr>
                     </div>
                     {% else %}
@@ -95,14 +94,14 @@
                     <div class="col-12">
                         <hr>
                         <p>Your card will be charged £<span id="summary-price-textarea">{{ order.price }}</span> today
-                            for one month's worth of access.</p>
+                            for one month's worth of access.
+                        </p>
                         <hr>
                     </div>
                     {% endif %}
                 </div>
             </div>
         </div>
-
         <!--- Customer Details --->
         <div class="container">
             <div class="row">
@@ -258,62 +257,56 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-12">
                     <!---Payment Details-->
                     <div class="col-12 col-md-6 checkout-heading">
                         <h2>Payment Details</h2>
                     </div>
-
                     <!--- Stripe card element --->
                     <div id="payment-details" class="col-12 col-md-6 checkout-input">
                         <div id="card-details"></div>
                     </div>
-
                     <!--- Used to display form errors --->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-
                     <!--- Complete checkout --->
                     <div class="col-12 submit-button text-center text-md-left checkout-input">
                         <button type="submit" id="submit-button" class="btn rounded-5 my-3">
-                            <span class="font-weight-bold">Complete Order</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
+                        <span class="font-weight-bold">Complete Order</span>
+                        <span class="icon">
+                        <i class="fas fa-lock"></i>
+                        </span>
                         </button>
-
                         <!--- Payment warning --->
                         <p class="small text-danger my-0">
                             <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
                             </span>
                             <span>Your card will be charged £<strong
-                                    id="payment-warning">{{ order.price }}</strong></span>
+                                id="payment-warning">{{ order.price }}</strong></span>
                         </p>
                     </div>
                 </div>
             </div>
     </form>
-</div>
+    </div>
 </div>
 <div id="loading-icon">
     <h1 class="loading-spinner">
         <span class="icon">
-            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
         </span>
     </h1>
 </div>
 {% endblock %}
-
 {% block extra_js %}
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         // Updates the order summary to match user's changes.
         var location;
 
         // Updates the order summary location to match user's location input.
-        $("#location-dropdown").change(function () {
+        $("#location-dropdown").change(function() {
             location = $(this).val();
             $("#summary-location").html(location);
         });
@@ -321,13 +314,13 @@
         // Get current date to start subscription from 
         var today = new Date().toISOString().slice(0, 10);
         $("#subscription-date").val("Starting date: " + today);
-    });
+        });
 </script>
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{{ stripe_public_key|json_script:"id_stripe_public_key" }}
-{{ client_secret|json_script:"id_client_secret" }}
-<script src="{% static 'checkout/js/stripe.js' %}"></script>
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe.js' %}"></script>
 {% endblock %}

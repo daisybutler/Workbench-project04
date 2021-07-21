@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <div class="container">
     <div class="row">
@@ -14,23 +13,23 @@
             <div class="row">
                 <div class="col-12">
                     {% if item.plan_type == 'Subscription' %}
-                        <p>{{ item.plan_friendly_name }} ({{ item.plan_type }})</p>
+                    <p>{{ item.plan_friendly_name }} ({{ item.plan_type }})</p>
                     {% else %}
-                        <p>{{ item.plan_friendly_name }} Credit <small>(60 min)</small></p>
+                    <p>{{ item.plan_friendly_name }} Credit <small>(60 min)</small></p>
                     {% endif %}
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     {% if item.plan_type == 'Subscription' %}
-                        <p> £{{ item.price }}/pm</p>
-                        <i class="fas fa-credit-card"></i><br>
-                        <small>Active from: {{ item.date }}</small><br>
-                        <small>Valid for: 30 days </small>
+                    <p> £{{ item.price }}/pm</p>
+                    <i class="fas fa-credit-card"></i><br>
+                    <small>Active from: {{ item.date }}</small><br>
+                    <small>Valid for: 30 days </small>
                     {% else %}
                     <p>£{{ item.price }}</p>
-                        <i class="fas fa-credit-card"></i><br>
-                        <small>Payment taken: {{ item.date }}</small>
+                    <i class="fas fa-credit-card"></i><br>
+                    <small>Payment taken: {{ item.date }}</small>
                     {% endif %}
                 </div>
             </div>
@@ -41,29 +40,26 @@
             </div>
         </div>
         <div id="profile-image" class="d-none d-md-block col-md-5">
-
         </div>
     </div>
     <div id="profile-personal-info" class="row">
         <div id="account-details"class="col-12 col-md-6">
             <h3>Account Details</h3>
-            <p class="readonly-labels">Username</p> 
+            <p class="readonly-labels">Username</p>
             <p class="readonly-personal-info" title="readonly">{{ profile }}</p>
             <div id="profile-edit-buttons">
                 <a id="change-password-button" class="button" href="{% url 'account_change_password' %}">Change password</a>
-
                 <!-- Button trigger warning modal -->
                 <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                    Delete Profile
+                Delete Profile
                 </button>
-            
                 <!-- Delete profile warning modal -->
                 <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel">Delete Profile</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title" id="deleteModalLabel">Delete Profile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <p>You are about to delete your profile. Your current pass will be valid until the end of your
@@ -93,5 +89,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

@@ -17,32 +17,19 @@ var style = {
         iconColor: '#D91F44'
     }
 };
-var card = elements.create('card', { style: style });
-card.mount('#card-details');
-
-// -------------------------------- DOESN'T WORK
-// Handle validation errors of card details
-card.addEventListener('change', function (event) {
-    var errorDiv = document.getElementById('card-errors');
-    if (event.error) {
-        var html = `
-            <span class="icon" role="alert">
-                <i class="fas fa-times></i>
-            </span>
-            <span>error</span>
-        `;
-        $(errorDiv).html(html);
-    } else {
-        errorDiv.textContext = 'none';
-    }
+var card = elements.create('card', {
+    style: style
 });
+card.mount('#card-details');
 
 // Handle form submit
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', function (ev) {
+form.addEventListener('submit', function(ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true });
+    card.update({
+        'disabled': true
+    });
     $('#submit-button').attr('disabled', true);
     $('#payment-form').toggle(100);
     $('#loading-icon').toggle(100);
@@ -50,17 +37,17 @@ form.addEventListener('submit', function (ev) {
         payment_method: {
             card: card,
             billing_details: {
-                    name: $.trim(form.first_name.value) + ' ' + $.trim(form.last_name.value),
-                    phone: $.trim(form.phone_number.value),
-                    email: $.trim(form.email.value),
-                    address:{
-                        line1: $.trim(form.billing_address.value) + ', ' + $.trim(form.county.value),
-                        postal_code: $.trim(form.postcode.value),
-                        country: 'GB',
-                    }
+                name: $.trim(form.first_name.value) + ' ' + $.trim(form.last_name.value),
+                phone: $.trim(form.phone_number.value),
+                email: $.trim(form.email.value),
+                address: {
+                    line1: $.trim(form.billing_address.value) + ', ' + $.trim(form.county.value),
+                    postal_code: $.trim(form.postcode.value),
+                    country: 'GB',
+                }
             }
         }
-    }).then(function (result) {
+    }).then(function(result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var html = `
@@ -71,7 +58,9 @@ form.addEventListener('submit', function (ev) {
             $(errorDiv).html(html);
             $('#payment-form').toggle(100);
             $('#loading-icon').toggle(100);
-            card.update({ 'disabled': false });
+            card.update({
+                'disabled': false
+            });
             $('#submit-button').attr('disabled', false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {

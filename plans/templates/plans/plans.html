@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <div id="plans-container" class="container">
     <div class="row text-center">
@@ -8,7 +7,6 @@
             <h1>Plans</h1>
         </div>
     </div>
-
     <!---Subscription Plans--->
     <div id="subscription-plans" class="row">
         <div class="col-12 col-lg-4 my-auto plans-heading">
@@ -16,20 +14,19 @@
             <p>Access workspaces each month on a plan which suits your needs.</p>
         </div>
         {% for plan in plans %}
-            {% if plan.plan_type == 'Subscription' %}
-                <div class="col-12 col-md-6 col-lg-4 my-auto">
-                    <div class="card text-center">
-                        <h5 class="card-header">{{ plan.friendly_name }}</h5>
-                        <div class="card-body">
-                            <p class="card-text">{{ plan.short_description }}</p>
-                        </div>
-                        <a href="{% url 'individual_plan' plan.name %}" class="btn-lg btn-plan">Select</a>
-                    </div>
+        {% if plan.plan_type == 'Subscription' %}
+        <div class="col-12 col-md-6 col-lg-4 my-auto">
+            <div class="card text-center">
+                <h5 class="card-header">{{ plan.friendly_name }}</h5>
+                <div class="card-body">
+                    <p class="card-text">{{ plan.short_description }}</p>
                 </div>
-            {% endif %}
+                <a href="{% url 'individual_plan' plan.name %}" class="btn-lg btn-plan">Select</a>
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
-
     <!---One-off plans--->
     <div id="oneoff-plans" class="row">
         <div class="col-12 col-lg-4 my-auto plans-heading">
@@ -37,34 +34,33 @@
             <p>Access an office space or meeting room for a specific event.</p>
         </div>
         {% for plan in plans %}
-            {% if plan.plan_type == 'One-Off' %}
-                <div class="col-12 col-md-6 col-lg-4 my-auto">
-                    <div class="card text-center">
-                        <h5 class="card-header">Meeting Room</h5>
-                        <div class="card-body">
-                            <p class="card-text">
-                                {{ plan.short_description }} <br><br>
-                                Hold a meeting in a spacious environment with access to all Workbench facilities.
-                            </p>
-                        </div>
-                        <a href="{% url 'individual_plan' 'one-off-plan' %}" class="btn-lg btn-plan">Select</a>
-                    </div>
+        {% if plan.plan_type == 'One-Off' %}
+        <div class="col-12 col-md-6 col-lg-4 my-auto">
+            <div class="card text-center">
+                <h5 class="card-header">Meeting Room</h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        {{ plan.short_description }} <br><br>
+                        Hold a meeting in a spacious environment with access to all Workbench facilities.
+                    </p>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 my-auto">
-                    <div class="card text-center">
-                        <h5 class="card-header">Office Space</h5>
-                        <div class="card-body">
-                            <p class="card-text">
-                                {{ plan.short_description }} <br><br>
-                                Focus and collaborate with your team in a spacious workspace with access to all Workbench facilities.
-                            </p>
-                        </div>
-                        <a href="{% url 'individual_plan' 'one-off-plan' %}" class="btn-lg btn-plan">Select</a>
-                    </div>
+                <a href="{% url 'individual_plan' 'one-off-plan' %}" class="btn-lg btn-plan">Select</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 my-auto">
+            <div class="card text-center">
+                <h5 class="card-header">Office Space</h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        {{ plan.short_description }} <br><br>
+                        Focus and collaborate with your team in a spacious workspace with access to all Workbench facilities.
+                    </p>
                 </div>
-            {% endif %}
+                <a href="{% url 'individual_plan' 'one-off-plan' %}" class="btn-lg btn-plan">Select</a>
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
-
 {% endblock %}

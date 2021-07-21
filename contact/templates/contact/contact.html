@@ -1,40 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block extra_js %}
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
-</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 <script type="text/javascript">
     (function () {
         emailjs.init("user_wJWiEnhJwrwISrcLO687b");
     })();
 </script>
 {% endblock %}
-
 {% block content %}
 <div class="container">
     <div id="contact-page" class="row">
         <div class="col-12 col-md-8 offset-md-2">
             <h1>Contact</h1>
             <p>Please use the form below to submit any enquiries about Workbench plans, facilities and access below, and
-                a member of the Workbench team will get back to you as soon as possible.</p>
+                a member of the Workbench team will get back to you as soon as possible.
+            </p>
             <form onsubmit="return sendMail(this);">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input name="name" type="text" class="form-control" id="name" placeholder="John Smith" required>
-                  </div>
-                  <div class="mb-3">
+                </div>
+                <div class="mb-3">
                     <label for="contact_email" class="form-label">Email</label>
                     <input name="contact_email" type="email" class="form-control" id="contact_email" placeholder="johnsmith@gmail.com" required>
-                  </div>
-                  <div class="mb-3">
+                </div>
+                <div class="mb-3">
                     <label for="contact_message" class="form-label">Message</label>
                     <textarea name="contact_message" class="form-control" id="contact_message" rows="3" required></textarea>
-                  </div>
-                  <div>
-                      <button type="submit" class="button">Send</button>
-                  </div>
+                </div>
+                <div>
+                    <button type="submit" class="button">Send</button>
+                </div>
             </form>
         </div>
         <div class="col-12 col-md-8 offset-md-2">
@@ -48,20 +45,19 @@
 <script>
     function sendMail(contactForm) {
     emailjs.send("service_xu52dyr", "workbenchenquiry", {
-        "from_name": contactForm.name.value,
-        "from_email": contactForm.contact_email.value,
-        "message": contactForm.contact_message.value,
-    })
-    .then(
-        function(response) {
-            console.log("SUCCESS", response);
-        },
-        function(error) {
-            console.log("FAILED", error);
-        }
-    );
-    return false;  // To block from loading a new page
+            "from_name": contactForm.name.value,
+            "from_email": contactForm.contact_email.value,
+            "message": contactForm.contact_message.value,
+        })
+        .then(
+            function(response) {
+                console.log("SUCCESS", response);
+            },
+            function(error) {
+                console.log("FAILED", error);
+            }
+        );
+    return false; // To block from loading a new page
 }
 </script>
-
 {% endblock %}

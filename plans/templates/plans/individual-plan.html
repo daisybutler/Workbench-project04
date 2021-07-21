@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <div id="plans-container" class="container">
     <div class="row text-center">
@@ -22,13 +21,13 @@
             <p><i class="fas fa-hourglass-half amenities-icon"></i> {{ plan.hours_incl }}</p>
             <p><i class="fas fa-clock amenities-icon"></i>  {{ plan.access_times }}</p>
             {% if plan.wifi == True %}
-                <p><i class="fas fa-wifi amenities-icon"></i>Super-fast wifi</p>
+            <p><i class="fas fa-wifi amenities-icon"></i>Super-fast wifi</p>
             {% endif %}
             {% if plan.disabled_access == True %}
-                <p><i class="fas fa-wheelchair amenities-icon"></i> Disabled access</p>
+            <p><i class="fas fa-wheelchair amenities-icon"></i> Disabled access</p>
             {% endif %}
             {% if plan.extra_info %}
-                <p><i class="fas fa-star amenities-icon"></i>{{ plan.extra_info }}</p>
+            <p><i class="fas fa-star amenities-icon"></i>{{ plan.extra_info }}</p>
             {% endif %}
         </div>
     </div>

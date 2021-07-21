@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <div id="landing-page-section" class="container">
     <div class="row d-none d-md-flex">
@@ -13,7 +12,6 @@
             <img src="https://daisybutler-workbench.s3.eu-west-2.amazonaws.com/media/homepage-image.jpg" alt="workbench-venue">
         </div>
     </div>
-
     <!--Mobile display only -->
     <div class="row d-md-none">
         <div id="mobile-landing-section" class="col-12 my-auto">
@@ -23,7 +21,6 @@
         </div>
     </div>
 </div>
-
 <!---Plans--->
 <div id="homepage-plans-container" class="container">
     <div class="row text-center">
@@ -47,7 +44,7 @@
                     </li>
                 </ul>
                 <a href="{% url 'individual_plan' 'standard-plan' %}" class="learn-more-plans-homepage">
-                    Learn more
+                Learn more
                 </a>
             </div>
         </div>
@@ -66,7 +63,7 @@
                     </li>
                 </ul>
                 <a href="{% url 'individual_plan' 'unlimited-plan' %}" class="learn-more-plans-homepage">
-                    Learn more
+                Learn more
                 </a>
             </div>
         </div>
@@ -85,13 +82,12 @@
                     </li>
                 </ul>
                 <a href="{% url 'individual_plan' 'one-off-plan' %}" class="learn-more-plans-homepage">
-                    Learn more
+                Learn more
                 </a>
             </div>
         </div>
     </div>
 </div>
-
 <!---Locations--->
 <div id="homepage-locations-container" class="container">
     <div class="row text-center">
@@ -110,10 +106,8 @@
         <div id="new-locations-badge" class="d-none d-lg-block col-lg-2 my-auto">
             NEW LOCATIONS <br> now available
         </div>
-       
     </div>
 </div>
-
 <!---About--->
 <div id="homepage-about-container" class="container">
     <div class="row about-section">
