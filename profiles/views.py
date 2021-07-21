@@ -66,6 +66,7 @@ def renew_pass(request, name):
     """
     plan = Plan.objects.get(name=name)
 
-    messages.info(request, f"Click 'Continue' at the bottom of the page to renew your {plan.friendly_name} Pass.")
+    messages.info(
+        request, f"Click 'Continue' at the bottom of the page to renew your {plan.friendly_name} Pass.")
 
     return redirect('individual_plan', name=name)
