@@ -21,7 +21,7 @@ def locations(request):
 
     context = {
         'locations': locations,
-        'coords': coords,
+        'coords': json.dumps(coords),
     }
 
     return render(request, 'locations/locations.html', context)
