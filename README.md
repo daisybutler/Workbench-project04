@@ -1,5 +1,7 @@
 # Workbench
 
+<img width="1308" alt="workbench-project-overview" src="https://user-images.githubusercontent.com/68863341/126550474-3d109583-a929-4cb6-b7f6-b5f26dc8ba1d.png">
+
 Workbench is a membership website which provides remote workers with access to fully equipped workspaces in locations throughout the UK. Members can choose between two different subscription plans to suit their access requirements. One-off access to meeting rooms and office space can also be purchased by subscribers and non-subscribers.
 
 The idea of this website was inspired by the shift from in-person to remote working for all office-based companies during the coronavirus pandemic. With the belief that this shift is here to stay, the option to access fully-equipped office environments on a flexible basis will only continue to grow in demand.
