@@ -579,7 +579,16 @@ input:focus {
     background-position: bottom;
     margin-left: 20px;
     height: 375px;
+    width: fit-content;
+}
 
+.fa-question-circle {
+    color: #D91F44;
+    font-size: 20px;
+}
+
+.fa-question-circle ~ a {
+    color: #D91F44;
 }
 
 /* --------------------------------------------------- ALLAUTH ACCOUNTS */
