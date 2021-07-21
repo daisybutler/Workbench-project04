@@ -6,11 +6,11 @@ from .forms import UserProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from checkout.models import Order
-import stripe
 
 
 @login_required
 def profile(request):
+
     """Display user's profile"""
 
     if request.user.is_superuser:
@@ -44,6 +44,9 @@ def profile(request):
 
 @login_required
 def account_delete(request, profile):
+
+    """User can remove their profile from the database"""
+
     try:
         u = User.objects.get(username=profile)
         u.delete()
@@ -61,9 +64,9 @@ def account_delete(request, profile):
 
 @login_required
 def renew_pass(request, name):
-    """
-    User can buy their current plan again
-    """
+
+    """Redirect user to buy current plan again"""
+
     plan = Plan.objects.get(name=name)
 
     messages.info(

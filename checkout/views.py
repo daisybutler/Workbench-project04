@@ -17,6 +17,9 @@ import json
 
 
 def checkout_order(request, name):
+
+    """Purchase a plan securely via Stripe"""
+
     if request.user.is_superuser:
         messages.error(request, 'You are logged in as an administrator. Set up a customer profile to access the checkout process.')
         return redirect(reverse('account_logout'))
@@ -111,31 +114,15 @@ def checkout_order(request, name):
                 amount=round(total * 100),
                 currency=settings.STRIPE_CURRENCY,
             )
-            """
-            # Set up payment as 'subscription unless a one-off purchase
-            if purchase['plan'] != 'one-off-plan':
-                try:
-                    checkout_session = stripe.checkout.Session.create(
-                        success_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/checkout/checkout-complete.html?session_id={CHECKOUT_SESSION_ID}',
-                        cancel_url='https://8000-emerald-dinosaur-13zzw4f7.ws-eu11.gitpod.io/plans/all_plans.html',
-                        payment_method_types=['card'],
-                        mode='subscription',
-                        line_items=[{
-                            'price': purchase['price_id'],
-                            'quantity': 1
-                        }],
-                        )
-                except Exception as e:
-                    return json.dumps({'error': {'message': str(e)}}), 400
-            """
 
             # If user already as an account, try to grab 
             # billing details from previous checkout
             if request.user.is_authenticated:
                 try:
                     profile = UserProfile.objects.get(user=request.user)
+                    print(profile)
                     checkout_form = CheckoutForm(initial={
-                        'first_name': profile.user.get_full_name,
+                        'first_name': profile.user.first_name,
                         'last_name': profile.user.last_name,
                         'phone_number': profile.default_phone_number,
                         'billing_address': profile.default_billing_address,
@@ -143,6 +130,7 @@ def checkout_order(request, name):
                         'county': profile.default_county,
                         'email': profile.user.email,
                     })
+                    print(checkout_form)
 
                 # Render empty checkout form if user cannot be found
                 except UserProfile.DoesNotExist:
@@ -173,7 +161,8 @@ def checkout_order(request, name):
 
 
 def checkout_complete(request, order_id):
-    """A view that renders the order payment page"""
+
+    """Renders the order complete page"""
 
     order = get_object_or_404(Order, order_id=order_id)
     # order_id = order_id

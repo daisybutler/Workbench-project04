@@ -5,6 +5,8 @@ import json
 
 def locations(request):
 
+    """A view to render the locations page"""
+
     locations = Locations.objects.all()
 
     coords = {}

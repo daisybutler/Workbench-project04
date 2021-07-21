@@ -3,6 +3,7 @@ from .models import Plan
 
 
 def all_plans(request):
+
     """A view to display all plans."""
 
     plans = Plan.objects.all()
@@ -15,6 +16,7 @@ def all_plans(request):
 
 
 def individual_plan(request, name):
+    
     """A view to display details of an individual plan."""
 
     plan = Plan.objects.get(name=name)
