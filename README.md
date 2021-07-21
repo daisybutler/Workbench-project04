@@ -152,12 +152,22 @@ I wanted the Workbench design to be simple with a light colour scheme since desi
 The choice of Open Sans for the text on the site was based on its neutrality as a font. It is easy to read and the san-serif gives the site a modern feel.
 
 ### Wireframe Mockups
-![Home]()
-![Plans]()
-![Locations]()
-![Contact]()
-![Profile]()
-![Login]()
+Home
+<img width="624" alt="home-wireframe" src="https://user-images.githubusercontent.com/68863341/126553038-a5142bd1-ca19-4446-824b-3bf54f607c94.png">
+All Plans
+<img width="775" alt="all-plans-wireframe" src="https://user-images.githubusercontent.com/68863341/126552808-e54def78-39a1-4e71-9d2c-85a01481ba95.png">
+Individual Plan
+<img width="807" alt="individual-plan-wireframe" src="https://user-images.githubusercontent.com/68863341/126552872-aeb8d73d-7baf-4775-b114-d348d7a0590c.png">
+Locations
+<img width="738" alt="locations-wireframe" src="https://user-images.githubusercontent.com/68863341/126552790-b6eb42b7-a333-4a3d-8bf1-1e1600d325a4.png">
+Contact
+<img width="743" alt="contact-wireframe" src="https://user-images.githubusercontent.com/68863341/126553743-c2f5a473-7242-47d7-83f5-d15194ea4531.png">
+Profile
+<img width="725" alt="profile-wireframe" src="https://user-images.githubusercontent.com/68863341/126552760-46c30025-e41f-472b-b8a1-8dc6e1b1bd00.png">
+Login
+<img width="744" alt="login-wireframe" src="https://user-images.githubusercontent.com/68863341/126553011-8d4c6c16-b941-4d1a-be79-6ac520113b3f.png">
+
+This project's entire Figma wireframes can be accessed [here](https://www.figma.com/file/LiH3RoaQylAGs7fQ1vsOiv/Milestone-4?node-id=31%3A11)
 
 ## Features
 
