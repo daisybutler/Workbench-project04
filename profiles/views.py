@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.models import User
 from .models import UserProfile
+from plans.models import Plan
 from .forms import UserProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -56,3 +57,12 @@ def account_delete(request, profile):
         return render(request, 'home', {'err':e.message})
 
     return redirect(reverse('home'))
+
+
+@login_required
+def renew_pass(request, name):
+    """
+    User can buy their current plan again
+    """
+
+    return redirect('individual_plan', name=name)
