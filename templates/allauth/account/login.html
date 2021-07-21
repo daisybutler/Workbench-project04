@@ -30,7 +30,7 @@ of your existing third party accounts: {% endblocktrans %}</p>
 {% else %}
 <p>{% blocktrans %}If you have made a Workbench plan purchase, you can sign in to your account below.{% endblocktrans %}</p>
 {% endif %}
-<p>Note: Your username is the combination of your first and last name entered at checkout e.g. "JohnSmith" or "johnsmith".</p>
+<p>Note: Your username is your first and last name + the last 4 digits of your phone number (as entered at checkout) e.g. "JohnSmith3654" or "johnsmith3654".</p>
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
   {{ form|crispy }}
