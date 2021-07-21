@@ -27,27 +27,23 @@
 {% block postloadjs %}
 
 <script>
-    // Enables tooltips for all page elements
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-</script>
-<script>
+    // Initialise map
     function initMap() {
         var map = new google.maps.Map(document.getElementById("google-maps"), {
-            zoom: 5,
+            zoom: 6,
             center: {
-                lat: 55,
+                lat: 53.5,
                 lng: -3.435973,
             }
         });
 
         var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+        // Receive JSON string from view and convert to object
         var jsonObject = JSON.parse('{{ coords | escapejs }}');
-        console.log("JSON: ", jsonObject)
+        console.log(jsonObject)
 
+        // Loop through js object and create a list of lat/lng values
         var locations = []
         for (let x in jsonObject) {
             locations.push(jsonObject[x])
@@ -59,7 +55,6 @@
                 label: labels[i % labels.length]
             });
         });
-        console.log(markers)
 
         var markerCluster = new MarkerClusterer(map, markers, {
             imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
