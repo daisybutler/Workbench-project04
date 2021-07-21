@@ -574,6 +574,14 @@ input:focus {
     margin-top: 30px;
 }
 
+#profile-image {
+    background: url(/media/keyboard-and-coffee.jpg);
+    background-position: bottom;
+    margin-left: 20px;
+    height: 375px;
+
+}
+
 /* --------------------------------------------------- ALLAUTH ACCOUNTS */
 
 #account-container {
@@ -657,6 +665,10 @@ footer h4 {
     
     #plan-description-contents {
         text-align: center;
+    }
+
+    #billing-information {
+        margin-top: 30px;
     }
 }
 
