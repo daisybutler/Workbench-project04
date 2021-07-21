@@ -27,18 +27,3 @@ class CheckoutForm(forms.ModelForm):
             'postcode': 'Postcode',
             'county': 'County',
         }
-
-        # excluded_fields = 'plan_name', 'plan_friendly_name', 'plan_type', 'location', 'price'
-        self.fields['first_name'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if field != 'plan_name':
-                if field != 'plan_friendly_name':
-                    if field != 'plan_type':
-                        if field != 'location':
-                            if field != 'price':
-                                if field != 'price_id':
-                                    if self.fields[field].required:
-                                        placeholder = f'{placeholders[field]} *'
-                                    else:
-                                        placeholder = placeholders[field]
-                                    self.fields[field].widget.attrs['placeholder'] = placeholder
