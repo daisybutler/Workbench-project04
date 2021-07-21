@@ -64,5 +64,8 @@ def renew_pass(request, name):
     """
     User can buy their current plan again
     """
+    plan = Plan.objects.get(name=name)
+
+    messages.info(request, f"Click 'Continue' at the bottom of the page to renew your {plan.friendly_name} Pass.")
 
     return redirect('individual_plan', name=name)
