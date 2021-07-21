@@ -179,48 +179,53 @@ This project's entire Figma wireframes can be accessed [here.](https://www.figma
 
 ### Home
 The homepage gives the user a simple idea of the service offered with a large landing image and description. Then all three types of plans are set out with call to action buttons to take the user to a page with more information about each one. Beneath this as a section describing multiple locations to access and a button to the Locations page. Below this is a three step guide to how using the Workbench service works and a final call to action at the bottom leading to the all plans page.
+
 <img width="793" alt="home-demo" src="https://user-images.githubusercontent.com/68863341/126555304-776a7307-8698-402a-8ee9-d4d59749426a.png">
 
 ### Plans
 The plans page presents the different purchasing options to the user, divided up based on their type. Passes for the whole month are in one box and one-off passes are in the box below. Each individual type of plan as a button which the user can click to take them to a page with the full description of that plan only.
-<img width="793" alt="all-plans-demo" src="https://user-images.githubusercontent.com/68863341/126555412-5f79e40a-98cf-4cae-92e3-12714cda085a.png">
 
+<img width="793" alt="all-plans-demo" src="https://user-images.githubusercontent.com/68863341/126555412-5f79e40a-98cf-4cae-92e3-12714cda085a.png">
 
 ### Individual Plan
 Each individual plan lists the plan's full details in a clear and easy to read format, including icons to break up the text. The user can either return to the previous page by clickin the 'All Plans' button or click 'Continue' to proceed to checkout with this plan.
-<img width="598" alt="individual-plan-demo" src="https://user-images.githubusercontent.com/68863341/126555557-482ecf88-9e20-4b08-b064-5bc178ce00e1.png">
 
+<img width="598" alt="individual-plan-demo" src="https://user-images.githubusercontent.com/68863341/126555557-482ecf88-9e20-4b08-b064-5bc178ce00e1.png">
 
 ### Checkout
 The checkout page is generated with the plan fields pre-populated based on what plan page the user came from. An order summary appears to the right of this. The user must fill out their billing, account and payment details before clicking the submit payment button. On successful payment, the user is redirected to the checkout complete page.
-<img width="1006" alt="checkout-demo" src="https://user-images.githubusercontent.com/68863341/126555669-f4bc9e38-0ee2-4be1-9f53-3e94a85797f9.png">
 
+<img width="1006" alt="checkout-demo" src="https://user-images.githubusercontent.com/68863341/126555669-f4bc9e38-0ee2-4be1-9f53-3e94a85797f9.png">
 
 ### Checkout Complete
 The checkout complete page displays a message to indicate that the payment as been successful and the membership is active. The plan details are also summarised below. A 'Visit Profile' encourages the user to visit their profile since an account has automatically been created for them in the database upon successful checkout.
-<img width="1009" alt="checkout-complete-demo" src="https://user-images.githubusercontent.com/68863341/126555912-54034165-700c-405f-829d-0c58b93c1c3b.png">
 
+<img width="1009" alt="checkout-complete-demo" src="https://user-images.githubusercontent.com/68863341/126555912-54034165-700c-405f-829d-0c58b93c1c3b.png">
 
 ### Profile
 The profile page is only accessible for authenticated users and appears as a navigable link in the navbar if the user is logged in. The plan the user has purchased appears in a summary box, including details about when the plan is valid for. Below this, the user can find their username and a link to chane their account password. They can also update their default billin information on directly on the page.
+
 <img width="925" alt="profile-demo" src="https://user-images.githubusercontent.com/68863341/126556035-efdc27a6-546c-4f93-b496-ae4f4de07285.png">
 
 ### Locations
 The locations page renders an interactive map using the Google Map API. Users can see all of the locations where a Workbench can be access, which is a specification they need to make at checkout if they pick a one-off or standard plan. A call to action at the bottom of the page invites users to view the plans page.
-<img width="829" alt="locations-demo" src="https://user-images.githubusercontent.com/68863341/126556361-dd44a6e8-f43c-42d9-8535-49a96cf9696e.png">
 
+<img width="829" alt="locations-demo" src="https://user-images.githubusercontent.com/68863341/126556361-dd44a6e8-f43c-42d9-8535-49a96cf9696e.png">
 
 ### Contact
 The Contact page renders fields which allows them to submit a question or enquiry to the site owner via the EmailJS API. All fields are required before the user can submit their message and an email is sent to the site email address with a reply email.
+
 <img width="837" alt="contact-demo" src="https://user-images.githubusercontent.com/68863341/126556239-b19c8430-27f1-44cc-8168-23a63cbc8b4d.png">
 
 ### Login
 The login page displays in the navbar for users who are not authenticated. The page renders the django user login fields and a message indicating that only paying members are assigned an account. An option to choose a plan is given with the button to the plans page.
 
+<img width="1310" alt="login-demo" src="https://user-images.githubusercontent.com/68863341/126557363-8cbc67c8-eb54-41fd-aef2-33ef16e965e1.png">
+
 ### Logout
 The logout page displays in the navbar for users who are authenticated. The page renders a confirmation that the user wishes to log out and a log out button.
-<img width="1152" alt="sign-out-demo" src="https://user-images.githubusercontent.com/68863341/126556559-e1d32529-7277-48f6-9e96-cff16346d859.png">
 
+<img width="1152" alt="sign-out-demo" src="https://user-images.githubusercontent.com/68863341/126556559-e1d32529-7277-48f6-9e96-cff16346d859.png">
 
 ### CRUD Functionality
 
