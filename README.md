@@ -303,21 +303,73 @@ This project was created in the IDE Gitpod and Github as remote repository. The 
 
 ### Deployment to Heroku
 To deploy to Heroku, I took the following steps:
-
-1. In the terminal of Gitpod, I created a requirements.txt file to store all of the project's dependancies in using the command pip3 freeze > requirements.txt in the terminal window.
-2. Then I created a Procfile to specify the commands that are executed by the app on startup using the command echo web: python app.py > Procfile in the terminal window.
-3. I then logged into my Heroku account in the command line using 'heroku login -i'.
-4. Having used the git add and git commit commands on my changes, I pushed them to the Github repository for the project with the command git push.
-5. In my Heroku account, to create a new app for the project, I clicked the 'New'button within my dashboard, assigned it the name 'daisybutler-workbench' and selected Europe as my region.
-6. Once Heroku had created my new app, from my dashbaord I clicked "Deploy" and then "Deployment Method" within this page. I connected the Heroku app to my GitHub repository "workbench-ci-project-04" and set deployments from the master branch to automatic.
-7. Following this, to set my config vars for the app, I went to "Settings" tab in the app dashboard and clicked "Reveal Config Vars". The config vars were set as follows:
+1. I logged in to Heroku and from my dashboard, select "New" then "Create new app" from the dropdown menu.
+2. I named my app and choose the region Europe as my closest region. Select "Create app".
+3. On my dashboard I navigated to the resource  "Heroku Postgres" and select it as an add-on.
+4. IN the command line in my IDE, I logged in to Heroku with: `heroku login` -i
+5. I imported the python modules "dj_database_url" and "psycopg2" with the commands: `pip3 install dj_database_url`  and  `pip3 install psycopg2` .
+6. I froze my installed modules in a requirements.txt file by entering the following into the terminal:`pip3 freeze > requirements.txt`
+7. In my settings.py file, I imported dj_database_url in the head:`import dj_database_url`
+8. I replace the default "DATABASES" configuration with:`DATABASES = {'default': dj_database_url.parse(os.environ.get('<DATABASE_URL>'))}`. My database url came from the "settings" tab within my Heroku dashboard.
+9. I applied migrations to my new database configuration with:
+    - `python3 manage.py makemigrations`
+    - `python3 manage.py migrate`
+    - `heroku run python3 manage.py makemigrations`
+    - `heroku run python3 manage.py migrate`
+10. Then I created a superuser in the terminal with:`python3 manage.py createsuperuser`
+11. In the "settings" tab of my Heroku dashboard, I selected "Reveal config vars" and set the following config vars:
 
 <img width="910" alt="heroku-config-vars" src="https://user-images.githubusercontent.com/68863341/126613539-700711dc-8e07-49c2-8783-69a62f015a1f.png">
 
-8. With deploy set to automatic, I could now use 'git push' and commits would be applied to both my master branch in Github and my deployed app.
+12. I then installed "gunicorn" with: `pip3 install gunicorn`
+
+13. After installation, I create a "Procfile" and add the following in the file: `web: gunicorn <APP_NAME>.wsgi:application`
+
+14. I temporarily disabled the collection of static files before deploying to Heroku since static files would be saved to AWS S3. I did this by adding "DISABLE_COLLECTSTATIC" with a value of "1" to my config variables (to be deleted after deploying to Heroku is complete).
+
+15. In my settings.py, I added `['<HEROKU_APP_NAME>.herokuapp.com', 'localhost']` to ALLOWED_HOSTS.
+
+16. I commited my changes and pushed to Github.
+
+17. I initialised my Heroku git remote with the following: `heroku git:remote -a <HEROKU_NAPP_NAME>`
+
+18. Finally, I pushed to Heroku with the following: `git push heroku master`
+
+19. Setting deploys to automatic in Heroku would mean every push to the mater would also push to Heroku.
+
+### Adding Static and Media files to AWS
+STILL TO COMPLETE
 
 ### How to run this project locally
-STILL TO COMPLETE
+To clone this project locally, you will need a GitHub account. Create a Github account [here.](https://github.com/)
+
+To clone this project into Gitpod in Chrome, follow these steps:
+
+1. Install the Gitpod Chrome extension. After installation, the extension will appear in the top right-hand corner of the browser.
+
+2. Login into Gitpod with your GitHub username and password.
+
+3. In GitHub, with this project's repository (daisybutler/workbench-ci-project-04) selected, click the green "Gitpod" button at the top right-hand corner of the repository. This will create a new Gitpod workspace from the code in the GitHub repository. You can now work on the project locally.
+
+To clone this project into a local IDE, follow these steps:
+
+1. Navigate to the GitHub repository for this project (daisybutler/workbench-ci-project-04).
+
+2. Click "Code" in the top right-hand corner of the repository, next to the green Gitpod button.
+
+3. With HTTPS selected, click the clipboard icon to the right of the HTTPS link to copy the clone URL to your clipboard.
+
+4. In your local IDE, open the terminal. Ensure the current working directory is the one which you want the cloned directory to be made in.
+
+5. Type git clone into the terminal, and then paste the URL you copied in Step 3: e.g. git clone https://github.com/USERNAME/REPOSITORY.
+
+7. In the terminal window of your IDE, enter the following to install all required dependencies from the requirements.txt file: pip3 install -r requirements.txt.
+
+Import os with the command import os. Then create an env.py file and add environment variables e.g. os.environ["VARIABLE_NAME"] = "YOUR_VALUE"
+
+The project is now cloned locally and can be viewed in the browser by running the following command in the terminal window: python3 manage.py runserver and opening port 8000.
+
+For more on cloning a repository from GitHub, visit [this link.](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository)
 
 ## Credits
 
@@ -331,7 +383,7 @@ This project takes all of its media from [Unsplash](https://unsplash.com/).
 
 ### Code
 
-A complete county dropdown list was taken from [here](https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12)
+A complete county dropdown list was taken from [here.](https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12)
 
 This [Stack Overflow thread](https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664) helped disable the Django sign up view, which automatically installed as part of the allauth package. 
 
