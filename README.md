@@ -114,16 +114,20 @@ The primary goal of this website is to get users to sign up for a monthly subscr
 - **UX Design**
 
 1. Strategy Plane
+
 During my research, I was influenced heavily by the global workspace provider ![WeWork](https://www.wework.com/en-GB). Arguably, they are the leaders in the area. Their business model is strongly rooted in simplicity and ease, which is a key component for a service looking to maximise productivity by minimising disruption for office-based workers.
 
 2. Scope Plane
+
 Having identified the main requirements and style for a workspace site, I investigated the scope of creating a website to satisfy it. The primary feature and main attraction of the website would to allow a user to make a plan purchase in order to access a Workbench. This process must be simple and the exact features included must be easy to identify. In order to fullfill this, the whole site must be orientated around getting the user to the checkout page. The site will achieve this in a subtle way by displaying multiple calls to action throughout the site which encourage the user to enquiry into more details about a plan and then continue to a checkout page.
 In addition to this, the website must display information to the user about the times of plans and locations offers. Details about prices and included features must be accessible and clearly displayed, as well as easy location browsing for comfirmation of accessibility for the individual. This is will be achieved by a dedicated page for each plan which sets out all of the features included in a uniform fashion. Locations are also easily found usin the map on the locations page.
 
 3. Structure Plane
+
 Once I had decided on the features I wanted to include, I moved on to the structure. My pages would be divided up into 'Home', 'All Plans', 'Locations' and 'Contact', plus a navbar button for 'Login'. For authenticated users, the login button would be replaced with a logout button and a 'Profile' link would become accessible too.
 
 4. Skeleton Plane
+
 Having planned out my structure, I created wireframes in Figma (see #wireframes). On entering the site, the homepage would be displayed to the user. This would consist of a brief description of the service to assure the user they are in the right place for what they are looking for. Following this would be a display of the types of plans available with links to. Find out more information about each. Underneath this would be a more detailed instruction of how the service works and a final call to action at the bottom fo the page.
 
 The All Plans page will display all of the available plans to the user within containers based on the plan time e.g. subscription or one-off followed by the short description of each. The user can click on the 'Learn More' button to be redirected to a individual plan page with more information. From this page, the user can either return to the all plans page or click continue to proceed to checkout.
