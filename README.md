@@ -252,16 +252,13 @@ The checkout app provides the site with e-commerce functionality using Stripe. A
 The project uses the Bootstrap framework to accomplish an aestheitc and fully-responsive layout. A navbar is present with links to all of the site's pages. On mobile devices this collapses in to a toggleable element to the left-hand side.
 
 ### Interactive Features
-The site makews use of Javascript to provide an interactive experience for the user. The locations page features an interactive map powered by Google Maps API where a user can scroll and view the labels of all of the Workbench locations.
+The site makes use of Javascript to provide an interactive experience for the user. The locations page features an interactive map powered by Google Maps API where a user can scroll and view the labels of all of the Workbench locations.
 
 ## Database Structure
 The project features custom Django models in the plans, locations, checkout and profile apps. Each order model created at checkout is associated with a user model in the database via the userProfile foreign key, creating a relationship between the two entities.
 
-#### Structure Overview
-
-#### Field Relationships
-
 ### Features to Implement in the Future
+STILL TO COMPETE
 
 ## Technologies Used
 
@@ -283,7 +280,7 @@ The project features custom Django models in the plans, locations, checkout and 
 
 ### Frameworks
 - **[Django](https://www.djangoproject.com/)** - this project uses the Django Python web framework for creating a fullstack application.
-- - **[Bootstrap](https://www.getbootstrap.com/)** - this project uses Bootstrap to optimise its layout and structure in the frontend.
+- **[Bootstrap](https://www.getbootstrap.com/)** - this project uses Bootstrap to optimise its layout and structure in the frontend.
 
 ### Libraries
 - **[FontAwesome](https://fontawesome.com/)** - this project uses FontAwesome 5 to provide icons.
@@ -294,26 +291,35 @@ The project features custom Django models in the plans, locations, checkout and 
 - **[Google Maps API](https://www.emailjs.com/)** - this project uses the Google Maps API to render the interactive Javascript map on the Locations page.
 - **[Stripe](https://www.stripe.com/)** - this project uses Stripe to facilitate e-commerce functionality in the site's checkout app.
 
-## Testing
+### Hosting Platforms
+- **[Heroku](https://www.heroku.com)** - this project uses Heroku to host its live deployment.
+- **[Amazon Web Services](https://aws.amazon.com)** - this project uses Amazon Web Services to host its static and media files, specifically the Simple Storage Service (S3).
 
+## Testing
 Testing information can be found in this [TESTING.md file](TESTING.md).
 
 ## Deployment
 
 ### Deployment to Heroku
+STILL TO COMPLETE
 
 ### How to run this project locally
+STILL TO COMPLETE
 
 ## Credits
 
 ### Inspiration
 
+This project's business idea was modelled off of [WeWork](https://www.wework.com/en-GB), the leading provider workspaces to rent for companies and individuals. I liked their clean and straightforward appraoch to marketing their services and tried to relfect this in my own project design.
+
 ### Media
+
+This project takes all of its media from [Unsplash](https://unsplash.com/).
 
 ### Code
 
 A complete county dropdown list was taken from [https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12](https://www.notion.so/4dcbf64e06aae132c12a8b9d302fae12)
 
-This Stack Overflow thread helped disable the Django sign up view in the project: [https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664]
+This Stack Overflow thread helped disable the Django sign up view, which automatically installed as part of the allauth package: [https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664]
 
-Deleting a user so that all expections are planned for: [https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django]
+This code explained how to delete a user so that all expections are planned for: [https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django]
