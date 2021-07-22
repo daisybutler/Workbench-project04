@@ -62,6 +62,11 @@ h1 {
     text-decoration: none;
 }
 
+header {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
 /* --------------------------------------------------- HOME */
 
 #landing-page-section {
@@ -105,7 +110,6 @@ h1 {
 }
 
 .plan-features-homepage {
-    text-align: left;
     list-style: none;
     padding: 10px 0 10px 0;
 }
@@ -555,6 +559,12 @@ footer h4 {
 
 /* --------------------------------------------------- MEDIA QUERIES */
 
+@media screen and (max-width: 400px) {
+    #landing-page-heading {
+        font-size: 35px;
+    }
+}
+
 @media screen and (max-width: 576px) {
     .plans-heading {
         min-height: 200px;
@@ -569,7 +579,7 @@ footer h4 {
 
 @media screen and (max-width: 768px) {
     .homepage-plan {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     #second-about-section {
