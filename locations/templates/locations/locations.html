@@ -38,7 +38,6 @@ function initMap() {
 
     // Receive JSON string from view and convert to object
     var jsonObject = JSON.parse('{{ coords | escapejs }}');
-    console.log(jsonObject)
 
     // Loop through js object and create a list of lat/lng values
     var locations = []
@@ -60,4 +59,5 @@ function initMap() {
 </script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgomc-q9c2W7Jrnp31nQvqmc9wBJJ7bc&callback=initMap"></script>
+<script src="{% static 'locations/js/googleMaps.js' %}"></script>
 {% endblock %}
