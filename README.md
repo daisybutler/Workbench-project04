@@ -299,9 +299,22 @@ STILL TO COMPETE
 Testing information can be found in this [TESTING.md file](TESTING.md).
 
 ## Deployment
+This project was created in the IDE Gitpod and Github as remote repository. The deployed project on Heroku can be viewed [here.](https://daisybutler-workbench.herokuapp.com/)
 
 ### Deployment to Heroku
-STILL TO COMPLETE
+To deploy to Heroku, I took the following steps:
+
+1. In the terminal of Gitpod, I created a requirements.txt file to store all of the project's dependancies in using the command pip3 freeze > requirements.txt in the terminal window.
+2. Then I created a Procfile to specify the commands that are executed by the app on startup using the command echo web: python app.py > Procfile in the terminal window.
+3. I then logged into my Heroku account in the command line using 'heroku login -i'.
+4. Having used the git add and git commit commands on my changes, I pushed them to the Github repository for the project with the command git push.
+5. In my Heroku account, to create a new app for the project, I clicked the 'New'button within my dashboard, assigned it the name 'daisybutler-workbench' and selected Europe as my region.
+6. Once Heroku had created my new app, from my dashbaord I clicked "Deploy" and then "Deployment Method" within this page. I connected the Heroku app to my GitHub repository "workbench-ci-project-04" and set deployments from the master branch to automatic.
+7. Following this, to set my config vars for the app, I went to "Settings" tab in the app dashboard and clicked "Reveal Config Vars". The config vars were set as follows:
+
+<img width="910" alt="heroku-config-vars" src="https://user-images.githubusercontent.com/68863341/126613539-700711dc-8e07-49c2-8783-69a62f015a1f.png">
+
+8. With deploy set to automatic, I could now use 'git push' and commits would be applied to both my master branch in Github and my deployed app.
 
 ### How to run this project locally
 STILL TO COMPLETE
@@ -318,8 +331,8 @@ This project takes all of its media from [Unsplash](https://unsplash.com/).
 
 ### Code
 
-A complete county dropdown list was taken from [https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12](https://www.notion.so/4dcbf64e06aae132c12a8b9d302fae12)
+A complete county dropdown list was taken from [here](https://gist.github.com/olivertappin/4dcbf64e06aae132c12a8b9d302fae12)
 
-This Stack Overflow thread helped disable the Django sign up view, which automatically installed as part of the allauth package: [https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664]
+This [Stack Overflow thread](https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664) helped disable the Django sign up view, which automatically installed as part of the allauth package. 
 
-This code explained how to delete a user so that all expections are planned for: [https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django]
+[This code](https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django) explained how to delete a user so that all expections are planned for.
