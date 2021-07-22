@@ -301,6 +301,8 @@ Testing information can be found in this [TESTING.md file](TESTING.md).
 ## Deployment
 This project was created in the IDE Gitpod and Github as remote repository. The deployed project on Heroku can be viewed [here.](https://daisybutler-workbench.herokuapp.com/)
 
+This project requires registation with AWS and a S3 bucket for static and media files. Registation with Stripe is also required.
+
 ### Deployment to Heroku
 To deploy to Heroku, I took the following steps:
 1. I logged in to Heroku and from my dashboard, select "New" then "Create new app" from the dropdown menu.
@@ -336,9 +338,6 @@ To deploy to Heroku, I took the following steps:
 18. Finally, I pushed to Heroku with the following: `git push heroku master`
 
 19. Setting deploys to automatic in Heroku would mean every push to the mater would also push to Heroku.
-
-### Adding Static and Media files to AWS
-STILL TO COMPLETE
 
 ### How to run this project locally
 To clone this project locally, you will need a GitHub account. Create a Github account [here.](https://github.com/)
