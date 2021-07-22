@@ -11,6 +11,8 @@ class CheckoutForm(forms.ModelForm):
                   'phone_number', 'billing_address', 'postcode',
                   'county')
 
+    password = forms.CharField(widget=forms.PasswordInput)
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
