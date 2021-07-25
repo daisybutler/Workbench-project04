@@ -321,7 +321,7 @@ To deploy to Heroku, I took the following steps:
 10. Then I created a superuser in the terminal with:`python3 manage.py createsuperuser`
 11. In the "settings" tab of my Heroku dashboard, I selected "Reveal config vars" and set the following config vars:
 
-<img width="910" alt="heroku-config-vars" src="https://user-images.githubusercontent.com/68863341/126613539-700711dc-8e07-49c2-8783-69a62f015a1f.png">
+<img width="910" alt="heroku-config-vars" src="https://user-images.githubusercontent.com/68863341/126898987-874ed2e0-b69a-41fb-a07b-2676d665ee98.png">
 
 12. I then installed "gunicorn" with: `pip3 install gunicorn`
 
