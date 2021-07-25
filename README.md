@@ -387,3 +387,5 @@ A complete county dropdown list was taken from [here.](https://gist.github.com/o
 This [Stack Overflow thread](https://stackoverflow.com/questions/29794052/how-could-one-disable-new-account-creation-with-django-allauth-but-still-allow/29799664#29799664) helped disable the Django sign up view, which automatically installed as part of the allauth package. 
 
 [This code](https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django) explained how to delete a user so that all expections are planned for.
+
+How to hash a crispy-forms password field was accomplished with the help of [this thread.](https://stackoverflow.com/questions/24223654/django-crispy-forms-shows-password-as-clear-text)
