@@ -105,6 +105,10 @@ The live deployment of this project displays correctly on all of the following d
 ## User Testing
 
 ### Mentor Review
+My mentor, Seun, was very helpful with her feedback and suggestions when it come to reviewing this project. She made the following suggestions:
+   - Reset email form once an email has been sent, as well as showing feedback to the user on screen about whether their message was successfully sent or not. I did this by checking the presonse codes in the page's Javascript are setting the HTML of an otherwise empty div to either a success or fail message.
+   - Hide password characters! My checkout form was showing the password inputted by the user rather than indistinguisable dots. Seun found me [this helpful thread](https://stackoverflow.com/questions/24223654/django-crispy-forms-shows-password-as-clear-text) on how to achieve this when rendering the field through a crispy form template.
+   - Suggested the user of Google Maps API rather than a static image map I had to begin with. This enhanced the user interactivity of the site and Javascript composition for a better looking site.
 
 ### User Review
 
