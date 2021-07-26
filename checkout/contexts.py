@@ -1,6 +1,3 @@
-from django.conf import settings
-
-
 def purchase_contents(request):
 
     plan_purhases = []

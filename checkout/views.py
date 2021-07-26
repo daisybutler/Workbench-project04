@@ -11,7 +11,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
 from django.contrib import messages
-from checkout.contexts import purchase_contents
 import stripe
 import json
 
@@ -21,7 +20,9 @@ def checkout_order(request, name):
     """Purchase a plan securely via Stripe"""
 
     if request.user.is_superuser:
-        messages.error(request, 'You are logged in as an administrator. Set up a customer profile to access the checkout process.')
+        messages.error(
+            request, 'You are logged in as an administrator. \
+             Set up a customer profile to access the checkout process.')
         return redirect(reverse('account_logout'))
 
     else:
@@ -64,7 +65,8 @@ def checkout_order(request, name):
                 completed_order.save()
 
                 # Create a user profile in the database
-                username = form_data['first_name'] + form_data['last_name'] + form_data['phone_number'][-4:]
+                username = form_data['first_name'] + form_data['last_name'] \
+                    + (form_data['phone_number'])[-4:]
                 email = form_data['email']
                 password = form_data['password']
 
@@ -84,7 +86,9 @@ def checkout_order(request, name):
 
                 # Redirect user to confirmation page
                 return redirect(
-                    reverse('checkout_complete', args=[completed_order.order_id]))
+                    reverse(
+                        'checkout_complete', args=[completed_order.order_id])
+                    )
 
             # If form is flagged as invalid
             else:
@@ -103,7 +107,10 @@ def checkout_order(request, name):
             request.session['purchase'] = purchase
 
             if not purchase:
-                messages.error(request, "Whoops, something went wrong. Please reselect a plan.")
+                messages.error(
+                    request,
+                    "Whoops, something went wrong. Please reselect a plan."
+                )
                 return redirect(reverse('all_plans'))
 
             # Create Stripe payment intent
@@ -115,7 +122,7 @@ def checkout_order(request, name):
                 currency=settings.STRIPE_CURRENCY,
             )
 
-            # If user already as an account, try to grab 
+            # If user already as an account, try to grab
             # billing details from previous checkout
             if request.user.is_authenticated:
                 try:
@@ -157,7 +164,9 @@ def checkout_order(request, name):
                 'client_secret': intent.client_secret,
             }
 
-            return render(request, 'checkout/checkout-order.html', context=context)
+            return render(
+                request, 'checkout/checkout-order.html', context=context
+            )
 
 
 def checkout_complete(request, order_id):

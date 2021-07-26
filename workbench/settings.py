@@ -81,11 +81,14 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required by allauth
+                # required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',  # Required to load media files
-                'checkout.contexts.purchase_contents', # Plan purchase accessible across site
+                # Required to load media files
+                'django.template.context_processors.media',
+                # Plan purchase accessible across site
+                'checkout.contexts.purchase_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -186,7 +189,7 @@ if 'USE_AWS' in os.environ:
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-  
+
     # Bucket config
     AWS_STORAGE_BUCKET_NAME = 'daisybutler-workbench'
     AWS_REGION_NAME = 'eu-west-2'
