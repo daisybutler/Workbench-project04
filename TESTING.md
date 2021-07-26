@@ -74,6 +74,16 @@ This project used [PEP8 Online](http://pep8online.com/) to validate python code.
 <img width="1520" alt="PEP8-validation" src="https://user-images.githubusercontent.com/68863341/126990170-d1a7e5bc-4b8c-4246-b5a6-189c1c1e9c09.png">
 
 ### Browser Validation
+   
+Chrome - displays correctly:
+<img width="1622" alt="chrome-display" src="https://user-images.githubusercontent.com/68863341/126996090-18d24a65-b259-4915-8872-4dd413b7253b.png">
+
+
+Safari - displays correctly:
+<img width="1459" alt="safari-display" src="https://user-images.githubusercontent.com/68863341/126996120-1d63c27d-a884-4ebe-8274-2844e30c1433.png">
+
+
+[Autoprefixer CSS online](https://autoprefixer.github.io/) was used to add the necessary prefixers to CSS so that the live website renders across all other browsers.
 
 ### Device Validation
 
