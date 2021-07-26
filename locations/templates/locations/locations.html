@@ -40,9 +40,9 @@ function initMap() {
     var jsonObject = JSON.parse('{{ coords | escapejs }}');
 
     // Loop through js object and create a list of lat/lng values
-    var locations = []
+    var locations = [];
     for (let x in jsonObject) {
-        locations.push(jsonObject[x])
+        locations.push(jsonObject[x]);
     }
 
     var markers = locations.map(function(location, i) {
