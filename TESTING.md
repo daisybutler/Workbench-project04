@@ -52,6 +52,21 @@
 
 ### Code Validation
 
+This project used the [W3C Markup Validation Service](https://validator.w3.org/nu/) to validate HTML code. This identified several missing closing div tags, miss <td> tags for the checkout-complete table. Other warnings and errors could be safely ignored because they related to the use of templating in the html files, which are clearly a necessary part of this Django application. Absence of doctype was also an error raised, but as the application extends from base.html, this could also be safely ignored.
+
+<img width="1680" alt="home-validated" src="https://user-images.githubusercontent.com/68863341/126988018-b6c6e931-b006-4b45-be80-f9a020def913.png">
+<img width="1680" alt="plans-validated" src="https://user-images.githubusercontent.com/68863341/126988036-41453f3a-04a2-422d-8bd1-4fc818678cc7.png">
+<img width="1680" alt="individual-plan-validated" src="https://user-images.githubusercontent.com/68863341/126988063-898e9307-fb5e-4b83-9cf6-c6112b5d0e7f.png">
+<img width="1680" alt="checkout-validated" src="https://user-images.githubusercontent.com/68863341/126988074-ebd46913-9cb2-4bb9-811f-a48f8fefb72d.png">
+<img width="1680" alt="checkout-complete-validated" src="https://user-images.githubusercontent.com/68863341/126988083-5c4a7f3f-c1f8-46c0-b027-04585d5b9b68.png">
+<img width="1680" alt="profile-validated" src="https://user-images.githubusercontent.com/68863341/126988098-26e4c312-6f8e-4499-af6c-4278a82fb3fb.png">
+<img width="1680" alt="locations-validated" src="https://user-images.githubusercontent.com/68863341/126988105-1786aaf2-72e0-4a6e-bfe6-5bf184853a95.png">
+<img width="1680" alt="contact-validated" src="https://user-images.githubusercontent.com/68863341/126988109-8a00c6ce-bb37-4295-bee1-e0446c04d3c2.png">
+<img width="1680" alt="404-validated" src="https://user-images.githubusercontent.com/68863341/126988120-90ff46d4-09b7-459d-bce6-95934e0446b4.png">
+ 
+This project used the JSHint website to validate Javascript code. No issues were found.
+   
+
 ### Browser Validation
 
 ### Device Validation
