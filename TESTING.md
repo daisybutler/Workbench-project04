@@ -64,8 +64,14 @@ This project used the [W3C Markup Validation Service](https://validator.w3.org/n
 <img width="1680" alt="contact-validated" src="https://user-images.githubusercontent.com/68863341/126988109-8a00c6ce-bb37-4295-bee1-e0446c04d3c2.png">
 <img width="1680" alt="404-validated" src="https://user-images.githubusercontent.com/68863341/126988120-90ff46d4-09b7-459d-bce6-95934e0446b4.png">
  
-This project used the JSHint website to validate Javascript code. No issues were found.
+This project used the [JSHint](https://jshint.com/) website to validate Javascript code. The only issues which needed attention were missing semi-colons at the end of several lines.
+<img width="1539" alt="googleMaps-validated" src="https://user-images.githubusercontent.com/68863341/126989195-7ba059be-f8d9-4b89-a01a-a8f09fa162a1.png">
+<img width="1538" alt="sendEmail-validated" src="https://user-images.githubusercontent.com/68863341/126989204-e906d712-0cc2-48c3-8a5d-b021fb48d631.png">
+<img width="1534" alt="stripe-validated" src="https://user-images.githubusercontent.com/68863341/126989440-c5cbf6de-77fd-409c-a010-a8b42df9d794.png">
+
+This project used [PEP8 Online](http://pep8online.com/) to validate python code. Minor errors such as line to long were found.
    
+<img width="1520" alt="PEP8-validation" src="https://user-images.githubusercontent.com/68863341/126990170-d1a7e5bc-4b8c-4246-b5a6-189c1c1e9c09.png">
 
 ### Browser Validation
 
