@@ -50,14 +50,15 @@ def account_delete(request, profile):
     try:
         u = User.objects.get(username=profile)
         u.delete()
-        messages.success(request, "Your profile has been successfully deleted.")
+        messages.success(
+            request, "Your profile has been successfully deleted.")
 
     except User.DoesNotExist:
         messages.error(request, "User does not exist")
         return render(request, 'front.html')
 
     except Exception as e:
-        return render(request, 'home', {'err':e.message})
+        return render(request, 'home', {'err': e.message})
 
     return redirect(reverse('home'))
 
