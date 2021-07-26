@@ -82,11 +82,10 @@
                     <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                 </div>
                 {% else %}
-                <div class="header-login-button d-none d-md-inline"">
+                <div class="header-login-button d-none d-md-inline">
                     <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                 </div>
                 {% endif %}
-                </div>
             </nav>
         </header>
         {% endblock %}

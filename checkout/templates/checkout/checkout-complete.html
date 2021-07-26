@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-12">
             <h1>Checkout Successful</h1>
-            <p>Your payment has been successfully processed and your Workbench membership is now active. You can manage your plan on your profile.</p>
+            <p>Your payment has been successfully processed and your Workbench membership is now active. You can manage
+                your plan on your profile.</p>
             <p>To log in to your account, we have assigned you the username: {{ profile }}</p>
             <br>
             <a href="{% url 'profile' %}" class="button">Visit Profile</a>
@@ -13,28 +14,36 @@
         <div id="checkout-complete-summary-box" class="col-12 col-md-6">
             <table>
                 <tr>
-                    <h3><strong><i class="fas fa-clipboard-list"></i> Summary</strong></h3>
-                </tr>
-                <hr>
-                <tr>
-                    <p><i class="fas fa-file-signature"></i> Plan name: {{ member_order.plan_friendly_name }}</p>
+                    <td>
+                        <h3><strong><i class="fas fa-clipboard-list"></i> Summary</strong></h3>
+                    </td>
                 </tr>
                 <tr>
-                    <p><i class="fas fa-search"></i> Plan type: {{ member_order.plan_type }}</p>
+                    <td>
+                        <p><i class="fas fa-file-signature"></i> Plan name: {{ member_order.plan_friendly_name }}</p>
+                    </td>
                 </tr>
                 <tr>
-                    {% if member_order.plan_type == 'subscription' %}
-                    <p><i class="fas fa-tag"></i> Price: {{ member_order.price }} per month</p>
-                    {% else %}
-                    <p><i class="fas fa-tag"></i> Price: £{{ member_order.price }}</p>
-                    {% endif %}
+                    <td>
+                        <p><i class="fas fa-search"></i> Plan type: {{ member_order.plan_type }}</p>
+                    </td>
                 </tr>
                 <tr>
-                    <p><i class="fas fa-map-marker-alt"></i> Location: {{ member_order.location }}</p>
+                    <td>
+                        {% if member_order.plan_type == 'subscription' %}
+                        <p><i class="fas fa-tag"></i> Price: {{ member_order.price }} per month</p>
+                        {% else %}
+                        <p><i class="fas fa-tag"></i> Price: £{{ member_order.price }}</p>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><i class="fas fa-map-marker-alt"></i> Location: {{ member_order.location }}</p>
+                    </td>
                 </tr>
             </table>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

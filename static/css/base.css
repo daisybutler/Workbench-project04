@@ -73,7 +73,7 @@ header {
     padding-top: 50px;
 }
 
-#landing-page-heading {
+.landing-page-heading {
     padding-top: 40px;
     font-size: 50px;
 }
@@ -560,7 +560,7 @@ footer h4 {
 /* --------------------------------------------------- MEDIA QUERIES */
 
 @media screen and (max-width: 400px) {
-    #landing-page-heading {
+    .landing-page-heading {
         font-size: 35px;
     }
 }
@@ -609,7 +609,7 @@ footer h4 {
 }
 
 @media screen and (min-width: 768px) {
-    #landing-page-heading {
+    .landing-page-heading {
         font-size: 40px;
     }
 
@@ -623,7 +623,7 @@ footer h4 {
 }
 
 @media screen and (min-width: 992px) {
-    #landing-page-heading {
+    .landing-page-heading {
         font-size: 50px;
     }
     .plans-heading {
