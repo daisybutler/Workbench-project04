@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 html {
     height: 100%;
 }
@@ -79,7 +86,8 @@ header {
 }
 
 #landing-page-image img {
-    box-shadow: #EEECE7 40px 40px;
+    -webkit-box-shadow: #EEECE7 40px 40px;
+            box-shadow: #EEECE7 40px 40px;
     max-width: 100%;
     max-height: 100%;
 }
@@ -171,7 +179,8 @@ header {
 .homepage-about-image {
     max-width: 100%;
     max-height: 100%;
-    box-shadow: #EEECE7 35px 35px;
+    -webkit-box-shadow: #EEECE7 35px 35px;
+            box-shadow: #EEECE7 35px 35px;
 }
 
 .about-section {
@@ -179,7 +188,8 @@ header {
 }
 
 #left-side-image {
-    box-shadow: #EEECE7 -35px 35px;
+    -webkit-box-shadow: #EEECE7 -35px 35px;
+            box-shadow: #EEECE7 -35px 35px;
 }
 
 .homepage-about-text {
@@ -358,7 +368,8 @@ header {
 
 /* Removes highlight around readonly inputs if clicked */
 #order-details input:focus, #order-details textarea:focus {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 #qty-selection-area {
@@ -412,9 +423,15 @@ input:focus {
 }
 
 .loading-spinner {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 0;
     height: 100%;
     color: #D91F44;
@@ -500,6 +517,8 @@ input:focus {
     background-position: bottom;
     margin-left: 20px;
     height: 375px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -525,7 +544,8 @@ input:focus {
     margin-bottom: 100px;
     padding: 50px;
     background-color: #fff;
-    box-shadow: 5px 5px 15px #313131;
+    -webkit-box-shadow: 5px 5px 15px #313131;
+            box-shadow: 5px 5px 15px #313131;
     border-radius: 3px;
 }
 
@@ -583,8 +603,11 @@ footer h4 {
     }
 
     #second-about-section {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-wrap: wrap-reverse;
+        -ms-flex-wrap: wrap-reverse;
+            flex-wrap: wrap-reverse;
     }
 
     #subscription-plans .card {
