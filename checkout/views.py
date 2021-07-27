@@ -48,12 +48,14 @@ def checkout_order(request, name):
                 'first_name': request.POST['first_name'],
                 'last_name': request.POST['last_name'],
                 'email': request.POST['email'],
-                'password': request.POST['password'],
+                'password': '******',
                 'phone_number': request.POST['phone_number'],
                 'county': request.POST['county'],
                 'postcode': request.POST['postcode'],
                 'billing_address': request.POST['billing_address'],
             }
+
+            user_password = request.POST['password']
 
             # Populate instance of CheckoutForm form with data
             checkout_form = CheckoutForm(form_data)
@@ -68,7 +70,7 @@ def checkout_order(request, name):
                 username = form_data['first_name'] + form_data['last_name'] \
                     + (form_data['phone_number'])[-4:]
                 email = form_data['email']
-                password = form_data['password']
+                password = user_password
 
                 user = User.objects.create_user(username, email, password)
 

@@ -20,7 +20,7 @@ class Order(models.Model):
     first_name = models.CharField(max_length=25, null=False, blank=False)
     last_name = models.CharField(max_length=25, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
-    password = models.CharField(max_length=25, null=False, blank=False)
+    password = models.CharField(max_length=25, null=True, blank=True)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     billing_address = models.CharField(max_length=80, null=False, blank=False)
