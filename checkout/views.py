@@ -159,7 +159,6 @@ def checkout_order(request, name):
                         'county': profile.default_county,
                         'email': profile.user.email,
                     })
-                    print(checkout_form)
 
                 # Render empty checkout form if user cannot be found
                 except UserProfile.DoesNotExist:
