@@ -1,8 +1,8 @@
 {% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans %}Hello from Workbench!
 
-You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their account.
+Thank you for purchasing your Workbench pass, {{ user_display }}.
 
-To confirm this is correct, go to {{ protocol }}/{{ domain }}/{{ activate_url }}
+You can view all of your plan details by visiting {{ domain }}/{{ login_url }}
 {% endblocktrans %}
 {% blocktrans %}Thank you from Workbench!
 {{ domain }}{{ from_email }}{% endblocktrans %}

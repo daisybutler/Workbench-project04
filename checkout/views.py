@@ -92,7 +92,7 @@ def checkout_order(request, name):
                 context = {
                     'email': user.email,
                     'user': new_user,
-                    'activate_url': 'accounts/confirm-email/',
+                    'activate_url': 'accounts/login/',
                     'protocol': 'https' if request.is_secure() else "http",
                     'domain': request.get_host(),
                 }
