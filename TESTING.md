@@ -101,11 +101,69 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 ### All Plans
 
+- Each select button below each below type returns the individual plan page corresponding to that specific plan.
+
+<img width="1467" alt="all-plans-select-button-testing" src="https://user-images.githubusercontent.com/68863341/127143561-440157fc-c9a0-4fc9-9f57-3e775849dc87.png">
+
+- The card elements collapse and expand based on screen size correctly and in a layout which is easy to read and navigate.
+
 ### Individual Plan
+
+- Each plan page displays the correct information for the selected plan. Icons make the information quick and easy to read.
+
+<img width="927" alt="individual-plan-display-testing" src="https://user-images.githubusercontent.com/68863341/127144222-e38ccd84-3841-4ceb-b395-a4d5b26cf6d1.png">
+
+- The 'All Plans' button takes the use back tot he plans page and the 'Continue' button takes them to the checkout page.
+
+<img width="1343" alt="individual-plans-buttons-testing" src="https://user-images.githubusercontent.com/68863341/127144451-de57bcad-3ef3-4dc4-8bf3-7c427bad9a5b.png">
 
 ### Checkout
 
+- The checkout page displays the informations about the selected plan and a summary for the purchase the user is about to make. This test revealed that the  price in the plan details was missing a currency sign.
+
+<img width="1404" alt="checkout-plan-details-testing" src="https://user-images.githubusercontent.com/68863341/127144701-3ef897b5-de40-4360-8dc4-f39461a2085c.png">
+
+- All of the form fields display correctly and indicated that they are all required if the user trys to leave any blank.
+
+<img width="1396" alt="checkout-form-validation-testing" src="https://user-images.githubusercontent.com/68863341/127145202-e7cd7623-71fa-4cc2-a547-673615ab4e8b.png">
+
+- The password field hides the input for security.
+
+<img width="741" alt="checkout-password-testing" src="https://user-images.githubusercontent.com/68863341/127145331-1fbf5c84-593a-4e1d-9e1c-9162d993211e.png">
+
+- The Stripe element turns red if the card number is invalid and the amount which is about to be charged displays below the complete button.
+
+<img width="738" alt="checkout-payment-input-testing" src="https://user-images.githubusercontent.com/68863341/127145557-75f29b20-a23c-416a-8f9f-617d73b14a41.png">
+
 ### Checkout Complete
+
+- The checkout page redirects the user to the checkout-complete page upon successful payment and order placement. The unique order id and where a confirmation email is being sent to is displayed a username details in the content of the page.
+
+<img width="1288" alt="checkout-complete-orderid-testing" src="https://user-images.githubusercontent.com/68863341/127145961-415d9d67-85e7-4768-b2b9-2fe58bdc9e5e.png">
+
+- The website now displays the authenticated side of the site by automatically logging in the user. A logout button now displays in the top right and a profile tab now appears in the navbar. The visit profile button in the page content takes the user to this profile page.
+
+<img width="1402" alt="checkout-complete-loggedin-testing" src="https://user-images.githubusercontent.com/68863341/127146252-6768a865-bdbc-4201-a401-9bd0501944ba.png">
+
+- The order summary box displays the correct plan information from the order the user has just placed.
+
+<img width="1343" alt="checkout-complete-order-summary-testing" src="https://user-images.githubusercontent.com/68863341/127146416-bfd287f7-9d0f-4676-a748-6a3e76b69fa5.png">
+
+- The new user has a user profile in the database.
+
+<img width="1472" alt="user-profile-db-testing" src="https://user-images.githubusercontent.com/68863341/127146807-57e506ef-51bf-4fd2-b031-8e412ea5280d.png">
+
+- The order is displayed in the database with the correct user profile assigned to it.
+
+<img width="903" alt="order-db-testing" src="https://user-images.githubusercontent.com/68863341/127146829-100fd273-94ff-4675-9759-b7e394752ce3.png">
+
+- The payment is marked as successed in Stripe and for the correct amount.
+
+<img width="1190" alt="stripe-payment-testing" src="https://user-images.githubusercontent.com/68863341/127147150-1d68d925-52d2-4439-b61b-fcf175e05fff.png">
+
+- The webhooks for the payment have a status of 200.
+
+<img width="1187" alt="stripe-webhooks-testing" src="https://user-images.githubusercontent.com/68863341/127147238-7dfda4cb-1285-4232-b2be-143e35650ff5.png">
 
 ### Profile
 
