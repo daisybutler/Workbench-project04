@@ -64,27 +64,164 @@ This project uses Bootstrap as a frontend framework for building a responsive la
 
 Viewing the console in DevTools was a useful way to debug code. For example, when I was having trouble display my Google Maps API, I could access the console and see that it was because the current web address did not have permission to make call to the API, as set out in my Google Console.
 
+<img width="644" alt="console-debugging-example" src="https://user-images.githubusercontent.com/68863341/127141460-7b35bb11-3734-485b-a317-7363861ad251.png">
+
 ## Manual Testing
 
 ### Sitewide Features
 
+- The favicon displays in the browser tab correctly on all pages.
+<img width="251" alt="favicon-testing" src="https://user-images.githubusercontent.com/68863341/127141842-c77dac38-8216-4433-8c14-57b1dcc86ae4.png">
+
+- The navbar displays the appropriate links and collapses into a burger icon with a dropdown list on smaller screens.]
+
+<img width="605" alt="navbar-testing" src="https://user-images.githubusercontent.com/68863341/127141939-a3b40451-cc08-4318-9922-118e0831c037.png">
+
+- A customised 404 page displays when a random url is entered. This confirms that debug is set to False for the deployed site.
+
+<img width="768" alt="404-testing" src="https://user-images.githubusercontent.com/68863341/127142202-9c42fcca-aa0c-4161-9626-2d4c42b416da.png">
+
+- The footer displays consistently on all pages.
+
+- The homepage can be returned to on any page by clicking the navbar-brand link in the top left.
+
 ### Home
+
+- The links to each plan all render an individual plan page correctly and the locations link renders the locations page.
+
+<img width="1195" alt="homepage-plan-links-testing" src="https://user-images.githubusercontent.com/68863341/127142653-65d09be7-2d02-4fb5-9af0-37d6c6b74fb8.png">
+
+- The Workbench service instructions display with uniformity and expand to full width each on small screens.
+
+<img width="810" alt="homepage-three-steps-testing" src="https://user-images.githubusercontent.com/68863341/127142927-54fb6b20-3951-4920-8860-082cc8202ead.png">
+
+- The 'Find A Plan' button takes the user to the Plans tab.
+
+<img width="1097" alt="homepage-allplans-button-testing" src="https://user-images.githubusercontent.com/68863341/127143116-9e51cbba-f4c4-44ff-b370-9d383a51d51b.png">
 
 ### All Plans
 
+- Each select button below each below type returns the individual plan page corresponding to that specific plan.
+
+<img width="1467" alt="all-plans-select-button-testing" src="https://user-images.githubusercontent.com/68863341/127143561-440157fc-c9a0-4fc9-9f57-3e775849dc87.png">
+
+- The card elements collapse and expand based on screen size correctly and in a layout which is easy to read and navigate.
+
 ### Individual Plan
+
+- Each plan page displays the correct information for the selected plan. Icons make the information quick and easy to read.
+
+<img width="927" alt="individual-plan-display-testing" src="https://user-images.githubusercontent.com/68863341/127144222-e38ccd84-3841-4ceb-b395-a4d5b26cf6d1.png">
+
+- The 'All Plans' button takes the use back tot he plans page and the 'Continue' button takes them to the checkout page.
+
+<img width="1343" alt="individual-plans-buttons-testing" src="https://user-images.githubusercontent.com/68863341/127144451-de57bcad-3ef3-4dc4-8bf3-7c427bad9a5b.png">
 
 ### Checkout
 
+- The checkout page displays the informations about the selected plan and a summary for the purchase the user is about to make. This test revealed that the  price in the plan details was missing a currency sign.
+
+<img width="1404" alt="checkout-plan-details-testing" src="https://user-images.githubusercontent.com/68863341/127144701-3ef897b5-de40-4360-8dc4-f39461a2085c.png">
+
+- All of the form fields display correctly and indicated that they are all required if the user trys to leave any blank.
+
+<img width="1396" alt="checkout-form-validation-testing" src="https://user-images.githubusercontent.com/68863341/127145202-e7cd7623-71fa-4cc2-a547-673615ab4e8b.png">
+
+- The password field hides the input for security.
+
+<img width="741" alt="checkout-password-testing" src="https://user-images.githubusercontent.com/68863341/127145331-1fbf5c84-593a-4e1d-9e1c-9162d993211e.png">
+
+- The Stripe element turns red if the card number is invalid and the amount which is about to be charged displays below the complete button.
+
+<img width="738" alt="checkout-payment-input-testing" src="https://user-images.githubusercontent.com/68863341/127145557-75f29b20-a23c-416a-8f9f-617d73b14a41.png">
+
 ### Checkout Complete
+
+- The checkout page redirects the user to the checkout-complete page upon successful payment and order placement. The unique order id and where a confirmation email is being sent to is displayed a username details in the content of the page.
+
+<img width="1288" alt="checkout-complete-orderid-testing" src="https://user-images.githubusercontent.com/68863341/127145961-415d9d67-85e7-4768-b2b9-2fe58bdc9e5e.png">
+
+- The website now displays the authenticated side of the site by automatically logging in the user. A logout button now displays in the top right and a profile tab now appears in the navbar. The visit profile button in the page content takes the user to this profile page.
+
+<img width="1402" alt="checkout-complete-loggedin-testing" src="https://user-images.githubusercontent.com/68863341/127146252-6768a865-bdbc-4201-a401-9bd0501944ba.png">
+
+- The order summary box displays the correct plan information from the order the user has just placed.
+
+<img width="1343" alt="checkout-complete-order-summary-testing" src="https://user-images.githubusercontent.com/68863341/127146416-bfd287f7-9d0f-4676-a748-6a3e76b69fa5.png">
+
+- The new user has a user profile in the database.
+
+<img width="1472" alt="user-profile-db-testing" src="https://user-images.githubusercontent.com/68863341/127146807-57e506ef-51bf-4fd2-b031-8e412ea5280d.png">
+
+- The order is displayed in the database with the correct user profile assigned to it.
+
+<img width="903" alt="order-db-testing" src="https://user-images.githubusercontent.com/68863341/127146829-100fd273-94ff-4675-9759-b7e394752ce3.png">
+
+- The payment is marked as successed in Stripe and for the correct amount.
+
+<img width="1190" alt="stripe-payment-testing" src="https://user-images.githubusercontent.com/68863341/127147150-1d68d925-52d2-4439-b61b-fcf175e05fff.png">
+
+- The webhooks for the payment have a status of 200.
+
+<img width="1187" alt="stripe-webhooks-testing" src="https://user-images.githubusercontent.com/68863341/127147238-7dfda4cb-1285-4232-b2be-143e35650ff5.png">
 
 ### Profile
 
+- The profile page displays the plan associated with the user. The renew pass button takes the user to the individual plan page for the plan which is the same as the last one they purchased.
+
+<img width="1477" alt="profile-plan-details-testing" src="https://user-images.githubusercontent.com/68863341/127152618-823dd93c-6da8-4438-bdc8-df92fbd6116f.png">
+
+- The personal information associated with the user is displayed correctly. The change password button takes the user to the change password page and delete user deletes the user from the database.
+
+<img width="1483" alt="profile-personal-info-testing" src="https://user-images.githubusercontent.com/68863341/127153122-f7d8c8b9-515f-43f2-b451-6114bc3e02b3.png">
+
+- The 'get in touch here' link takes the user to the contact page.
+
+- The update infomration button changes the default infomration associated with the user's profile.
+
+<img width="908" alt="update-profile-testing" src="https://user-images.githubusercontent.com/68863341/127153700-03a720f2-742b-4700-9e94-0481fe2af25c.png">
+
 ### Locations
+
+- The 'Locations' tab renders an instance of the Google Maps API which is interactive and labeled with the appropriate markers.
+
+<img width="1575" alt="google-maps-testing" src="https://user-images.githubusercontent.com/68863341/127154032-09fb0208-1e01-4599-a370-b6ee0a4d3a93.png">
+
+- The 'Select A Plan' button takes the user to the all plans page.
 
 ### Contact
 
+- The contact page rneders all of the form fields correctly and marks them as required if the user tries to submit an incomplete form.
+
+<img width="1573" alt="contact-fields-required-testing" src="https://user-images.githubusercontent.com/68863341/127154302-b98be8c8-df67-4255-bdb4-3943f8dd6ef5.png">
+
+- On submit, the form is reset and a success message is displayed to the user.
+
+<img width="1572" alt="email-success-testing" src="https://user-images.githubusercontent.com/68863341/127154544-2e35fb23-0877-4108-8037-fdc57dc264cc.png">
+
+- A confirmation of the message is sent to the user's email address.
+
+<img width="752" alt="email-receipt-tresting" src="https://user-images.githubusercontent.com/68863341/127154718-f2aae5c3-e680-4b50-8798-91e5a9dbdd9d.png">
+
 ### Login/Logout/Allauth
+
+- A user can sign out by clicking sign out and a message will be displayed confirming that they have been logged out.
+
+<img width="1574" alt="signout-testing" src="https://user-images.githubusercontent.com/68863341/127154889-816d2953-b8a4-4f84-aa26-f269e9925dcb.png">
+
+<img width="1477" alt="signin-success-testing" src="https://user-images.githubusercontent.com/68863341/127154922-1339a527-90d1-4dbf-a744-6c6d54510c8e.png">
+
+- The login page displays correctly with info about who can log in and how to log in.
+
+<img width="1401" alt="login-page-testing" src="https://user-images.githubusercontent.com/68863341/127155117-5df4c6c8-acb0-4257-842c-46260196f5b5.png">
+
+- Manually entering the signup url returns an unauthorised page and a link to all plan page.
+
+<img width="1400" alt="unauthorized-testing" src="https://user-images.githubusercontent.com/68863341/127155296-c446f344-64e8-49f2-8183-8d3d781eb786.png">
+
+- Manually entering the url for profile redirects the user to the sign in page.
+
+<img width="1403" alt="profile-authorisation-testing" src="https://user-images.githubusercontent.com/68863341/127155495-a2a8a59e-14dc-4fe1-8f7a-75d3a1d73041.png">
 
 ## Automated Testing
 
