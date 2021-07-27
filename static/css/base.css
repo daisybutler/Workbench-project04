@@ -370,6 +370,11 @@ header {
     padding-bottom: 30px;
 }
 
+.form-control[readonly]:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 /* Removes highlight around readonly inputs if clicked */
 #order-details input:focus, #order-details textarea:focus {
     -webkit-box-shadow: none;
