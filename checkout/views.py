@@ -9,6 +9,8 @@ from profiles.models import UserProfile
 from locations.models import Locations
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 from django.contrib import messages
 import stripe
@@ -85,6 +87,24 @@ def checkout_order(request, name):
                                         )
                 if new_user is not None:
                     login(request, new_user)
+
+                # Send email confirmation
+                context = {
+                    'email': user.email,
+                    'user': new_user,
+                    'activate_url': 'accounts/confirm-email/',
+                    'protocol': 'https' if request.is_secure() else "http",
+                    'domain': request.get_host(),
+                }
+
+                text = render_to_string('../templates/allauth/account/email/email_confirmation_message.txt', context)
+                send_mail(
+                    'Welcome to Workbench!',
+                    message=text,
+                    recipient_list=[user.email],
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    fail_silently=False,
+                )
 
                 # Redirect user to confirmation page
                 return redirect(
