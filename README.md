@@ -97,19 +97,18 @@ The primary goal of this website is to get users to sign up for a monthly subscr
 
 - ***This website facilitates this for the user by providing:***
 
-    Access to work-orientated environments on a subscription basis. Two types of subscription plans allows the user only pay for the access they need, which accomodates both full-time and part-time flexible workers.
+    Access to work-orientated environments on a regular basis. Two types of passes allow the user only to pay for the access they need, which accomodates both full-time and part-time flexible workers.
 
 ### User Stories
 
-1. As a new user, I want to find out about the subscription plans and facilities Workbench offers.
-2. As a new user, I want to find out how much each Workbench plan will cost per month.
+1. As a new user, I want to find out about the passes and facilities Workbench offers.
+2. As a new user, I want to find out how much each Workbench pass will cost per month.
 3. As a new user, I want to see where Workbench sites are located and where the nearest one to me is.
-4. As a new user, I want to buy a Workbench subscription.
-5. As a new user, I want to buy a one-off meeting room or office space session when I don't have a subscription.
-6. As an existing user, I want to buy a one-off meeting room or office space session on top of my subscription.
-7. As an existing user, I want to view my current subscription and personal details and be able to edit or cancel them.
-8. As as a new or existing user, I want to make payments securely and easily on the website.
-9. As an existing user, I want to be able to log in and log out of my account.
+4. As a new user, I want to buy a Workbench pass.
+5. As a new user, I want to buy a one-off meeting room or office space session when I don't have a pass.
+6. As an existing user, I want to view my current pass and personal details and be able to edit or cancel them.
+7. As as a new or existing user, I want to make payments securely and easily on the website.
+8. As an existing user, I want to be able to log in and log out of my account.
 
 ### Design Process
 
