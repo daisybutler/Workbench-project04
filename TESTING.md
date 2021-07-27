@@ -64,11 +64,40 @@ This project uses Bootstrap as a frontend framework for building a responsive la
 
 Viewing the console in DevTools was a useful way to debug code. For example, when I was having trouble display my Google Maps API, I could access the console and see that it was because the current web address did not have permission to make call to the API, as set out in my Google Console.
 
+<img width="644" alt="console-debugging-example" src="https://user-images.githubusercontent.com/68863341/127141460-7b35bb11-3734-485b-a317-7363861ad251.png">
+
 ## Manual Testing
 
 ### Sitewide Features
 
+- The favicon displays in the browser tab correctly on all pages.
+<img width="251" alt="favicon-testing" src="https://user-images.githubusercontent.com/68863341/127141842-c77dac38-8216-4433-8c14-57b1dcc86ae4.png">
+
+- The navbar displays the appropriate links and collapses into a burger icon with a dropdown list on smaller screens.]
+
+<img width="605" alt="navbar-testing" src="https://user-images.githubusercontent.com/68863341/127141939-a3b40451-cc08-4318-9922-118e0831c037.png">
+
+- A customised 404 page displays when a random url is entered. This confirms that debug is set to False for the deployed site.
+
+<img width="768" alt="404-testing" src="https://user-images.githubusercontent.com/68863341/127142202-9c42fcca-aa0c-4161-9626-2d4c42b416da.png">
+
+- The footer displays consistently on all pages.
+
+- The homepage can be returned to on any page by clicking the navbar-brand link in the top left.
+
 ### Home
+
+- The links to each plan all render an individual plan page correctly and the locations link renders the locations page.
+
+<img width="1195" alt="homepage-plan-links-testing" src="https://user-images.githubusercontent.com/68863341/127142653-65d09be7-2d02-4fb5-9af0-37d6c6b74fb8.png">
+
+- The Workbench service instructions display with uniformity and expand to full width each on small screens.
+
+<img width="810" alt="homepage-three-steps-testing" src="https://user-images.githubusercontent.com/68863341/127142927-54fb6b20-3951-4920-8860-082cc8202ead.png">
+
+- The 'Find A Plan' button takes the user to the Plans tab.
+
+<img width="1097" alt="homepage-allplans-button-testing" src="https://user-images.githubusercontent.com/68863341/127143116-9e51cbba-f4c4-44ff-b370-9d383a51d51b.png">
 
 ### All Plans
 
