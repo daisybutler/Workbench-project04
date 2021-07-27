@@ -167,11 +167,61 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 ### Profile
 
+- The profile page displays the plan associated with the user. The renew pass button takes the user to the individual plan page for the plan which is the same as the last one they purchased.
+
+<img width="1477" alt="profile-plan-details-testing" src="https://user-images.githubusercontent.com/68863341/127152618-823dd93c-6da8-4438-bdc8-df92fbd6116f.png">
+
+- The personal information associated with the user is displayed correctly. The change password button takes the user to the change password page and delete user deletes the user from the database.
+
+<img width="1483" alt="profile-personal-info-testing" src="https://user-images.githubusercontent.com/68863341/127153122-f7d8c8b9-515f-43f2-b451-6114bc3e02b3.png">
+
+- The 'get in touch here' link takes the user to the contact page.
+
+- The update infomration button changes the default infomration associated with the user's profile.
+
+<img width="908" alt="update-profile-testing" src="https://user-images.githubusercontent.com/68863341/127153700-03a720f2-742b-4700-9e94-0481fe2af25c.png">
+
 ### Locations
+
+- The 'Locations' tab renders an instance of the Google Maps API which is interactive and labeled with the appropriate markers.
+
+<img width="1575" alt="google-maps-testing" src="https://user-images.githubusercontent.com/68863341/127154032-09fb0208-1e01-4599-a370-b6ee0a4d3a93.png">
+
+- The 'Select A Plan' button takes the user to the all plans page.
 
 ### Contact
 
+- The contact page rneders all of the form fields correctly and marks them as required if the user tries to submit an incomplete form.
+
+<img width="1573" alt="contact-fields-required-testing" src="https://user-images.githubusercontent.com/68863341/127154302-b98be8c8-df67-4255-bdb4-3943f8dd6ef5.png">
+
+- On submit, the form is reset and a success message is displayed to the user.
+
+<img width="1572" alt="email-success-testing" src="https://user-images.githubusercontent.com/68863341/127154544-2e35fb23-0877-4108-8037-fdc57dc264cc.png">
+
+- A confirmation of the message is sent to the user's email address.
+
+<img width="752" alt="email-receipt-tresting" src="https://user-images.githubusercontent.com/68863341/127154718-f2aae5c3-e680-4b50-8798-91e5a9dbdd9d.png">
+
 ### Login/Logout/Allauth
+
+- A user can sign out by clicking sign out and a message will be displayed confirming that they have been logged out.
+
+<img width="1574" alt="signout-testing" src="https://user-images.githubusercontent.com/68863341/127154889-816d2953-b8a4-4f84-aa26-f269e9925dcb.png">
+
+<img width="1477" alt="signin-success-testing" src="https://user-images.githubusercontent.com/68863341/127154922-1339a527-90d1-4dbf-a744-6c6d54510c8e.png">
+
+- The login page displays correctly with info about who can log in and how to log in.
+
+<img width="1401" alt="login-page-testing" src="https://user-images.githubusercontent.com/68863341/127155117-5df4c6c8-acb0-4257-842c-46260196f5b5.png">
+
+- Manually entering the signup url returns an unauthorised page and a link to all plan page.
+
+<img width="1400" alt="unauthorized-testing" src="https://user-images.githubusercontent.com/68863341/127155296-c446f344-64e8-49f2-8183-8d3d781eb786.png">
+
+- Manually entering the url for profile redirects the user to the sign in page.
+
+<img width="1403" alt="profile-authorisation-testing" src="https://user-images.githubusercontent.com/68863341/127155495-a2a8a59e-14dc-4fe1-8f7a-75d3a1d73041.png">
 
 ## Automated Testing
 
