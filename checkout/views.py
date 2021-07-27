@@ -102,6 +102,8 @@ def checkout_order(request, name):
                     'Welcome to Workbench!',
                     message=text,
                     recipient_list=[user.email],
+                    auth_user=settings.EMAIL_HOST_USER,
+                    auth_password=settings.EMAIL_HOST_PASSWORD,
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     fail_silently=False,
                 )
