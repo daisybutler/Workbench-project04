@@ -390,3 +390,5 @@ This [Stack Overflow thread](https://stackoverflow.com/questions/29794052/how-co
 [This code](https://stackoverflow.com/questions/33715879/how-to-delete-user-in-django) explained how to delete a user so that all expections are planned for.
 
 How to hash a crispy-forms password field was accomplished with the help of [this thread.](https://stackoverflow.com/questions/24223654/django-crispy-forms-shows-password-as-clear-text)
+
+[This tutorial](https://www.fullstackpython.com/django-template-loader-render-to-string-examples.html) helped me set up email confirmations.
