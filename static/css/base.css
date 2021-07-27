@@ -313,6 +313,10 @@ header {
     padding-right: 5px;
 }
 
+.fa-pound-sign {
+    font-size: 30px;
+}
+
 /* --------------------------------------------------- LOCATIONS */
 
 #google-maps {
