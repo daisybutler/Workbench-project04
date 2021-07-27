@@ -20,15 +20,37 @@
 
 ## Testing User Stories
 
-1. As a new user, I want to find out about the subscription plans and facilities Workbench offers.
-2. As a new user, I want to find out how much each Workbench plan will cost per month.
-3. As a new user, I want to see where Workbench sites are located and where the nearest one to me is.
-4. As a new user, I want to buy a Workbench subscription.
-5. As a new user, I want to buy a one-off meeting room or office space session when I don't have a subscription.
-6. As an existing user, I want to buy a one-off meeting room or office space session on top of my subscription.
-7. As an existing user, I want to view my current subscription and personal details and be able to edit or cancel them.
-8. As as a new or existing user, I want to make payments securely and easily on the website.
-9. As an existing user, I want to be able to log in and log out of my account.
+_1. As a new user, I want to find out about the passes and facilities Workbench offers._
+
+The landing page for the Workbench website offers a comprehensive line to the user in large font at the top of the page. The types of passes are displayed in a visually appealing card format beneath this with links to more info about each one. The process of how to go about getting a Workbench pass is clearly set out below this, in a three part description. The 'Plan' tab also displays all of the types of passes to the user. Clicking on the 'select' button below each one will display all of the infomation about that particulart plan. No payment intent has been created for the browsing user at this point, and they can always navigate away using the 'All Plan' back button.
+
+_2. As a new user, I want to find out how much each Workbench pass will cost._
+
+Each individual plan page displays the price of the respective plan, easily identifiable by the red '£' icon. On the checkout page, the price for the selected plan is also display on the plan details and order summary section, as well as below the checkout button to warn the user how much their card is about to be charged.
+
+_3. As a new user, I want to see where Workbench sites are located and where the nearest one to me is._
+
+The 'Locations' tab displays all of the Workbench locations across the UK using the Google Maps API. The user can interactive with the map by zooming in and out and dragging the view using their cursor. The use of cluster markers ensures that, when zoomed out, the map does not look too 'busy' for the user to make sense of.
+
+_4. As a new user, I want to buy a Workbench pass._
+
+The website creates a smooth process for the user from browsing to checkout. For the homepage or the 'Plans' tab, the user can click through to more information about an individual plan, an if they click continue, they are presented withe the checkout page which includes a comprehensive display of all of the details about the plan they are intending to purchase. This transition process from browsing to checkout was modelled off of [WeWork's](https://www.wework.com/) checkout process; it feels like a much more intuitive process and better suited to the service on offer than a checkout 'bag' since it is not material goods being sold.
+
+_5. As a new user, I want to buy a one-off meeting room or office space session rather than a pass._
+
+The 'Plans' tab clearly displays the option for a user to purchase a one-off pass rather than a month pass by dividing the two types into two separate sections. At each stage of the checkout process on post-checkout on their profile, the 'plan type' is also displayed for the user. 
+
+_6. As an existing user, I want to view my current pass and personal details and be able to edit or cancel them._
+
+Once a user has made a purchase, they now have a user profile in the database and can now log in to the site as a member. The 'Profile' tab displays all of the details about the plan they have purchased as well as their default billing information. This information can also be updated from here, using the fields and 'Update Info' button.
+
+_7. As as a new or existing user, I want to make payments securely and easily on the website._
+
+The user can fill out all of their details on the checkout page and securely checkout via Stripe. Webhooks ensure the order will always be placed in the database when a payment has succeeded, regardless of the user exiting the browser prematurely etc.
+
+_8. As an existing user, I want to be able to log in and log out of my account._
+
+All users who make a purchase are automatically logged in to the member-only side of the site on completion of payment. They can then use their choosen password and assigned username (their first and last name combined with the last 4 digits of their phone number) to login in the future. The use of Django's authentication system ensure this is a secure process, making sure a user confirms their email address and can reset their password if necessary. Usernames and full names cannot be changed for security.
 
 ## DevTools
 
