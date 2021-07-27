@@ -54,9 +54,15 @@ All users who make a purchase are automatically logged in to the member-only sid
 
 ## DevTools
 
+Making good use of browser DevTools was an important part of building this website. Experimenting with HTML and CSS without changing the actual files, for example, padding, margin and position values, was a very useful resource to have. Reloading DevTools and the original code in the browser is far easier then having to restore a file in my IDE terminal.
+
 ### Responsiveness
 
+This project uses Bootstrap as a frontend framework for building a responsive layout. Responsiveness was tested in DevTools by viewing the website on every screen size, the smallest being an iPhone 5C and the largest being a laptop with HiDPI screen. Multiple media queries for each screen size are set out at the end of my base.css file, located in the static folder.
+
 ### Console Debugging
+
+Viewing the console in DevTools was a useful way to debug code. For example, when I was having trouble display my Google Maps API, I could access the console and see that it was because the current web address did not have permission to make call to the API, as set out in my Google Console.
 
 ## Manual Testing
 
