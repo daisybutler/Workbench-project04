@@ -123,7 +123,14 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 <img width="1404" alt="checkout-plan-details-testing" src="https://user-images.githubusercontent.com/68863341/127144701-3ef897b5-de40-4360-8dc4-f39461a2085c.png">
 
-- All of the form fields display correctly and indicated that they are all required if the user trys to leave any blank.
+- All of the form fields display correctly and indicated that they are all required if the user trys to leave any blank. PROBLEM 2: This test revealed that the readonly fields displaying the plan details, which are intended to be displayed as if they are not fields at all, had an outline if clicked. I removed this with:
+
+```
+.form-control[readonly]:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+```
 
 <img width="1396" alt="checkout-form-validation-testing" src="https://user-images.githubusercontent.com/68863341/127145202-e7cd7623-71fa-4cc2-a547-673615ab4e8b.png">
 
@@ -137,7 +144,7 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 ### Checkout Complete
 
-- The checkout page redirects the user to the checkout-complete page upon successful payment and order placement. The unique order id and where a confirmation email is being sent to is displayed a username details in the content of the page. PROBLEM 2: This test revealed that I had not set up order confirmations to be sent to the user's email address. This was achieved using the built-in send_mail() function in the checkout view.
+- The checkout page redirects the user to the checkout-complete page upon successful payment and order placement. The unique order id and where a confirmation email is being sent to is displayed a username details in the content of the page. PROBLEM 3: This test revealed that I had not set up order confirmations to be sent to the user's email address. This was achieved using the built-in send_mail() function in the checkout view.
 
 <img width="1288" alt="checkout-complete-orderid-testing" src="https://user-images.githubusercontent.com/68863341/127145961-415d9d67-85e7-4768-b2b9-2fe58bdc9e5e.png">
 
