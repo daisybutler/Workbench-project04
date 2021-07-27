@@ -113,13 +113,13 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 <img width="927" alt="individual-plan-display-testing" src="https://user-images.githubusercontent.com/68863341/127144222-e38ccd84-3841-4ceb-b395-a4d5b26cf6d1.png">
 
-- The 'All Plans' button takes the use back tot he plans page and the 'Continue' button takes them to the checkout page.
+- The 'All Plans' button takes the use back to the plans page and the 'Continue' button takes them to the checkout page.
 
 <img width="1343" alt="individual-plans-buttons-testing" src="https://user-images.githubusercontent.com/68863341/127144451-de57bcad-3ef3-4dc4-8bf3-7c427bad9a5b.png">
 
 ### Checkout
 
-- The checkout page displays the informations about the selected plan and a summary for the purchase the user is about to make. This test revealed that the  price in the plan details was missing a currency sign.
+- The checkout page displays the informations about the selected plan and a summary for the purchase the user is about to make. PROBLEM 1: This test revealed that the  price in the plan details was missing a currency sign.
 
 <img width="1404" alt="checkout-plan-details-testing" src="https://user-images.githubusercontent.com/68863341/127144701-3ef897b5-de40-4360-8dc4-f39461a2085c.png">
 
@@ -137,7 +137,7 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 ### Checkout Complete
 
-- The checkout page redirects the user to the checkout-complete page upon successful payment and order placement. The unique order id and where a confirmation email is being sent to is displayed a username details in the content of the page.
+- The checkout page redirects the user to the checkout-complete page upon successful payment and order placement. The unique order id and where a confirmation email is being sent to is displayed a username details in the content of the page. PROBLEM 2: This test revealed that I had not set up order confirmations to be sent to the user's email address. This was achieved using the built-in send_mail() function in the checkout view.
 
 <img width="1288" alt="checkout-complete-orderid-testing" src="https://user-images.githubusercontent.com/68863341/127145961-415d9d67-85e7-4768-b2b9-2fe58bdc9e5e.png">
 
@@ -177,7 +177,7 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 - The 'get in touch here' link takes the user to the contact page.
 
-- The update infomration button changes the default infomration associated with the user's profile.
+- The update infomration button changes the default information associated with the user's profile.
 
 <img width="908" alt="update-profile-testing" src="https://user-images.githubusercontent.com/68863341/127153700-03a720f2-742b-4700-9e94-0481fe2af25c.png">
 
