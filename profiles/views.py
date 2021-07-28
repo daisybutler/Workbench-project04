@@ -14,7 +14,8 @@ def profile(request):
     """Display user's profile"""
 
     if request.user.is_superuser:
-        messages.error(request, 'You are logged in as an administrator. Log in with a customer account to view profile.')
+        messages.error(request, 'You are logged in as an administrator.\
+             Log in with a customer account to view profile.')
         return redirect(reverse('account_logout'))
 
     else:
@@ -71,6 +72,8 @@ def renew_pass(request, name):
     plan = Plan.objects.get(name=name)
 
     messages.info(
-        request, f"Click 'Continue' at the bottom of the page to renew your {plan.friendly_name} Pass.")
+        request,
+        f"Click 'Renew' at the bottom of the page to\
+        renew your {plan.friendly_name} Pass.")
 
     return redirect('individual_plan', name=name)
