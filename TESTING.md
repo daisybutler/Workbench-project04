@@ -1,6 +1,8 @@
 # Testing
 
-[Back to README.MD file](#README.md)
+[Back to README.MD file](#README.md) 
+
+**For admin access to the database, the username is 'workbenchadmin' and the password is 'workbenchadmin'.**
 
 ## Table of Contents
 1. [Testing User Stories](#testing-user-stories)

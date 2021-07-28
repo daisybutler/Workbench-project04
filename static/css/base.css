@@ -560,7 +560,7 @@ input:focus {
 
 #account-box input {
     margin-bottom: 10px;
-    border: 1px solid #CED4DA;
+    border: 1.5px solid #CED4DA;
 }
 
 .allauth-form-inner-content button {
