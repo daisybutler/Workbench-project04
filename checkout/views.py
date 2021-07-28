@@ -175,7 +175,6 @@ def checkout_order(request, name):
 
             # Variables for newly created order
             order = Plan.objects.get(name=name)
-            checkout_form = CheckoutForm()
 
             # Stripe key reminder
             if not stripe_public_key:
@@ -200,7 +199,6 @@ def checkout_complete(request, order_id):
     """Renders the order complete page"""
 
     order = get_object_or_404(Order, order_id=order_id)
-    # order_id = order_id
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -232,4 +230,6 @@ def checkout_complete(request, order_id):
             del request.session['purchase']
 
         return render(
-                request, 'checkout/checkout-complete.html', context=context)
+                request, 'checkout/checkout-complete.html', context=context
+            )
+
