@@ -88,25 +88,29 @@ def checkout_order(request, name):
                 if new_user is not None:
                     login(request, new_user)
 
-                # Send email confirmation
-                context = {
-                    'email': user.email,
-                    'user': new_user,
-                    'activate_url': 'accounts/login/',
-                    'protocol': 'https' if request.is_secure() else "http",
-                    'domain': request.get_host(),
-                }
+                try:
+                    # Send email confirmation
+                    context = {
+                        'email': user.email,
+                        'user': new_user,
+                        'activate_url': 'accounts/login/',
+                        'protocol': 'https' if request.is_secure() else "http",
+                        'domain': request.get_host(),
+                    }
 
-                text = render_to_string('../templates/allauth/account/email/email_confirmation_message.txt', context)
-                send_mail(
-                    'Welcome to Workbench!',
-                    message=text,
-                    recipient_list=[user.email],
-                    auth_user=settings.EMAIL_HOST_USER,
-                    auth_password=settings.EMAIL_HOST_PASSWORD,
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    fail_silently=False,
-                )
+                    text = render_to_string('../templates/allauth/account/email/email_confirmation_message.txt', context)
+                    send_mail(
+                        'Welcome to Workbench!',
+                        message=text,
+                        recipient_list=[user.email],
+                        auth_user=settings.EMAIL_HOST_USER,
+                        auth_password=settings.EMAIL_HOST_PASSWORD,
+                        from_email=settings.DEFAULT_FROM_EMAIL,
+                        fail_silently=False,
+                    )
+
+                except Exception:
+                    pass
 
                 # Redirect user to confirmation page
                 return redirect(
@@ -151,7 +155,6 @@ def checkout_order(request, name):
             if request.user.is_authenticated:
                 try:
                     profile = UserProfile.objects.get(user=request.user)
-                    print(profile)
                     checkout_form = CheckoutForm(initial={
                         'first_name': profile.user.first_name,
                         'last_name': profile.user.last_name,
