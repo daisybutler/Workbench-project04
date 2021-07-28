@@ -420,6 +420,11 @@ input:focus {
     padding-left: 0;
 }
 
+#price-display-override {
+    padding-top: 20px;
+    padding-left: 18px;
+}
+
 #loading-icon {
 	display: none;
 	position: fixed;
