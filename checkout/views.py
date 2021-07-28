@@ -59,6 +59,18 @@ def checkout_order(request, name):
 
             user_password = request.POST['password']
 
+            # Redirect to login page if email is
+            # already associated with an account
+            try:
+                User.objects.get(email=form_data['email'])
+                messages.error(request, 'This email address is already associated \
+                     with a Workbench account. Please log in.')
+                return redirect(reverse('account_login'))
+
+            # If email is not found, continue with checkout process
+            except User.DoesNotExist:
+                pass
+
             # Populate instance of CheckoutForm form with data
             checkout_form = CheckoutForm(form_data)
             if checkout_form.is_valid():
@@ -71,7 +83,6 @@ def checkout_order(request, name):
                 # Check if the user already has a user profile
                 if request.user.is_authenticated:
                     new_user = request.user.username
-                    print(new_user)
                     pass
 
                 # Else create the user a user profile
@@ -173,6 +184,9 @@ def checkout_order(request, name):
                         'county': profile.default_county,
                         'email': profile.user.email,
                     })
+
+                    checkout_form.fields['email'].widget.attrs['readonly'] = True
+                    checkout_form.fields['password'].widget.attrs['readonly'] = True
 
                 # Render empty checkout form if user cannot be found
                 except UserProfile.DoesNotExist:
