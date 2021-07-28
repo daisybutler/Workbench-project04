@@ -117,7 +117,7 @@ def checkout_order(request, name):
                     }
 
                 try:
-                    text = render_to_string('../templates/allauth/account/email/email_confirmation_message.txt')
+                    text = render_to_string('../templates/allauth/account/email/welcome_email.txt', context)
                     send_mail(
                         'Welcome to Workbench!',
                         message=text,
@@ -127,8 +127,10 @@ def checkout_order(request, name):
                         from_email=settings.DEFAULT_FROM_EMAIL,
                         fail_silently=False,
                     )
+                    print('success')
 
-                except Exception:
+                except Exception as e:
+                    print(e, 'failed')
                     pass
 
                 # Redirect user to confirmation page
