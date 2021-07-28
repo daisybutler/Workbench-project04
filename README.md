@@ -2,7 +2,7 @@
 
 <img width="1308" alt="workbench-project-overview" src="https://user-images.githubusercontent.com/68863341/126550474-3d109583-a929-4cb6-b7f6-b5f26dc8ba1d.png">
 
-View the live website for this project on Heroku [here.](https://daisybutler-workbench.herokuapp.com/)
+View the live website for this project on Heroku [here.](https://daisybutler-workbench.herokuapp.com/). For admin access to the database, the username is 'workbenchadmin' and the password is 'workbenchadmin'.
 
 Workbench is a membership website which provides remote workers with access to fully equipped workspaces in locations throughout the UK. Members can choose between two different subscription plans to suit their access requirements. One-off access to meeting rooms and office space can also be purchased by subscribers and non-subscribers.
 
