@@ -68,25 +68,34 @@ def checkout_order(request, name):
                 completed_order.original_purchase = json.dumps(purchase)
                 completed_order.save()
 
-                # Create a user profile in the database
-                username = form_data['first_name'] + form_data['last_name'] \
-                    + (form_data['phone_number'])[-4:]
-                email = form_data['email']
-                password = user_password
+                # Check if the user already has a user profile
+                if request.user.is_authenticated:
+                    new_user = request.user.username
+                    print(new_user)
+                    pass
 
-                user = User.objects.create_user(username, email, password)
+                # Else create the user a user profile
+                else:
+                    # Create a user profile in the database
+                    username = form_data['first_name'] \
+                        + form_data['last_name'] \
+                        + (form_data['phone_number'])[-4:]
+                    email = form_data['email']
+                    password = user_password
 
-                user.first_name = form_data['first_name']
-                user.last_name = form_data['last_name']
-                user.save()
+                    user = User.objects.create_user(username, email, password)
 
-                # Automatically login in new user
-                new_user = authenticate(request,
-                                        username=username,
-                                        password=password,
-                                        )
-                if new_user is not None:
-                    login(request, new_user)
+                    user.first_name = form_data['first_name']
+                    user.last_name = form_data['last_name']
+                    user.save()
+
+                    # Automatically login in new user
+                    new_user = authenticate(request,
+                                            username=username,
+                                            password=password,
+                                            )
+                    if new_user is not None:
+                        login(request, new_user)
 
                 try:
                     # Send email confirmation

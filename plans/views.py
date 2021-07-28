@@ -16,7 +16,7 @@ def all_plans(request):
 
 
 def individual_plan(request, name):
-    
+
     """A view to display details of an individual plan."""
 
     plan = Plan.objects.get(name=name)
