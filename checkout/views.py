@@ -108,17 +108,16 @@ def checkout_order(request, name):
                     if new_user is not None:
                         login(request, new_user)
 
-                try:
                     # Send email confirmation
                     context = {
                         'email': user.email,
                         'user': new_user,
-                        'activate_url': 'accounts/login/',
                         'protocol': 'https' if request.is_secure() else "http",
                         'domain': request.get_host(),
                     }
 
-                    text = render_to_string('../templates/allauth/account/email/email_confirmation_message.txt', context)
+                try:
+                    text = render_to_string('../templates/allauth/account/email/email_confirmation_message.txt')
                     send_mail(
                         'Welcome to Workbench!',
                         message=text,
