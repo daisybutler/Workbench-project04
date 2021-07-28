@@ -98,8 +98,9 @@ def checkout_order(request, name):
                     # an existing username...
                     try:
                         User.objects.get(username=username)
-                        messages.error(request, 'We had a problem processing your order. \
-                            Please try again with a different contact number.')
+                        messages.error(request, 'Sorry, we had a problem processing \
+                            your order. We suggest trying again with a \
+                            different contact number.')
                         return redirect(reverse('all_plans'))
 
                     # If email is not found, continue with checkout process
