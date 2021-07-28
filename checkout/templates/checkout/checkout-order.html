@@ -19,22 +19,31 @@
                             value="{{ order.friendly_name }}" placeholder="{{ order.friendly_name }}"
                             aria-label="{{ order.friendly_name }}" readonly>
                     </div>
-                    <div class="col-6">
+                    <div class="col-7">
                         <input id="subscription-date" class="form-control" type="text" placeholder="Starting: [date]"
                             aria-label="Starting date" readonly>
                     </div>
-                    <div class="col-6">
+                   
+                    <div class="col-4">
+                        <p id="price-display-override">£{{ order.price }}</p>
                         <input name="price" id="price-field" class="form-control" type="number"
-                            value="{{ order.price }}" aria-label="Price" readonly>
+                            value="{{ order.price }}" aria-label="Price" readonly hidden>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-6">
-                        <textarea style="overflow: visible;" class="form-control"
+                    <!--Display description box with 2 lines visible on small screens (full width)-->
+                    <div class="d-inline col-12 d-md-none">
+                        <textarea style="overflow: visible;" class="form-control" rows="2"
                             placeholder="Includes: {{ order.short_description }}" aria-label="Order description"
                             readonly></textarea>
                     </div>
-                    <div id="qty-selection-area" class="col-6">
+                     <!--Display description box with 4 lines visible on larger screens (half width)-->
+                    <div class="d-none d-md-inline col-md-7">
+                        <textarea style="overflow: visible;" class="form-control" rows="4"
+                            placeholder="Includes: {{ order.short_description }}" aria-label="Order description"
+                            readonly></textarea>
+                    </div>
+                    <div id="qty-selection-area" class="col-5">
                         {% if order.name == 'unlimited-plan' %}
                         <input name="location" type="text" class="form-control" value="All locations"
                             aria-label="Locations" readonly>
