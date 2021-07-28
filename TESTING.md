@@ -158,7 +158,7 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 <img width="1343" alt="checkout-complete-order-summary-testing" src="https://user-images.githubusercontent.com/68863341/127146416-bfd287f7-9d0f-4676-a748-6a3e76b69fa5.png">
 
-- The new user has a user profile in the database.
+- The new user has a user profile in the database. PROBLEM 4: I had not checked in the checkout view whether a new user had inputed a new address or whether that email address was already associated with a user in the database. Trying to checkout with an email already in the database would return a server side error to the user. 
 
 <img width="1472" alt="user-profile-db-testing" src="https://user-images.githubusercontent.com/68863341/127146807-57e506ef-51bf-4fd2-b031-8e412ea5280d.png">
 

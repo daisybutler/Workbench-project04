@@ -13,6 +13,8 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 
 from django.contrib import messages
+import random
+import string
 import stripe
 import json
 
@@ -87,10 +89,23 @@ def checkout_order(request, name):
 
                 # Else create the user a user profile
                 else:
-                    # Create a user profile in the database
+                    # Form a username based off the user's credentials
                     username = form_data['first_name'] \
                         + form_data['last_name'] \
                         + (form_data['phone_number'])[-4:]
+
+                    # In the unlikely event the username matches
+                    # an existing username...
+                    try:
+                        User.objects.get(username=username)
+                        messages.error(request, 'We had a problem processing your order. \
+                            Please try again with a different contact number.')
+                        return redirect(reverse('all_plans'))
+
+                    # If email is not found, continue with checkout process
+                    except User.DoesNotExist:
+                        pass
+
                     email = form_data['email']
                     password = user_password
 
@@ -127,10 +142,8 @@ def checkout_order(request, name):
                         from_email=settings.DEFAULT_FROM_EMAIL,
                         fail_silently=False,
                     )
-                    print('success')
 
                 except Exception as e:
-                    print(e, 'failed')
                     pass
 
                 # Redirect user to confirmation page
