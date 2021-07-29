@@ -4,7 +4,7 @@
 
 View the live website for this project on Heroku [here.](https://daisybutler-workbench.herokuapp.com/). For admin access to the database, the username is 'workbenchadmin' and the password is 'workbenchadmin'.
 
-Workbench is a membership website which provides remote workers with access to fully equipped workspaces in locations throughout the UK. Members can choose between two different subscription plans to suit their access requirements. One-off access to meeting rooms and office space can also be purchased by subscribers and non-subscribers.
+Workbench is a membership website which provides remote workers with access to fully equipped workspaces in locations throughout the UK. Members can choose between three different passes to suit their access requirements: unlimited access for a month, standard access for a month, or a one-off 60-minute meeting.
 
 The idea of this website was inspired by the shift from in-person to remote working for all office-based companies during the coronavirus pandemic. With the belief that this shift is here to stay, the option to access fully-equipped office environments on a flexible basis will only continue to grow in demand.
 
@@ -83,7 +83,7 @@ The idea of this website was inspired by the shift from in-person to remote work
 
 ### Primary Goal
 
-The primary goal of this website is to get users to sign up for a monthly subscription plan in return for access to workspaces throughout the UK. The website markets the services available to potential members and allows existing members to manage their subscription and personal information.
+The primary goal of this website is to get users to sign up for a month pass and continue to renew their pass, in return for access to workspaces throughout the UK. The website markets the services available to potential members and allows existing members to manage their passes and personal information.
 
 ### User Profile
 
