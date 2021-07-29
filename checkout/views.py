@@ -61,17 +61,18 @@ def checkout_order(request, name):
 
             user_password = request.POST['password']
 
-            # Redirect to login page if email is
-            # already associated with an account
-            try:
-                User.objects.get(email=form_data['email'])
-                messages.error(request, 'This email address is already associated \
-                     with a Workbench account. Please log in.')
-                return redirect(reverse('account_login'))
+            if not request.user.is_authenticated:
+                # Redirect to login page if email is
+                # already associated with an account
+                try:
+                    User.objects.get(email=form_data['email'])
+                    messages.error(request, 'This email address is already associated \
+                        with a Workbench account. Please log in.')
+                    return redirect(reverse('account_login'))
 
-            # If email is not found, continue with checkout process
-            except User.DoesNotExist:
-                pass
+                # If email is not found, continue with checkout process
+                except User.DoesNotExist:
+                    pass
 
             # Populate instance of CheckoutForm form with data
             checkout_form = CheckoutForm(form_data)
@@ -98,9 +99,9 @@ def checkout_order(request, name):
                     # an existing username...
                     try:
                         User.objects.get(username=username)
-                        messages.error(request, 'Sorry, we had a problem processing \
-                            your order. We suggest trying again with a \
-                            different contact number.')
+                        messages.error(request, 'Sorry, we had processed your \
+                            order but there was a problem setting up your \
+                            profile. Please contact us immediately.')
                         return redirect(reverse('all_plans'))
 
                     # If email is not found, continue with checkout process
