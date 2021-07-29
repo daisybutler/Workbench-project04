@@ -166,7 +166,11 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 - I set up checks for both an existing email address or username in the database when an order is processed. If an email address is found in the database which matches the one the new customer has tried to checkout with, then the process is cancelled and the user is redirected to the login page.
 
+<img width="1465" alt="Screenshot 2021-07-29 at 11 24 31" src="https://user-images.githubusercontent.com/68863341/127477984-11871013-ec77-457e-8624-eb892c5171a6.png">
+
 - PROBLEM 6: If a username is found in the database which matches the one just created for the new user, initially I redirected the user to the plans page and told to try again with a different contact number. However, I realised that the order was still being placed and the payment was still succeeding in Stripe. This is clearly a large error and trying to fix it ended up with all sorts of knock on effects for my entire checkout view and caused may errors. Therefore, I changed the message to one which lets the user know their order has succeeded by their was an issue with creating their profile and they should get in touch to resolve it. The username could then be created manually from the admin side. If I had more time I would have probably reworked the structure of my view, but asd it was time was limited and preventing server side errors with no explanation from appearing to the user was more important.
+
+<img width="1539" alt="Screenshot 2021-07-29 at 11 37 35" src="https://user-images.githubusercontent.com/68863341/127478015-8038c007-1d16-452a-a60a-2b28567a0f14.png">
 
 - The order is displayed in the database with the correct user profile assigned to it.
 
@@ -301,4 +305,10 @@ My mentor, Seun, was very helpful with her feedback and suggestions when it come
    - Suggested the user of Google Maps API rather than a static image map I had to begin with. This enhanced the user interactivity of the site and Javascript composition for a better looking site.
 
 ### User Review
+
+Various family members and collegues tested the site and noted several things:
+   - The site was easy to understand and navigate.
+   - The colour scheme was aesthetic and simple.
+   - Icons made the areas where there was lots of information easier to read.
+   - The use of the Google Maps API was a great way to make the site experience interactive.
 
