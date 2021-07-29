@@ -144,6 +144,8 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 <img width="738" alt="checkout-payment-input-testing" src="https://user-images.githubusercontent.com/68863341/127145557-75f29b20-a23c-416a-8f9f-617d73b14a41.png">
 
+- If a user is authenticated, the checkout form is prepopulated with their default billing information. On confirming checkout, the order is successfully processed and assigned to the existing user profile, and the profile page displays the latest pass as the current pass. PROBLEM 4: if a user checks out, there is no check for how long they have left on their current pass before replacing it. Clearly the customer is not getting the complete access that they have paid for, so in the future I would implement such a check to avoid this.
+
 ### Checkout Complete
 
 - The checkout page redirects the user to the checkout-complete page upon successful payment and order placement. The unique order id and where a confirmation email is being sent to is displayed a username details in the content of the page. PROBLEM 3: This test revealed that I had not set up order confirmations to be sent to the user's email address. This was achieved using the built-in send_mail() function in the checkout view.
@@ -158,9 +160,13 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 <img width="1343" alt="checkout-complete-order-summary-testing" src="https://user-images.githubusercontent.com/68863341/127146416-bfd287f7-9d0f-4676-a748-6a3e76b69fa5.png">
 
-- The new user has a user profile in the database. PROBLEM 4: I had not checked in the checkout view whether a new user had inputed a new address or whether that email address was already associated with a user in the database. Trying to checkout with an email already in the database would return a server side error to the user. 
+- The new user has a user profile in the database. PROBLEM 5: I had not checked in the checkout view whether a new user had inputed a new address or whether that email address was already associated with a user in the database. Trying to checkout with an email already in the database would return a server side error to the user. 
 
 <img width="1472" alt="user-profile-db-testing" src="https://user-images.githubusercontent.com/68863341/127146807-57e506ef-51bf-4fd2-b031-8e412ea5280d.png">
+
+- I set up checks for both an existing email address or username in the database when an order is processed. If an email address is found in the database which matches the one the new customer has tried to checkout with, then the process is cancelled and the user is redirected to the login page.
+
+- PROBLEM 6: If a username is found in the database which matches the one just created for the new user, initially I redirected the user to the plans page and told to try again with a different contact number. However, I realised that the order was still being placed and the payment was still succeeding in Stripe. This is clearly a large error and trying to fix it ended up with all sorts of knock on effects for my entire checkout view and caused may errors. Therefore, I changed the message to one which lets the user know their order has succeeded by their was an issue with creating their profile and they should get in touch to resolve it. The username could then be created manually from the admin side. If I had more time I would have probably reworked the structure of my view, but asd it was time was limited and preventing server side errors with no explanation from appearing to the user was more important.
 
 - The order is displayed in the database with the correct user profile assigned to it.
 
@@ -186,7 +192,7 @@ Viewing the console in DevTools was a useful way to debug code. For example, whe
 
 - The 'get in touch here' link takes the user to the contact page.
 
-- The update infomration button changes the default information associated with the user's profile.
+- The update information button changes the default information associated with the user's profile.
 
 <img width="908" alt="update-profile-testing" src="https://user-images.githubusercontent.com/68863341/127153700-03a720f2-742b-4700-9e94-0481fe2af25c.png">
 
