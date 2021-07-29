@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-12">
                     {% if item.plan_type == 'Subscription' %}
-                    <p>{{ item.plan_friendly_name }} ({{ item.plan_type }})</p>
+                    <p>{{ item.plan_friendly_name }}</p>
                     {% else %}
                     <p>{{ item.plan_friendly_name }} Credit <small>(60 min)</small></p>
                     {% endif %}
